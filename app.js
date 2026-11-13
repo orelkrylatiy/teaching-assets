@@ -199,4 +199,9 @@
     const l=LESSONS.find(x=>x.id===document.body.dataset.id);
     if(l)lessonPage(l);else $("#app").innerHTML=header()+`<main class="container" style="padding:85px 0"><h1>Lesson not found</h1><a class="btn" href="${home}">Return to library</a></main>`+footer();
   }else catalog();
+  // Extend the dependency-free catalog with the optional photo-first lesson studio.
+  const studio=document.createElement("script");
+  studio.src=root+"studio.js";
+  document.head.appendChild(studio);
 })();
+

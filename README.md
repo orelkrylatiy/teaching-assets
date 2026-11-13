@@ -59,3 +59,13 @@ Artwork is **original code-generated SVG compositions with emoji-based symbols**
 The PPTX download contains editable slide shapes and text, but not HTML interactions; visual fidelity depends on installed fonts. PDF uses browser printing. Lessons are original exploratory educational drafts, not formal CEFR examinations.
 
 Research and source links: [docs/RESEARCH.md](docs/RESEARCH.md). Supported exports: [docs/EXPORTS.md](docs/EXPORTS.md).
+
+## Photo Studio and listening
+
+Every lesson now has a Photo Studio and Listening Lab. The Daily Routines lesson uses **12 original generated photographs** and **six original photographic slide designs** stored permanently in this repository. A dedicated **A4 PDF worksheet** is downloadable without browser printing. Other lesson themes use contextual Unsplash photos for speaking practice, rather than pretending that arbitrary photos directly depict every vocabulary word. These contextual online images are not a downloadable stock photography dataset.
+
+A **real 16:9 fit-to-screen canvas** is used for presentations and can switch between photos and emoji illustrations. Fullscreen uses the browser Fullscreen API where supported, with an in-app fixed-viewport fallback. Arrow keys navigate. Print CSS corrects the original hidden print-root issue and aims for one A4 landscape page per slide.
+
+Listening reads original lesson text through browser speech synthesis with speed and accent controls, pause/resume and a hideable transcript. It is not prerecorded human speech. External links lead to British Council authentic listening lessons.
+
+Static build and CI test the addition of all local assets. GitHub Pages workflow attempts to enable Pages automatically; organization permissions may still need manual setup.

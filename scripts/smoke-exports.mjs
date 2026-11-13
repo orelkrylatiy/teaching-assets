@@ -5,7 +5,7 @@ import {execFileSync} from 'node:child_process';
 import {mkdtempSync,writeFileSync,rmSync} from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-for(const file of ['data.js','exports.js','app.js'])execFileSync(process.execPath,['--check',file]);
+for(const file of ['data.js','exports.js','app.js','studio.js'])execFileSync(process.execPath,['--check',file]);
 const browser={window:{},TextEncoder,Blob};
 vm.runInNewContext(fs.readFileSync('data.js','utf8'),browser,{timeout:5000});
 vm.runInNewContext(fs.readFileSync('exports.js','utf8'),browser,{timeout:5000});
