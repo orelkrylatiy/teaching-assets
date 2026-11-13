@@ -16,3 +16,8 @@ jobs:
           node-version: '22'
       - run: node scripts/build.mjs
       - run: node scripts/smoke-exports.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sample-teaching-exports
+          path: dist/examples
+          retention-days: 7
