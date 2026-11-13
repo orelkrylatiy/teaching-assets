@@ -42,4 +42,9 @@ for path in sys.argv[1:]:
     E.fromstring(z.read(name))
 print('✓ ZIP container and XML well formed')`,xlsx,pptx,cards],{stdio:'inherit'});
 console.log('✓ browser exporters: XLSX, PPTX (14 slides), SVG ZIP ('+lesson.words.length+' cards)');
+if(fs.existsSync('dist')){
+ const output=path.join('dist','examples');fs.mkdirSync(output,{recursive:true});
+ for(const file of paths)fs.copyFileSync(file,path.join(output,path.basename(file)));
+ console.log('✓ Sample exports copied to dist/examples for inspection');
+}
 rmSync(temp,{recursive:true,force:true});
