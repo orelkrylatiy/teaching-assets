@@ -28,13 +28,13 @@ At 100+ lessons, migrate the source content to Astro data collections and build 
 - Browser presentation and focus mode, keyboard navigation, flashcard reveal and text-to-speech when available
 - Self-check vocabulary quiz and matching activity
 - Speaking question deck, two role-play tasks, original teacher guidance and time allocations
-- Export to SVG, ZIP, UTF-8 CSV, native XLSX, JSON, standalone handout HTML, Marp Markdown, or browser Print → Save as PDF
+- Export to SVG, ZIP, UTF-8 CSV, native XLSX, editable PPTX, JSON, standalone handout HTML, Marp Markdown, or browser Print → Save as PDF
 - Static HTML pages, responsive UI and GitHub Pages workflow
 
 ## Important scope limits
 
 - Artwork is original code-generated vector SVG with emoji glyphs, not photographs or genuine ChatGPT image generations. Emoji rendering depends on client operating system. Future curated image packs can replace the SVGs.
-- Exported Marp Markdown can be converted to PPTX/PDF by Marp CLI; there is no browser-side PPTX export in this prototype.
+- Direct browser-side editable PPTX export is implemented using original Open XML packaging code. Marp Markdown can also be converted to PPTX/PDF by Marp CLI. The PowerPoint version intentionally omits HTML interactivity.
 - PDF is produced by the browser Print / Save as PDF dialog, not a server PDF endpoint.
 - Vocabulary quizzes test translation recognition, not conversation quality or CEFR proficiency.
 - No user accounts, AI-generation API calls, lesson editing backend or persistent assignments are included.
