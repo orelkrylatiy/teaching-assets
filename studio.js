@@ -103,7 +103,7 @@
     photoQuizAnswered=true;
     const value=Number(b.dataset.i),correct=photoQuizStep;
     if(value===correct)photoQuizScore++;
-    $('#ta-photo-quiz-choices .ta-picture-option').forEach(el=>{
+    $$('#ta-photo-quiz-choices .ta-picture-option').forEach(el=>{
       el.disabled=true;
       if(Number(el.dataset.i)===correct)el.classList.add('correct');
       else if(el===b)el.classList.add('incorrect');
