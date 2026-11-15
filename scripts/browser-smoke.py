@@ -37,8 +37,11 @@ function check(){
    const fit=stage2.scrollHeight<=stage2.clientHeight+2 && stage2.scrollWidth<=stage2.clientWidth+2;
    const fullscreen=box.getBoundingClientRect().width>=frame.contentWindow.innerWidth-3;
    const printCount=d.querySelectorAll('.ta-print-page').length;
-   const ok=fit&&fullscreen&&pictureLoaded&&printCount===14&&normalRatio>1.7&&normalRatio<1.9;
-   output.textContent=(ok?'TA_QA_PASS':'TA_QA_FAIL')+' '+JSON.stringify({fit,fullscreen,pictureLoaded,printCount,normalRatio});
+   const photoVisible=getComputedStyle(pic).zIndex!=='auto'&&Number(getComputedStyle(pic).zIndex)>=2;
+   const rootOutsideApp=d.querySelector('#print-root')?.parentElement===d.body;
+   const sceneCount=d.querySelectorAll('.ta-scene').length;
+   const ok=fit&&fullscreen&&pictureLoaded&&photoVisible&&rootOutsideApp&&sceneCount>=5&&printCount===14&&normalRatio>1.7&&normalRatio<1.9;
+   output.textContent=(ok?'TA_QA_PASS':'TA_QA_FAIL')+' '+JSON.stringify({fit,fullscreen,pictureLoaded,photoVisible,rootOutsideApp,sceneCount,printCount,normalRatio});
  },500);
 }
 setTimeout(check,650);
@@ -75,8 +78,10 @@ try:
         match=re.search(r"^Pages:\s+(\d+)",info,re.MULTILINE)
         if not match:raise RuntimeError("Cannot read PDF page count")
         count=int(match.group(1))
-        if count!=14:raise RuntimeError("PDF must have 14 pages, got "+str(count))
-        print("✓ PDF: 14 printable pages")
+    else:
+        count=len(re.findall(rb"/Type\s*/Page\b",pdf.read_bytes()))
+    if count!=14:raise RuntimeError("PDF must have 14 pages, got "+str(count))
+    print("✓ PDF: 14 printable pages")
     print("✓ Screenshot and PDF artifacts saved under dist/qa/")
 finally:
     server.terminate()
