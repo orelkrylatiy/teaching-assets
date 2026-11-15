@@ -40,3 +40,7 @@ In lesson **Presentation**, use **Print / PDF**. The `#print-root` element is de
 ## Known limits
 
 There are no teacher accounts, assignment persistence, collaborative editor or cloud AI generation built into this static prototype. Authentic recordings and film/video uploads are not included because rights and distribution permissions must be established. Browser-generated TTS is not equivalent to a human recording. Outside Daily Routines, contextual images can support conversation but still need dedicated one-to-one photo generation for vocabulary. Teacher review of CEFR level and examples is required before classroom use.
+
+## Newly integrated A0 trial lesson photo pack
+
+The `hello-english` lesson now includes 12 original AI-generated photo scenes mapped one-to-one to the vocabulary order (hello, goodbye, please, thank you, yes, no, name, friend, teacher, student, English, nice to meet you). All are repository-hosted WebP files with `assets/photos/hello-english/manifest.json`. Both this and the Daily Routines pack use the generic `photoPack` metadata field in `data.js`, so Photo Studio, flashcards, presentation and the dedicated Visual Library automatically use the exact pictures. There are now **24 exact-word photo cards** in two complete packs.
