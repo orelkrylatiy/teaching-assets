@@ -54,7 +54,7 @@ The deploy workflow checks whether GitHub Pages is enabled. If not, it reports a
 
 This experiment deliberately uses dependency-free HTML/CSS/JS, rather than requiring Astro on day one. It works by double-clicking `index.html` and can move to Astro content collections once the library scales.
 
-Artwork includes **12 original AI-generated Daily Routines photos**, **17 locally stored thematic cover images**, **six designed photographic slide layouts**, and optional original SVG/emoji vocabulary cards. Only the Daily Routines pack currently has photo assets that correspond precisely to its individual vocabulary expressions; other lessons have contextual photo scenes rather than pretending an unrelated image depicts a word.
+Artwork includes **24 word-mapped original AI-generated photos across Daily Routines and Hello, English!**, **16 locally stored thematic cover images**, **six designed photographic slide layouts**, and optional original SVG/emoji vocabulary cards. Daily Routines and Hello, English! have exact-word photo packs (12 photographs each); the other 13 lessons use contextual photos rather than pretending an unrelated image depicts a word.
 
 The PPTX download contains editable slide shapes and text, but not HTML interactions; visual fidelity depends on installed fonts. PDF uses browser printing. Lessons are original exploratory educational drafts, not formal CEFR examinations.
 
@@ -80,7 +80,7 @@ Every lesson offers:
 - An **English Listening Lab** with original reading material, word pronunciation, transcript reveal, playback controls, speed/accent options and comprehension checks. Audio uses Web Speech API voices supplied by the user's browser; it is not a catalogue of licensed studio recordings.
 - A **14-page printable presentation** with 16:9 visual layout scaled to landscape A4 paper. Browser Print → Save as PDF is validated by headless Chrome and checked for 14 real pages. The dedicated Daily Routines A4 worksheet remains downloadable separately.
 
-The original emoji/vector cards and vocabulary exports remain available. For vocabulary cards, exact photo-to-word mapping is currently available for Daily Routines only.
+The original emoji/vector cards and vocabulary exports remain available. For vocabulary cards, exact photo-to-word mapping is currently available for Daily Routines and Hello, English!.
 
 The verified site build and QA screenshots/PDF are downloadable from the **site-preview** artifact on the latest passing GitHub Actions **Verify English lesson library** workflow run.
 
@@ -88,9 +88,9 @@ See [Photo Studio guide](docs/PHOTO_STUDIO.md) for architecture, conventions, ed
 
 ## Visual Photo Library and creating new image packs
 
-Open **[Photo Library](visual-library/index.html)** to browse all **34 locally hosted visual assets** across existing lessons, filter by type, preview individual photographs, save a selected deck, present it in 16:9, or export a portable HTML presentation and A4 PDF. You can upload your own photos: they stay in this browser's IndexedDB and are not sent to GitHub or external services. Selected images persist locally and can be reordered before teaching.
+Open **[Photo Library](visual-library/index.html)** to browse all **46 locally hosted visual assets** across existing lessons, filter by type, preview individual photographs, save a selected deck, present it in 16:9, or export a portable HTML presentation and A4 PDF. You can upload your own photos: they stay in this browser's IndexedDB and are not sent to GitHub or external services. Selected images persist locally and can be reordered before teaching.
 
-The integrated photo-pack infrastructure supports **any English lesson** once it has verified image files and a `photoPack` array of filenames. Daily Routines is currently the only complete exact-word photo pack (12 real AI-generated photos). Other lessons use themed photo covers for speaking, and the emoji vocabulary card mode remains available.
+The integrated photo-pack infrastructure supports **any English lesson** once it has verified image files and a `photoPack` array of filenames. Daily Routines and Hello, English! each have a complete 12-word photo pack (24 AI-generated photographs total). Other lessons use themed photo covers for speaking, and the emoji vocabulary card mode remains available.
 
 **180 original photo shot briefs** are available in [prompts/english-photo-shotlist.json](prompts/english-photo-shotlist.json). These are generation specifications, not 180 already-created photographs. To prepare a new photo pack using an AI image generator:
 
@@ -109,3 +109,5 @@ The importer requires the contact sheet to have one scene per curriculum word in
 `python3 scripts/test-media-import.py` validates conversion and rejects low-resolution or unreviewed image sheets.
 
 See [Photo generation guide](docs/PHOTO_GENERATION.md) for visual standards and safe asset workflow.
+
+The Hello, English! photographs were generated as one original 4×3 contact sheet on November 15, 2026, cropped by word order, locally upsampled for smoother scaling and committed as standalone WebP images. Their underlying native crop resolution is ~306×410 px, so they are best used as cards and smaller lesson-photo prompts; generating individual high-resolution replacements remains a future quality improvement.
