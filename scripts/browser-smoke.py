@@ -90,6 +90,44 @@ try:
     if count!=14:raise RuntimeError("PDF must have 14 pages, got "+str(count))
     print("✓ PDF: 14 printable pages")
     print("✓ Screenshot and PDF artifacts saved under dist/qa/")
+    # Integration smoke: standalone Photo Library has working static cards, select/deck actions
+    LIB_PROBE = """<!doctype html><meta charset="utf-8"><title>Visual Gallery QA</title>
+<iframe id="f" src="/visual-library/index.html" style="width:1300px;height:760px;border:0"></iframe><pre id="result">LOADING</pre>
+<script>
+const frame=document.getElementById('f');
+let tries=0;
+function test(){
+ const d=frame.contentDocument;
+ if(!d?.querySelector('#vl-grid') || d.querySelectorAll('.vl-card').length<30){
+   if(++tries<40){setTimeout(test,200);return;}
+   document.getElementById('result').textContent='VL_QA_FAIL not_ready '+(d?.querySelectorAll('.vl-card').length||0);return;
+ }
+ const before=d.querySelectorAll('.vl-card').length;
+ const loaded=[...d.querySelectorAll('.vl-card-image img')].filter(img=>img.complete&&img.naturalWidth>0).length;
+ d.querySelectorAll('[data-select]')[0]?.click();
+ d.querySelectorAll('[data-select]')[1]?.click();
+ const count=d.getElementById('vl-count').textContent;
+ d.querySelector('[data-action="present"]')?.click();
+ const presenter=d.getElementById('vl-presenter');
+ const deck=presenter?.querySelector('.vl-presenter-slide');
+ const rect=deck?.getBoundingClientRect();
+ const ratio=rect&&rect.height>0?rect.width/rect.height:0;
+ const good=before>=34&&loaded>=20&&count==='2'&&presenter&&!presenter.hidden&&ratio>1.72&&ratio<1.83;
+ document.getElementById('result').textContent=(good?'VL_QA_PASS':'VL_QA_FAIL')+' '+JSON.stringify({before,loaded,count,ratio,open:!presenter?.hidden});
+}
+setTimeout(test,1150);
+</script>"""
+    (DIST / "gallery-probe.html").write_text(LIB_PROBE,encoding="utf-8")
+    gallery_dom=run(["--dump-dom",HOST+"/gallery-probe.html"]).stdout
+    gallery_status=re.search(r"VL_QA_(PASS|FAIL)[^<]*",gallery_dom)
+    if not gallery_status or gallery_status.group(1)!="PASS":
+        raise RuntimeError("Visual Gallery QA failed: "+(gallery_status.group(0) if gallery_status else gallery_dom[-700:]))
+    print("✓ Photo Library browser: "+gallery_status.group(0))
+    lib_screenshot=QA/"photo-library.png"
+    run(["--window-size=1440,1000","--screenshot="+str(lib_screenshot),HOST+"/visual-library/index.html"])
+    if lib_screenshot.stat().st_size<15000:raise RuntimeError("Photo library screenshot unexpectedly small")
+    (DIST/"gallery-probe.html").unlink(missing_ok=True)
+
 finally:
     server.terminate()
     try:server.wait(timeout=5)
