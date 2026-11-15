@@ -232,6 +232,7 @@ window.LESSONS = [
   },
   {
     "id": "daily-routines",
+    "photoPack": ["wake-up","get-dressed","have-breakfast","brush-my-teeth","go-to-work","study","have-lunch","exercise","cook-dinner","relax","read-a-book","go-to-bed"],
     "title": "A Day in My Life",
     "subtitle": "Daily routines and Present Simple",
     "level": "A1",
