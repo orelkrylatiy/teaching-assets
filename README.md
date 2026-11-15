@@ -85,3 +85,27 @@ The original emoji/vector cards and vocabulary exports remain available. For voc
 The verified site build and QA screenshots/PDF are downloadable from the **site-preview** artifact on the latest passing GitHub Actions **Verify English lesson library** workflow run.
 
 See [Photo Studio guide](docs/PHOTO_STUDIO.md) for architecture, conventions, educational limitations and extension plan.
+
+## Visual Photo Library and creating new image packs
+
+Open **[Photo Library](visual-library/index.html)** to browse all **34 locally hosted visual assets** across existing lessons, filter by type, preview individual photographs, save a selected deck, present it in 16:9, or export a portable HTML presentation and A4 PDF. You can upload your own photos: they stay in this browser's IndexedDB and are not sent to GitHub or external services. Selected images persist locally and can be reordered before teaching.
+
+The integrated photo-pack infrastructure supports **any English lesson** once it has verified image files and a `photoPack` array of filenames. Daily Routines is currently the only complete exact-word photo pack (12 real AI-generated photos). Other lessons use themed photo covers for speaking, and the emoji vocabulary card mode remains available.
+
+**180 original photo shot briefs** are available in [prompts/english-photo-shotlist.json](prompts/english-photo-shotlist.json). These are generation specifications, not 180 already-created photographs. To prepare a new photo pack using an AI image generator:
+
+```bash
+python3 -m pip install pillow
+python3 scripts/import-photo-sheet.py \
+  --lesson hello-english \
+  --image path/to/original-high-resolution-4x3-sheet.png \
+  --grid 4x3 \
+  --approved
+node scripts/build.mjs
+```
+
+The importer requires the contact sheet to have one scene per curriculum word in row-major order and **at least 220 pixels per tile**. It converts each tile into optimized WebP, emits a manifest and adds the exact mapping to `data.js`. The teacher must inspect every photograph before passing `--approved`. Once files are committed, all photo cards, Live Photo Decks, print pages and Photo Library entries appear automatically in the existing static app.
+
+`python3 scripts/test-media-import.py` validates conversion and rejects low-resolution or unreviewed image sheets.
+
+See [Photo generation guide](docs/PHOTO_GENERATION.md) for visual standards and safe asset workflow.
