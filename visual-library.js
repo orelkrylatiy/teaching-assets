@@ -100,12 +100,12 @@ try{const all=await Promise.all(selected.map(id=>loadData(get(id).src)));
 download('my-english-photo-lesson.html',standalone(all),'text/html;charset=utf-8');notice('Downloaded complete offline HTML presentation.');}
 catch(e){notice('Export failed. Open the deployed website over HTTPS and retry.');}
 }
-function print(){
+function buildPrintOnly(){
 if(!selected.length)return;
 const node=$('#vl-print-root');
 node.innerHTML=selected.map((id,i)=>{const r=get(id);return `<section class="vl-print-page"><img src="${esc(r.src)}" alt=""><div class="vl-print-copy"><span>${esc(r.level)} · PHOTO ${i+1} / ${selected.length}</span><h2>${esc(r.title)}</h2><p>${esc(r.prompt||'Describe the image.')}</p><small>Teaching Assets · Photo Lesson</small></div></section>`;}).join('');
-window.print();
 }
+function print(){buildPrintOnly();window.print();}
 function notice(message){let t=$('#vl-toast');if(!t){t=document.createElement('div');t.id='vl-toast';t.setAttribute('role','status');t.className='vl-toast';document.body.appendChild(t);}t.textContent=message;clearTimeout(window.__vlToast);window.__vlToast=setTimeout(()=>t.remove(),3500);}
 function loadUploads(){
 if(!window.indexedDB)return Promise.resolve();
@@ -176,7 +176,7 @@ document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement
 document.addEventListener('DOMContentLoaded',async()=>{
 draw();$('#vl-search').addEventListener('input',e=>{search=e.target.value.trim().toLowerCase();filter();});
 $('#vl-file-input').addEventListener('change',async e=>{await addFiles(e.target.files);e.target.value='';});
-window.addEventListener('beforeprint',()=>{if(selected.length&&$('#vl-print-root').children.length===0)print();});
+window.addEventListener('beforeprint',()=>{if(selected.length&&$('#vl-print-root').children.length===0)buildPrintOnly();});
 await loadUploads();filter();drawSelection();
 });
 })();
