@@ -6,7 +6,7 @@ There are **15 original lesson packs** (A0/pre-A1 through B2) with 180 vocabular
 
 Existing committed media:
 - 12 word-mapped original generated WebP photos in `assets/photos/daily-routines/`.
-- 15 original lesson-specific topic covers plus two additional themed covers in `assets/photos/lesson-covers/`.
+- 14 original lesson-specific topic covers plus two additional themed covers in `assets/photos/lesson-covers/`.
 - Six original Daily Routines designed photo slides in `assets/slides/daily-routines/`.
 - One original Daily Routines printable PDF.
 
