@@ -6,7 +6,7 @@
     4,
     3
   ],
-  "status": "teacher-approved",
+  "status": "curated-draft-needs-teacher-review",
   "items": [
     {
       "word": "cat",
@@ -56,5 +56,6 @@
       "word": "family",
       "file": "family.webp"
     }
-  ]
+  ],
+  "review_note": "Original images visually checked and mapped to words by the assistant. A teacher should review classroom suitability before use."
 }
