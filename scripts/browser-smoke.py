@@ -156,6 +156,63 @@ setTimeout(test,1150);
         raise RuntimeError("A0 photo flashcards not integrated: "+(hello_result.group(0) if hello_result else hello_dom[-750:]))
     print("✓ A0 Hello English exact-photo flashcards: "+hello_result.group(0))
     (DIST/"hello-probe.html").unlink(missing_ok=True)
+    # Verify My World in Pictures has a complete exact-word photo pack,
+    # a functional 4-picture exercise, and downloadable photo teaching materials.
+    picture_probe = """<!doctype html><meta charset="utf-8"><title>Picture A0 Photo QA</title>
+    <iframe id="f" src="/lessons/picture-me/index.html" style="width:1300px;height:760px"></iframe>
+    <pre id="result">LOADING</pre>
+    <script>
+    const frame=document.getElementById('f');let attempts=0;
+    function verify(){
+      const d=frame.contentDocument;
+      if(!d?.querySelector('.ta-photo-check') || !d?.querySelector('#flash-card .ta-flash-photo')){
+        if(++attempts<40){setTimeout(verify,250);return;}
+        document.querySelector('#result').textContent='PICTURE_QA_FAIL not_ready';
+        return;
+      }
+      d.querySelector('.tabs [data-tab="cards"]').click();
+      setTimeout(()=>{
+        const firstPhoto=d.querySelector('#flash-card .ta-flash-photo');
+        const photoLoaded=firstPhoto?.complete&&firstPhoto.naturalWidth>=220;
+        d.querySelector('.tabs [data-tab="studio"]').click();
+        const options=d.querySelectorAll('[data-ta="photo-quiz-guess"]');
+        const correct=d.querySelector('[data-ta="photo-quiz-guess"][data-i="0"]');
+        const links=[...d.querySelectorAll('a[download]')].map(x=>x.getAttribute('href'));
+        const pptxLink=links.some(x=>x.endsWith('/picture-me-photo-lesson.pptx'));
+        const pdfLink=links.some(x=>x.endsWith('/picture-me-worksheet.pdf'));
+        correct?.click();
+        const feedback=d.querySelector('#ta-photo-quiz-feedback')?.textContent||'';
+        const next=d.querySelector('[data-ta="photo-quiz-next"]');
+        const accepted=feedback.includes('Correct')&&!next?.disabled;
+        next?.click();
+        const progress=d.querySelector('#ta-photo-quiz-progress')?.textContent||'';
+        const advanced=progress.startsWith('2 / 12');
+        const scenes=d.querySelectorAll('.ta-scene').length;
+        const ok=photoLoaded&&pptxLink&&pdfLink&&options.length===4&&accepted&&advanced&&scenes===12;
+        document.querySelector('#result').textContent=(ok?'PICTURE_QA_PASS':'PICTURE_QA_FAIL')+
+          ' '+JSON.stringify({photoWidth:firstPhoto?.naturalWidth,pptxLink,pdfLink,optionCount:options.length,accepted,advanced,scenes});
+      },650);
+    }
+    setTimeout(verify,850);
+    </script>"""
+    (DIST/"picture-probe.html").write_text(picture_probe,encoding="utf-8")
+    picture_dom=run(["--dump-dom",HOST+"/picture-probe.html"]).stdout
+    picture_result=re.search(r"PICTURE_QA_(PASS|FAIL)[^<]*",picture_dom)
+    if not picture_result or picture_result.group(1)!="PASS":
+        raise RuntimeError("A0 picture lesson test failed: "+(picture_result.group(0) if picture_result else picture_dom[-800:]))
+    print("✓ Photo cards, interactive picture identification, PPTX/PDF links: "+picture_result.group(0))
+    (DIST/"picture-probe.html").unlink(missing_ok=True)
+
+    # Print the new photo-word pack as a 14-page PDF. This catches missing image URLs.
+    picture_pdf=QA/"picture-me-print.pdf"
+    run(["--print-to-pdf="+str(picture_pdf),"--no-pdf-header-footer",HOST+"/lessons/picture-me/index.html"])
+    if not picture_pdf.exists() or picture_pdf.stat().st_size<10000:
+        raise RuntimeError("My World in Pictures PDF missing or blank")
+    if pdfinfo:
+        info=subprocess.run([pdfinfo,str(picture_pdf)],capture_output=True,text=True,check=True).stdout
+        match=re.search(r"^Pages:\s+(\d+)",info,re.MULTILINE)
+        assert match and int(match.group(1))==14, "My World in Pictures should print to 14 pages"
+    print("✓ My World in Pictures PDF: 14 printable photo slides")
     # Print the selected photo deck as a real two-page A4 PDF, not a blank shell.
     print_html = """<!doctype html><html><head><meta charset="utf-8">
     <link rel="stylesheet" href="/visual-library.css">
