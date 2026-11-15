@@ -33,7 +33,7 @@
   };
   const heroPhoto=l=>isDaily(l)?root+'assets/slides/daily-routines/cover.webp':root+'assets/photos/lesson-covers/'+l.id+'.webp';
   const img=(src,alt,cls='',eager=false)=>`<img class="${cls}" src="${escape(src)}" alt="${escape(alt)}" ${eager?'loading="eager"':'loading="lazy"'} decoding="async">`;
-  let mode='photo',scene=0,showWord=false,story=[],listeningMode='story',clipIndex=0,voices=[],deckIndex=0;
+  let mode='photo',scene=0,showWord=false,story=[],listeningMode='story',clipIndex=0,voices=[],deckIndex=0,photoQuizStep=0,photoQuizScore=0,photoQuizAnswered=false;
   try{mode=localStorage.getItem('ta:visual-mode')==='emoji'?'emoji':'photo';}catch(_){}
   function catalog(){
     $$('.lesson-card').forEach(c=>{
@@ -46,10 +46,81 @@
   }
   function sceneCount(){return exactPack(lesson)?.length||5;}
   function sceneWord(i){return exactPack(lesson)?lesson.words[i]?.en:('Photo '+(i+1));}
+
+  function photoQuizHtml(){
+    if(!exactPack(lesson))return '';
+    return `<section class="ta-photo-check">
+      <div class="ta-split-heading"><div>
+        <div class="eyebrow">PRACTICE WITH REAL PICTURES</div>
+        <h3>Which picture shows the word?</h3>
+        <p>Choose the correct photograph. Try to finish all ${lesson.words.length} questions.</p>
+      </div><button class="btn" data-ta="photo-quiz-restart">↺ Start again</button></div>
+      <div class="ta-check-header"><span class="tag strong" id="ta-photo-quiz-progress">1 / ${lesson.words.length}</span>
+        <button class="btn small" data-ta="photo-quiz-say">🔊 Hear the word</button>
+      </div>
+      <h3 id="ta-photo-quiz-title" class="ta-check-title"></h3>
+      <div id="ta-photo-quiz-choices" class="ta-photo-quiz-choices"></div>
+      <div class="ta-quiz-foot"><p id="ta-photo-quiz-feedback" role="status">Look carefully and choose.</p>
+        <button class="btn primary" data-ta="photo-quiz-next" id="ta-photo-quiz-next" disabled>Next →</button>
+      </div>
+    </section>`;
+  }
+  function photoQuizOptions(correct,n){
+    // Keep each option unique and place the answer at varying positions.
+    const choices=[correct],seeds=[3,7,10,5,1,9];
+    for(const step of seeds){
+      const idx=(correct+step)%n;
+      if(!choices.includes(idx))choices.push(idx);
+      if(choices.length===4)break;
+    }
+    const shift=(correct*7+3)%choices.length;
+    return choices.slice(shift).concat(choices.slice(0,shift));
+  }
+  function renderPhotoQuiz(){
+    if(!exactPack(lesson))return;
+    const n=lesson.words.length,progress=$('#ta-photo-quiz-progress'),title=$('#ta-photo-quiz-title'),choices=$('#ta-photo-quiz-choices'),next=$('#ta-photo-quiz-next');
+    if(!progress||!title||!choices||!next)return;
+    if(photoQuizStep>=n){
+      progress.textContent='Complete!';
+      title.textContent='You scored '+photoQuizScore+' / '+n+'.';
+      choices.innerHTML='<div class="ta-quiz-complete">Try a new round, or use the pictures to tell a story with your teacher.</div>';
+      $('#ta-photo-quiz-feedback').textContent='Well done! You practised '+n+' real photo cards.';
+      next.disabled=true;
+      return;
+    }
+    progress.textContent=(photoQuizStep+1)+' / '+n+' · Score '+photoQuizScore;
+    title.textContent='Find: '+lesson.words[photoQuizStep].en;
+    const opts=photoQuizOptions(photoQuizStep,n);
+    choices.innerHTML=opts.map((i,j)=>`<button class="ta-picture-option" data-ta="photo-quiz-guess" data-i="${i}" aria-label="Choose picture ${j+1}">
+      ${img(photo(lesson,i),'Option '+(j+1))}
+      <span>Picture ${j+1}</span></button>`).join('');
+    photoQuizAnswered=false;
+    $('#ta-photo-quiz-feedback').textContent='Look carefully and choose.';
+    next.disabled=true;
+  }
+  function choosePhotoAnswer(b){
+    if(photoQuizAnswered||!exactPack(lesson))return;
+    photoQuizAnswered=true;
+    const value=Number(b.dataset.i),correct=photoQuizStep;
+    if(value===correct)photoQuizScore++;
+    $('#ta-photo-quiz-choices .ta-picture-option').forEach(el=>{
+      el.disabled=true;
+      if(Number(el.dataset.i)===correct)el.classList.add('correct');
+      else if(el===b)el.classList.add('incorrect');
+    });
+    $('#ta-photo-quiz-feedback').textContent=value===correct?'✓ Correct! Great picture recognition.':'Not quite. The highlighted image shows: '+lesson.words[correct].en;
+    $('#ta-photo-quiz-next').disabled=false;
+  }
   function galleryHtml(){
     const cards=Array.from({length:sceneCount()},(_,i)=>`<button class="ta-scene ${i===0?'active':''}" data-ta="scene" data-i="${i}" aria-label="Open photo ${i+1}">${img(photo(lesson,i),sceneWord(i))}<span>${escape(sceneWord(i))}</span></button>`).join('');
     const designed=isDaily(lesson)?`<section class="ta-ready"><div class="ta-split-heading"><div><h3>Ready-to-teach photo slides</h3><p>Six original designs you can display, download or print.</p></div></div><div class="ta-slide-gallery">${dailySlideNames.map(x=>`<a href="${root}assets/slides/daily-routines/${x}.webp" target="_blank" rel="noopener">${img(root+'assets/slides/daily-routines/'+x+'.webp',x)}<span>${escape(x.replace(/-/g,' '))} ↗</span></a>`).join('')}</div><a class="btn primary" download href="${root}assets/worksheets/daily-routines-worksheet.pdf">↓ Download A4 photo worksheet (PDF)</a></section>`:'';
-    return `<section id="studio" class="tab-panel ta-studio" hidden><div class="ta-page-heading"><div class="eyebrow">PHOTO-BASED LEARNING</div><h2>Visual lesson studio<span>.</span></h2><p>Real, locally hosted lesson photos. Observe, discuss, order scenes and build a mini picture story. The emoji vocabulary cards are available separately.</p></div><div class="ta-top-controls"><button class="btn primary" data-ta="mode-photo">◫ Photos</button><button class="btn" data-ta="mode-emoji">☺ Emoji cards</button><button class="btn" data-ta="word">Aa Reveal label</button><button class="btn" data-ta="photo-fullscreen">⛶ Fullscreen photo</button><button class="btn" data-ta="download-photo">↓ Photo WebP</button><button class="btn primary" data-ta="open-deck">▶ Present photo deck</button></div><div id="ta-photo-viewer" class="ta-photo-viewer"><div id="ta-photo-stage" class="ta-photo-stage">${img(photo(lesson,0),lesson.title+' teaching photograph','',true)}</div><div class="ta-photo-bar"><div class="ta-photo-info"><span class="eyebrow">PHOTO <b id="ta-photo-count">01</b> / ${sceneCount()}</span><h3 id="ta-photo-title">Look, think and speak.</h3><p id="ta-photo-question">${escape(lesson.questions[0])}</p></div><div class="button-row"><button class="btn" data-ta="prev">←</button><button class="btn primary" data-ta="next">Next photo →</button></div></div></div><div class="ta-scene-gallery" id="ta-photo-grid">${cards}</div><div class="ta-photo-deck" id="ta-photo-deck" hidden role="dialog" aria-modal="true" aria-label="Photo presentation"><header class="ta-deck-bar"><span>teaching<span style="color:#9cc7ab">assets</span> · LIVE PHOTO DECK</span><div class="ta-top-controls"><button class="btn small" data-ta="deck-export">↓ Download HTML presentation</button><button class="btn small" data-ta="deck-close">✕ Exit</button></div></header><div class="ta-deck-frame"><div id="ta-deck-slide" class="ta-deck-slide"></div></div><footer class="ta-deck-bar"><div id="ta-deck-counter">Slide 1</div><div class="button-row"><button class="btn small" data-ta="deck-prev">← Previous</button><button class="btn primary small" data-ta="deck-next">Next →</button></div></footer></div><div class="ta-activity-row"><article><b>01 · Observe</b><p>Describe five details in the picture. Who, where, what and why?</p></article><article><b>02 · Predict</b><p>What happened immediately before this photo? What might happen next?</p></article><article><b>03 · Discuss</b><p>Answer the question, then ask your partner a follow-up question.</p></article></div><section class="ta-story-builder"><div class="ta-split-heading"><div><h3>Your three-picture story</h3><p>Select photos and arrange them into a conversation prompt. Download a standalone HTML handout.</p></div><div class="button-row"><button class="btn" data-ta="add-story">+ Add current photo</button><button class="btn" data-ta="clear-story">Clear</button><button class="btn primary" data-ta="story-download">↓ Handout</button></div></div><div id="ta-story-strip" class="ta-story-strip"></div></section>${designed}<p class="ta-photo-note">${exactPack(lesson)?'This lesson has an original image pack with a verified one-to-one vocabulary mapping.':'This lesson uses its own locally hosted thematic cover plus related in-project photos for contextual speaking. These are not claimed to illustrate every individual vocabulary word.'}</p></section>`;
+    return `<section id="studio" class="tab-panel ta-studio" hidden><div class="ta-page-heading"><div class="eyebrow">PHOTO-BASED LEARNING</div><h2>Visual lesson studio<span>.</span></h2><p>Real, locally hosted lesson photos. Observe, discuss, order scenes and build a mini picture story. The emoji vocabulary cards are available separately.</p></div><div class="ta-top-controls"><button class="btn primary" data-ta="mode-photo">◫ Photos</button><button class="btn" data-ta="mode-emoji">☺ Emoji cards</button><button class="btn" data-ta="word">Aa Reveal label</button><button class="btn" data-ta="photo-fullscreen">⛶ Fullscreen photo</button><button class="btn" data-ta="download-photo">↓ Photo WebP</button><button class="btn primary" data-ta="open-deck">▶ Present photo deck</button></div><div id="ta-photo-viewer" class="ta-photo-viewer"><div id="ta-photo-stage" class="ta-photo-stage">${img(photo(lesson,0),lesson.title+' teaching photograph','',true)}</div><div class="ta-photo-bar"><div class="ta-photo-info"><span class="eyebrow">PHOTO <b id="ta-photo-count">01</b> / ${sceneCount()}</span><h3 id="ta-photo-title">Look, think and speak.</h3><p id="ta-photo-question">${escape(lesson.questions[0])}</p></div><div class="button-row"><button class="btn" data-ta="prev">←</button><button class="btn primary" data-ta="next">Next photo →</button></div></div></div><div class="ta-scene-gallery" id="ta-photo-grid">${cards}</div><div class="ta-photo-deck" id="ta-photo-deck" hidden role="dialog" aria-modal="true" aria-label="Photo presentation"><header class="ta-deck-bar"><span>teaching<span style="color:#9cc7ab">assets</span> · LIVE PHOTO DECK</span><div class="ta-top-controls"><button class="btn small" data-ta="deck-export">↓ Download HTML presentation</button><button class="btn small" data-ta="deck-close">✕ Exit</button></div></header><div class="ta-deck-frame"><div id="ta-deck-slide" class="ta-deck-slide"></div></div><footer class="ta-deck-bar"><div id="ta-deck-counter">Slide 1</div><div class="button-row"><button class="btn small" data-ta="deck-prev">← Previous</button><button class="btn primary small" data-ta="deck-next">Next →</button></div></footer></div><div class="ta-activity-row"><article><b>01 · Observe</b><p>Describe five details in the picture. Who, where, what and why?</p></article><article><b>02 · Predict</b><p>What happened immediately before this photo? What might happen next?</p></article><article><b>03 · Discuss</b><p>Answer the question, then ask your partner a follow-up question.</p></article></div>${photoQuizHtml()}<section class="ta-story-builder"><div class="ta-split-heading"><div><h3>Your three-picture story</h3><p>Select photos and arrange them into a conversation prompt. Download a standalone HTML handout.</p></div><div class="button-row"><button class="btn" data-ta="add-story">+ Add current photo</button><button class="btn" data-ta="clear-story">Clear</button><button class="btn primary" data-ta="story-download">↓ Handout</button></div></div><div id="ta-story-strip" class="ta-story-strip"></div></section>${exactPack(lesson)?`<section class="ta-ready ta-pack-downloads">
+      <div class="eyebrow">READY TO TEACH · PHOTO PACK</div><h3>Download finished lesson materials</h3>
+      <p>The photos are embedded in the PowerPoint and print-ready worksheet. No accounts or external image hosting required.</p>
+      <div class="button-row">
+        <a class="btn primary" download href="${root}assets/packs/${lesson.id}/${lesson.id}-photo-lesson.pptx">↓ Photo PowerPoint (.pptx)</a>
+        <a class="btn" download href="${root}assets/packs/${lesson.id}/${lesson.id}-worksheet.pdf">↓ Picture worksheet (PDF)</a>
+      </div></section>`:' '}${designed}<p class="ta-photo-note">${exactPack(lesson)?'This lesson has an original image pack with a verified one-to-one vocabulary mapping.':'This lesson uses its own locally hosted thematic cover plus related in-project photos for contextual speaking. These are not claimed to illustrate every individual vocabulary word.'}</p></section>`;
   }
   function listenHtml(){
     return `<section id="listening" class="tab-panel ta-listen" hidden><div class="ta-page-heading"><div class="eyebrow">LISTEN · NOTICE · RESPOND</div><h2>Listening lab<span>.</span></h2><p>Use your browser’s English voice for an original short reading or vocabulary practice. Play, pause, repeat and check your understanding.</p></div><div class="ta-listen-grid"><article class="ta-listen-player"><div class="ta-sound-icon" aria-hidden="true">♫</div><span class="eyebrow">${escape(lesson.level)} · ${escape(lesson.title)}</span><h3>Listen first. Read later.</h3><div class="ta-top-controls"><button class="btn primary" data-ta="listen-story" id="ta-listen-play">▶ Play story</button><button class="btn" data-ta="listen-word">🔊 Word practice</button><button class="btn" data-ta="listen-pause">Ⅱ Pause</button><button class="btn" data-ta="listen-stop">■ Stop</button></div><div class="ta-listen-options"><label>Speed<select id="ta-speed"><option value=".75">0.75×</option><option value=".9" selected>0.90×</option><option value="1">1×</option><option value="1.15">1.15×</option></select></label><label>Accent<select id="ta-locale"><option value="en-GB">British</option><option value="en-US">American</option></select></label></div><div class="ta-clip-info" id="ta-clip-info" role="status">Short story · listen for the main idea.</div><button class="btn soft" data-ta="transcript">▤ Show / hide transcript</button><div class="ta-transcript" id="ta-transcript" hidden>${escape(lesson.story)}</div><p class="ta-photo-note">Audio comes from device speech synthesis. Voice availability differs across browsers. No third-party recordings are copied.</p></article><article class="ta-listen-tasks"><h3>Listen and respond</h3><p>Play twice. Don’t read the transcript during the first listen.</p><div class="ta-task"><b>01 · Main idea</b><p>Summarize the recording in one sentence.</p></div><div class="ta-task"><b>02 · Detail</b><p>Which two actions or details can you remember?</p></div><div class="ta-task"><b>03 · Vocabulary</b><p>Listen to each word and repeat it. Write an example of your own.</p></div><div class="ta-task"><b>04 · Comprehension</b><p>Which of these words appeared in the story?</p><div id="ta-listen-choices" class="ta-listen-choices"></div><p id="ta-listen-feedback" role="status" class="ta-listen-feedback"></p></div></article></div></section>`;
@@ -62,12 +133,12 @@
     });
     $('.lesson-main')?.insertAdjacentHTML('beforeend',galleryHtml()+listenHtml());
     $('.stage-head .button-row')?.insertAdjacentHTML('afterbegin','<button class="btn small" data-ta="mode-toggle" id="ta-photo-switch">◫ Photos</button>');
-    $('#assets .export-grid')?.insertAdjacentHTML('afterend','<div class="ta-resources"><h3>Photo-based lesson materials</h3><p>View all lesson images and download photo-based resources.</p><button class="btn primary" data-tab="studio">◫ Open photo studio</button><button class="btn" data-ta="print-lesson">↓ Print photo lesson / PDF</button></div>');
+    $('#assets .export-grid')?.insertAdjacentHTML('afterend','<div class="ta-resources"><h3>Photo-based lesson materials</h3><p>Use the photographs as a full lesson or as individual visual prompts.</p><button class="btn primary" data-tab="studio">◫ Open photo studio</button><button class="btn" data-ta="print-lesson">↓ Print 14-slide lesson / PDF</button>'+ (exactPack(lesson)?'<div class="button-row" style="margin-top:18px"><a class="btn primary" download href="'+root+'assets/packs/'+lesson.id+'/'+lesson.id+'-photo-lesson.pptx">↓ Illustrated PowerPoint</a><a class="btn" download href="'+root+'assets/packs/'+lesson.id+'/'+lesson.id+'-worksheet.pdf">↓ A4 photo worksheet</a></div>':'')+'</div>');
     const speaking=$('#speaking .section-header');
     if(speaking)speaking.insertAdjacentHTML('afterend',`<div class="ta-speaking-photo">${img(heroPhoto(lesson),lesson.title+' speaking photo')}</div>`);
     $$('.tab-panel').forEach(p=>{if(p.id!=='slides')p.hidden=true;});
     if(location.hash==='#studio'||location.hash==='#listening')setTimeout(()=>$('.tabs [data-tab="'+location.hash.slice(1)+'"]')?.click(),0);
-    refreshScene();refreshStory();refreshMode();renderListeningQuestion();
+    refreshScene();refreshStory();refreshMode();renderListeningQuestion();renderPhotoQuiz();
   }
   function renderListeningQuestion(){
     const source=lesson.story.toLowerCase();
@@ -89,8 +160,8 @@
     if(!lesson)return;scene=((scene%sceneCount())+sceneCount())%sceneCount();
     $('#ta-photo-stage').innerHTML=img(photo(lesson,scene),lesson.title+' photograph '+(scene+1),'',true);
     $('#ta-photo-count').textContent=String(scene+1).padStart(2,'0');
-    $('#ta-photo-title').textContent=showWord&&isDaily(lesson)?sceneWord(scene):'Look, think and speak.';
-    $('#ta-photo-question').textContent=showWord&&isDaily(lesson)?lesson.words[scene].example:lesson.questions[scene%lesson.questions.length];
+    $('#ta-photo-title').textContent=showWord&&exactPack(lesson)?sceneWord(scene):'Look, think and speak.';
+    $('#ta-photo-question').textContent=showWord&&exactPack(lesson)?lesson.words[scene].example:lesson.questions[scene%lesson.questions.length];
     $$('.ta-scene').forEach((b,i)=>b.classList.toggle('active',i===scene));
   }
   function refreshStory(){
@@ -275,6 +346,10 @@
     if(action==='scene'){scene=+b.dataset.i;showWord=false;refreshScene();}
     else if(action==='prev'||action==='next'){scene+=action==='next'?1:-1;showWord=false;refreshScene();}
     else if(action==='word'){showWord=!showWord;refreshScene();}
+    else if(action==='photo-quiz-guess')choosePhotoAnswer(b);
+    else if(action==='photo-quiz-next'){if(photoQuizAnswered){photoQuizStep++;renderPhotoQuiz();}}
+    else if(action==='photo-quiz-restart'){photoQuizStep=0;photoQuizScore=0;renderPhotoQuiz();}
+    else if(action==='photo-quiz-say'){if('speechSynthesis' in window&&exactPack(lesson)){speechSynthesis.cancel();const voice=new SpeechSynthesisUtterance(lesson.words[photoQuizStep%lesson.words.length].en);voice.lang='en-US';speechSynthesis.speak(voice);}}
     else if(action==='download-photo'){const a=document.createElement('a');a.href=photo(lesson,scene);a.download=lesson.id+'-photo-'+String(scene+1).padStart(2,'0')+'.webp';document.body.append(a);a.click();a.remove();}
     else if(action==='mode-photo'||action==='mode-emoji'||action==='mode-toggle'){mode=action==='mode-photo'?'photo':action==='mode-emoji'?'emoji':mode==='photo'?'emoji':'photo';try{localStorage.setItem('ta:visual-mode',mode);}catch(_){}refreshMode();}
     else if(action==='photo-fullscreen'){
