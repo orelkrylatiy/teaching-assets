@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths:
       - 'assets/photo-sources/**'
+      - 'scripts/build-photo-packs.py'
+      - 'scripts/test-photo-packs.py'
       - '.github/workflows/prepare-photo-packs.yml'
   workflow_dispatch:
 permissions:
