@@ -1,176 +1,263 @@
-/* Teaching Assets photo-first extension. Compatible with existing static HTML lessons. */
-(() => {
+(function StudioV2(){
   'use strict';
-  const root = document.body.dataset.root || '';
-  const lessons = window.LESSONS || [];
-  const lesson = lessons.find(l => l.id === document.body.dataset.id);
-  const $ = s => document.querySelector(s);
-  const $$ = s => [...document.querySelectorAll(s)];
-  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const PHOTO_IDS = {
-    'hello-english':['photo-1524504388940-b1c1722653e1','photo-1517841905240-472988babdf9','photo-1534528741775-53994a69daeb','photo-1544005313-94ddf0286df2','photo-1529156069898-49953e39b3ac','photo-1527980965255-d3b416303d12'],
-    'picture-me':['photo-1514888286974-6c03e2ca1dba','photo-1552053831-71594a27632d','photo-1512820790803-83ca734da794','photo-1511707171634-5f897ff02aa9','photo-1509042239860-f550ce710b93','photo-1493225457124-a3eb161ffa5f'],
-    'at-the-cafe':['photo-1442512595331-e89e73853f31','photo-1554118811-1e0d58224f24','photo-1501339847302-ac426a4a7cbb','photo-1495474472287-4d71bcdd2085','photo-1466978913421-dad2ebd01d17','photo-1517248135467-4c7edcad34c4'],
-    'my-home':['photo-1600607687939-ce8a6c25118c','photo-1600566752355-35792bedcfea','photo-1600585154340-be6161a56a0c','photo-1600607687920-4e2a09cf159d','photo-1560448204-e02f11c3d0e2','photo-1484154218962-a197022b5858'],
-    'around-the-city':['photo-1519501025264-65ba15a82390','photo-1480714378408-67cf0d13bc1b','photo-1477959858617-67f85cf4f1df','photo-1520262494112-9fe481d36ec3','photo-1500530855697-b586d89ba3ee','photo-1494526585095-c41746248156'],
-    'travel-transport':['photo-1436491865332-7a61a109cc05','photo-1488085061387-422e29b40080','photo-1473448912268-2022ce9509d8','photo-1464037866556-6812c9d1c72e','photo-1501785888041-af3ef285b470','photo-1540339832862-474599807836'],
-    'weekend-plans':['photo-1470770841072-f978cf4d019e','photo-1518837695005-2083093ee35b','photo-1500534623283-312aade485b7','photo-1500534314209-a25ddb2bd429','photo-1530549387789-4c1017266635','photo-1519681393784-d120267933ba'],
-    'work-life-balance':['photo-1497366754035-f200968a6e72','photo-1521737711867-e3b97375f902','photo-1499951360447-b19be8fe80f5','photo-1497215728101-856f4ea42174','photo-1516321318423-f06f85e504b3','photo-1522071820081-009f0129c71c'],
-    'stories-that-changed-me':['photo-1470225620780-dba8ba36b745','photo-1519681393784-d120267933ba','photo-1451187580459-43490279c0fa','photo-1500534623283-312aade485b7','photo-1529156069898-49953e39b3ac','photo-1464822759023-fed622ff2c3b'],
-    'problem-solving':['photo-1556761175-b413da4baf72','photo-1522071820081-009f0129c71c','photo-1504384308090-c894fdcc538d','photo-1497366754035-f200968a6e72','photo-1454165804606-c3d57bc86b40','photo-1486406146926-c627a92ad1ab'],
-    'digital-habits':['photo-1516321318423-f06f85e504b3','photo-1519389950473-47ba0277781c','photo-1531297484001-80022131f5a1','photo-1523275335684-37898b6baf30','photo-1512941937669-90a1b58e7e9d','photo-1460925895917-afdab827c52f'],
-    'future-of-work':['photo-1485827404703-89b55fcc595e','photo-1497366754035-f200968a6e72','photo-1531482615713-2afd69097998','photo-1522071820081-009f0129c71c','photo-1516321318423-f06f85e504b3','photo-1504384308090-c894fdcc538d'],
-    'sustainable-choices':['photo-1542601906990-b4d3fb778b09','photo-1441974231531-c6227db76b6e','photo-1500534623283-312aade485b7','photo-1470071459604-3b5ec3a7fe05','photo-1451187580459-43490279c0fa','photo-1525498128493-380d1990a112'],
-    'ai-everyday':['photo-1677442136019-21780ecad995','photo-1485827404703-89b55fcc595e','photo-1518770660439-4636190af475','photo-1526379095098-d400fd0bf935','photo-1635070041078-e363dbe005cb','photo-1555949963-ff9fe0c870eb']
+  const root=document.body.dataset.root||'';
+  const lessons=window.LESSONS||[];
+  const lesson=lessons.find(l=>l.id===document.body.dataset.id);
+  const $=q=>document.querySelector(q), $$=q=>Array.from(document.querySelectorAll(q));
+  const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const dailyNames=['wake-up','get-dressed','have-breakfast','brush-my-teeth','go-to-work','study','have-lunch','exercise','cook-dinner','relax','read-a-book','go-to-bed'];
+  const dailySlideNames=['cover','vocabulary','speaking','worksheet','photo-story','vocabulary-alternative'];
+  const themeSets={
+    'hello-english':['hello-english','picture-me','tutoring-online','at-the-cafe','weekend-plans'],
+    'picture-me':['picture-me','my-home','at-the-cafe','weekend-plans','travel-transport'],
+    'at-the-cafe':['at-the-cafe','hello-english','weekend-plans','my-home','travel-transport'],
+    'my-home':['my-home','picture-me','work-life-balance','digital-habits','weekend-plans'],
+    'around-the-city':['around-the-city','travel-transport','weekend-plans','sustainable-choices','at-the-cafe'],
+    'travel-transport':['travel-transport','around-the-city','weekend-plans','sustainable-choices','my-home'],
+    'weekend-plans':['weekend-plans','around-the-city','at-the-cafe','picture-me','travel-transport'],
+    'work-life-balance':['work-life-balance','digital-habits','future-of-work','my-home','tutoring-online'],
+    'stories-that-changed-me':['stories-that-changed-me','travel-transport','weekend-plans','hello-english','my-home'],
+    'problem-solving':['problem-solving','future-of-work','work-life-balance','digital-habits','hello-english'],
+    'digital-habits':['digital-habits','ai-everyday','future-of-work','work-life-balance','my-home'],
+    'future-of-work':['future-of-work','ai-everyday','digital-habits','work-life-balance','problem-solving'],
+    'sustainable-choices':['sustainable-choices','travel-transport','around-the-city','my-home','weekend-plans'],
+    'ai-everyday':['ai-everyday','digital-habits','future-of-work','problem-solving','tutoring-online']
   };
-  const daily = ['wake-up','get-dressed','have-breakfast','brush-my-teeth','go-to-work','study','have-lunch','exercise','cook-dinner','relax','read-a-book','go-to-bed'];
-  const dailySlides = ['cover','vocabulary','speaking','worksheet','photo-story','vocabulary-alternative'];
-  const own = l => l && l.id === 'daily-routines';
-  const photo = (l,i,w=1000) => own(l)
-    ? root + 'assets/photos/daily-routines/' + daily[((i%daily.length)+daily.length)%daily.length] + '.webp'
-    : 'https://images.unsplash.com/' + ((PHOTO_IDS[l.id]||['photo-1441974231531-c6227db76b6e'])[i % (PHOTO_IDS[l.id]||[]).length]) + '?auto=format&fit=crop&w='+w+'&q=82';
-  const image = (src,alt,klass='') => `<img class="${klass}" src="${esc(src)}" alt="${esc(alt)}" loading="lazy" decoding="async" referrerpolicy="no-referrer">`;
-  let visual = 'photos', selected = 0, revealed = false, reading = false;
-  try { visual = localStorage.getItem('ta:visual-mode') || 'photos'; } catch (_) {}
-  function coverCatalog(){
-    $$('.lesson-card').forEach(card => {
-      const l = lessons.find(x => (card.getAttribute('href')||'').includes('/'+x.id+'/'));
-      if(!l) return;
-      const c = card.querySelector('.lesson-cover'); if(!c) return;
-      c.insertAdjacentHTML('beforeend', image(photo(l,0),l.title + ' photo cover','studio-cover'));
-      c.querySelector('.studio-cover')?.addEventListener('error',e => e.target.remove(),{once:true});
+  const isDaily=l=>l?.id==='daily-routines';
+  const photo=(l,i=0)=>{
+    if(isDaily(l)) return root+'assets/photos/daily-routines/'+dailyNames[((i%12)+12)%12]+'.webp';
+    const set=themeSets[l.id]||[l.id,'tutoring-online','my-home','weekend-plans','future-of-work'];
+    return root+'assets/photos/lesson-covers/'+set[((i%set.length)+set.length)%set.length]+'.webp';
+  };
+  const heroPhoto=l=>isDaily(l)?root+'assets/slides/daily-routines/cover.webp':root+'assets/photos/lesson-covers/'+l.id+'.webp';
+  const img=(src,alt,cls='',eager=false)=>`<img class="${cls}" src="${escape(src)}" alt="${escape(alt)}" ${eager?'loading="eager"':'loading="lazy"'} decoding="async">`;
+  let mode='photo',scene=0,showWord=false,story=[],listeningMode='story',clipIndex=0,voices=[];
+  try{mode=localStorage.getItem('ta:visual-mode')==='emoji'?'emoji':'photo';}catch(_){}
+  function catalog(){
+    $$('.lesson-card').forEach(c=>{
+      const l=lessons.find(x=>(c.getAttribute('href')||'').includes('/'+x.id+'/'));
+      const cover=c.querySelector('.lesson-cover');if(!l||!cover)return;
+      cover.insertAdjacentHTML('beforeend',img(heroPhoto(l),l.title+' photographic cover','ta-cover-img'));
     });
-    const hero = $('.hero-art'), dailyLesson = lessons.find(x=>x.id==='daily-routines');
-    if(hero && dailyLesson) hero.insertAdjacentHTML('beforeend',image(root+'assets/slides/daily-routines/cover.webp','Daily Routines photographic lesson cover','studio-hero'));
+    const h=$('.hero-art'), l=lessons.find(x=>x.id==='daily-routines');
+    if(h&&l)h.insertAdjacentHTML('beforeend',img(heroPhoto(l),'Original Daily Routines photograph composition','ta-hero-img',true));
   }
-  function tab(id,label){
-    $('.tabs')?.insertAdjacentHTML('beforeend',`<button class="tab" data-tab="${id}" role="tab" aria-selected="false">${label}</button>`);
-    const sidebar = $('.sidebar');
-    if(sidebar){const a=document.createElement('a');a.href='#'+id;a.className='side-link';a.dataset.tab=id;a.textContent=label;sidebar.insertBefore(a,sidebar.querySelector('.sidebar-tip'));}
+  function sceneCount(){return isDaily(lesson)?12:5;}
+  function sceneWord(i){return isDaily(lesson)?lesson.words[i]?.en:('Photo '+(i+1));}
+  function galleryHtml(){
+    const cards=Array.from({length:sceneCount()},(_,i)=>`<button class="ta-scene ${i===0?'active':''}" data-ta="scene" data-i="${i}" aria-label="Open photo ${i+1}">${img(photo(lesson,i),sceneWord(i))}<span>${escape(sceneWord(i))}</span></button>`).join('');
+    const designed=isDaily(lesson)?`<section class="ta-ready"><div class="ta-split-heading"><div><h3>Ready-to-teach photo slides</h3><p>Six original designs you can display, download or print.</p></div></div><div class="ta-slide-gallery">${dailySlideNames.map(x=>`<a href="${root}assets/slides/daily-routines/${x}.webp" target="_blank" rel="noopener">${img(root+'assets/slides/daily-routines/'+x+'.webp',x)}<span>${escape(x.replace(/-/g,' '))} ↗</span></a>`).join('')}</div><a class="btn primary" download href="${root}assets/worksheets/daily-routines-worksheet.pdf">↓ Download A4 photo worksheet (PDF)</a></section>`:'';
+    return `<section id="studio" class="tab-panel ta-studio" hidden><div class="ta-page-heading"><div class="eyebrow">PHOTO-BASED LEARNING</div><h2>Visual lesson studio<span>.</span></h2><p>Real, locally hosted lesson photos. Observe, discuss, order scenes and build a mini picture story. The emoji vocabulary cards are available separately.</p></div><div class="ta-top-controls"><button class="btn primary" data-ta="mode-photo">◫ Photos</button><button class="btn" data-ta="mode-emoji">☺ Emoji cards</button><button class="btn" data-ta="word">Aa Reveal label</button><button class="btn" data-ta="photo-fullscreen">⛶ Fullscreen photo</button></div><div id="ta-photo-viewer" class="ta-photo-viewer"><div id="ta-photo-stage" class="ta-photo-stage">${img(photo(lesson,0),lesson.title+' teaching photograph','',true)}</div><div class="ta-photo-bar"><div class="ta-photo-info"><span class="eyebrow">PHOTO <b id="ta-photo-count">01</b> / ${sceneCount()}</span><h3 id="ta-photo-title">Look, think and speak.</h3><p id="ta-photo-question">${escape(lesson.questions[0])}</p></div><div class="button-row"><button class="btn" data-ta="prev">←</button><button class="btn primary" data-ta="next">Next photo →</button></div></div></div><div class="ta-scene-gallery" id="ta-photo-grid">${cards}</div><div class="ta-activity-row"><article><b>01 · Observe</b><p>Describe five details in the picture. Who, where, what and why?</p></article><article><b>02 · Predict</b><p>What happened immediately before this photo? What might happen next?</p></article><article><b>03 · Discuss</b><p>Answer the question, then ask your partner a follow-up question.</p></article></div><section class="ta-story-builder"><div class="ta-split-heading"><div><h3>Your three-picture story</h3><p>Select photos and arrange them into a conversation prompt. Download a standalone HTML handout.</p></div><div class="button-row"><button class="btn" data-ta="add-story">+ Add current photo</button><button class="btn" data-ta="clear-story">Clear</button><button class="btn primary" data-ta="story-download">↓ Handout</button></div></div><div id="ta-story-strip" class="ta-story-strip"></div></section>${designed}<p class="ta-photo-note">${isDaily(lesson)?'These 12 photos are original AI-generated image assets illustrating the Daily Routines vocabulary.':'This lesson uses its own locally hosted thematic cover plus a curated selection of related in-project photos for contextual speaking. These are not claimed to illustrate every individual vocabulary word.'}</p></section>`;
   }
-  function makeGallery(){
-    const count=own(lesson)?12:6;
-    const cards=Array.from({length:count},(_,i)=>`<button class="photo-scene-card" data-studio="choose" data-index="${i}">${image(photo(lesson,i,700),'Photo '+(i+1))}<span>${own(lesson)?esc(lesson.words[i].en):'Scene '+(i+1)}</span></button>`).join('');
-    return `<div id="studio" class="tab-panel" hidden><div class="studio-heading"><div class="eyebrow">VISUAL TEACHING LAB</div><h2>Photo studio<span style="color:#6e967a">.</span></h2><p>Explore images, tell stories and ask students to describe real situations. Choose photographs or classic emoji-style cards.</p></div><div class="studio-top-actions"><button class="btn primary" data-studio="photos">◫ Live photos</button><button class="btn" data-studio="emoji">☺ Emoji cards</button><button class="btn" data-studio="reveal">Aa Reveal word</button></div><div class="studio-viewer"><div class="studio-viewer-frame" id="studio-viewer-frame"></div><div class="studio-viewer-caption"><div><small>PHOTO <span id="studio-current">01</span> / ${count}</small><h3 id="studio-viewer-title"></h3><p id="studio-viewer-prompt"></p></div><div class="button-row"><button class="btn" data-studio="prev">←</button><button class="btn primary" data-studio="next">Next →</button></div></div></div><div class="studio-gallery">${cards}</div><p class="studio-caption">${own(lesson)?'12 original AI-generated photos permanently stored in the repository.':'Context photos from Unsplash are used as teaching references. They do not directly illustrate each vocabulary word and are not offered for bulk resale or redistribution.'}</p><div class="studio-three-tasks"><article><b>01 · Observe</b><p>Who is there? What objects do you see? What is the mood?</p></article><article><b>02 · Explain</b><p>What happened before this moment? What happens next?</p></article><article><b>03 · Create</b><p>Make your own story with three pictures. Ask a partner two questions.</p></article></div>${own(lesson)?`<section class="studio-resource-area"><h3>Ready-made photo slides</h3><p>Original designed slides and an A4 worksheet for printing.</p><div class="studio-slide-gallery">${dailySlides.map(name=>`<a target="_blank" href="${root}assets/slides/daily-routines/${name}.webp">${image(root+'assets/slides/daily-routines/'+name+'.webp',name)}<span>${name.replace(/-/g,' ')}</span></a>`).join('')}</div><div class="button-row"><a class="btn primary" download href="${root}assets/worksheets/daily-routines-worksheet.pdf">↓ Download printable worksheet PDF</a></div></section>`:''}</div>`;
+  function listenHtml(){
+    return `<section id="listening" class="tab-panel ta-listen" hidden><div class="ta-page-heading"><div class="eyebrow">LISTEN · NOTICE · RESPOND</div><h2>Listening lab<span>.</span></h2><p>Use your browser’s English voice for an original short reading or vocabulary practice. Play, pause, repeat and check your understanding.</p></div><div class="ta-listen-grid"><article class="ta-listen-player"><div class="ta-sound-icon" aria-hidden="true">♫</div><span class="eyebrow">${escape(lesson.level)} · ${escape(lesson.title)}</span><h3>Listen first. Read later.</h3><div class="ta-top-controls"><button class="btn primary" data-ta="listen-story" id="ta-listen-play">▶ Play story</button><button class="btn" data-ta="listen-word">🔊 Word practice</button><button class="btn" data-ta="listen-pause">Ⅱ Pause</button><button class="btn" data-ta="listen-stop">■ Stop</button></div><div class="ta-listen-options"><label>Speed<select id="ta-speed"><option value=".75">0.75×</option><option value=".9" selected>0.90×</option><option value="1">1×</option><option value="1.15">1.15×</option></select></label><label>Accent<select id="ta-locale"><option value="en-GB">British</option><option value="en-US">American</option></select></label></div><div class="ta-clip-info" id="ta-clip-info" role="status">Short story · listen for the main idea.</div><button class="btn soft" data-ta="transcript">▤ Show / hide transcript</button><div class="ta-transcript" id="ta-transcript" hidden>${escape(lesson.story)}</div><p class="ta-photo-note">Audio comes from device speech synthesis. Voice availability differs across browsers. No third-party recordings are copied.</p></article><article class="ta-listen-tasks"><h3>Listen and respond</h3><p>Play twice. Don’t read the transcript during the first listen.</p><div class="ta-task"><b>01 · Main idea</b><p>Summarize the recording in one sentence.</p></div><div class="ta-task"><b>02 · Detail</b><p>Which two actions or details can you remember?</p></div><div class="ta-task"><b>03 · Vocabulary</b><p>Listen to each word and repeat it. Write an example of your own.</p></div><div class="ta-task"><b>04 · Comprehension</b><p>Which of these words appeared in the story?</p><div id="ta-listen-choices" class="ta-listen-choices"></div><p id="ta-listen-feedback" role="status" class="ta-listen-feedback"></p></div></article></div></section>`;
   }
-  function makeListening(){
-    const url='https://learnenglish.britishcouncil.org/free-resources/listening/'+(lesson.level==='A0'?'a1':lesson.level.toLowerCase());
-    return `<div id="listening" class="tab-panel" hidden><div class="studio-heading"><div class="eyebrow">ENGLISH LISTENING</div><h2>Listening lab<span style="color:#6e967a">.</span></h2><p>Listen to an original short story using your browser voice, then answer comprehension questions. No copyrighted audio is copied.</p></div><div class="studio-listening-grid"><div class="studio-listening-player"><div class="studio-audio-symbol">♫</div><div class="eyebrow">SHORT STORY · ${esc(lesson.level)}</div><h3>${esc(lesson.title)}</h3><p>Listen twice. First understand the main idea, then focus on details.</p><div class="button-row"><button class="btn primary" data-studio="play" id="studio-play">▶ Play</button><button class="btn" data-studio="pause">Ⅱ Pause / resume</button><button class="btn" data-studio="stop">■ Stop</button></div><div class="studio-audio-settings"><label>Speed <select id="studio-rate"><option value=".75">0.75×</option><option value=".9" selected>0.9×</option><option value="1">1×</option><option value="1.15">1.15×</option></select></label><label>Accent <select id="studio-accent"><option value="en-GB">British</option><option value="en-US">American</option></select></label></div><button class="btn soft" data-studio="transcript" id="studio-transcript-btn">▤ Show transcript</button><blockquote class="studio-transcript" id="studio-transcript" hidden>${esc(lesson.story)}</blockquote><p class="studio-caption">Generated by your device's speech synthesis; recording quality and voice availability depend on the browser.</p></div><div class="studio-listening-questions"><h3>Check understanding</h3>${['Who or what is the story about?','Which action happens first? Mention two details.','What is the main challenge or interesting moment?','Retell the story using three new expressions.'].map((q,i)=>`<div class="studio-question"><strong>${String(i+1).padStart(2,'0')}</strong><p>${q}</p></div>`).join('')}<div class="studio-source-link"><b>Authentic listening resources</b><p>More level-based recordings are available on British Council LearnEnglish.</p><a href="${url}" target="_blank" rel="noopener noreferrer">Open ${esc(lesson.level)} listening activities ↗</a></div></div></div></div>`;
+  function installTabs(){
+    const tabs=$('.tabs'),sidebar=$('.sidebar');if(!tabs)return;
+    [['studio','◫ Photo studio'],['listening','♫ Listening']].forEach(([id,title])=>{
+      tabs.insertAdjacentHTML('beforeend',`<button class="tab" data-tab="${id}" role="tab" aria-selected="false">${title}</button>`);
+      if(sidebar){const a=document.createElement('a');a.className='side-link';a.href='#'+id;a.dataset.tab=id;a.textContent=title;sidebar.insertBefore(a,sidebar.querySelector('.sidebar-tip'));}
+    });
+    $('.lesson-main')?.insertAdjacentHTML('beforeend',galleryHtml()+listenHtml());
+    $('.stage-head .button-row')?.insertAdjacentHTML('afterbegin','<button class="btn small" data-ta="mode-toggle" id="ta-photo-switch">◫ Photos</button>');
+    $('#assets .export-grid')?.insertAdjacentHTML('afterend','<div class="ta-resources"><h3>Photo-based lesson materials</h3><p>View all lesson images and download photo-based resources.</p><button class="btn primary" data-tab="studio">◫ Open photo studio</button><button class="btn" data-ta="print-lesson">↓ Print photo lesson / PDF</button></div>');
+    const speaking=$('#speaking .section-header');
+    if(speaking)speaking.insertAdjacentHTML('afterend',`<div class="ta-speaking-photo">${img(heroPhoto(lesson),lesson.title+' speaking photo')}</div>`);
+    $$('.tab-panel').forEach(p=>{if(p.id!=='slides')p.hidden=true;});
+    if(location.hash==='#studio'||location.hash==='#listening')setTimeout(()=>$('.tabs [data-tab="'+location.hash.slice(1)+'"]')?.click(),0);
+    refreshScene();refreshStory();refreshMode();renderListeningQuestion();
   }
-  function setupLesson(){
-    if(!$('.lesson-main'))return;
-    tab('studio','◫ Photo studio');tab('listening','♫ Listening');
-    $('.lesson-main').insertAdjacentHTML('beforeend',makeGallery()+makeListening());
-    $('.stage-head .button-row')?.insertAdjacentHTML('afterbegin','<button class="btn small" data-studio="toggle" id="studio-mode-btn">◫ Live photos</button>');
-    $('#assets .export-grid')?.insertAdjacentHTML('afterend',`<div class="studio-resource-area"><h3>Visual teaching resources</h3><a class="btn" href="#studio" data-tab="studio">◫ Open photo studio</a>${own(lesson)?` <a class="btn primary" href="${root}assets/worksheets/daily-routines-worksheet.pdf" download>↓ Download proper PDF worksheet</a>`:''}</div>`);
-    $('#speaking .section-header')?.insertAdjacentHTML('afterend',`<div class="studio-speaking-photo">${image(photo(lesson,0),lesson.title+' visual speaking prompt')}</div>`);
-    const stage = $('#stage-card');
-    if(stage){new MutationObserver(enhanceStage).observe(stage,{childList:true});}
-    const flash = $('#flash-card');
-    if(flash){new MutationObserver(enhanceFlash).observe(flash,{childList:true});}
-    const prompts = $('#speaking-list');
-    if(prompts)new MutationObserver(updateSpeaking).observe(prompts,{childList:true});
-    if('ResizeObserver' in window&&stage)new ResizeObserver(fitSlide).observe(stage);
-    window.addEventListener('resize',fitSlide);
-    document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement)document.body.classList.remove('presenter');fitSlide();});
-    updateViewer();enhanceStage();enhanceFlash();updateMode();
-    if(location.hash==='#studio'||location.hash==='#listening')$(`.tabs [data-tab="${location.hash.slice(1)}"]`)?.click();
-  }
-  function updateViewer(){
-    if(!lesson||!$('#studio-viewer-frame'))return;
-    const n=own(lesson)?12:6;selected=((selected%n)+n)%n;
-    const word=lesson.words[selected%lesson.words.length];
-    $('#studio-viewer-frame').innerHTML=image(photo(lesson,selected,1600),word.en);
-    $('#studio-current').textContent=String(selected+1).padStart(2,'0');
-    $('#studio-viewer-title').textContent=revealed&&own(lesson)?word.en:'Look. Think. Speak.';
-    $('#studio-viewer-prompt').textContent=revealed&&own(lesson)?word.example:'Describe the picture, then make a sentence or predict what happens next.';
-    $$('.photo-scene-card').forEach((e,i)=>e.classList.toggle('active',i===selected));
-  }
-  function updateMode(){
-    const button=$('#studio-mode-btn');if(button)button.textContent=visual==='photos'?'◫ Live photos':'☺ Classic emoji';
-    $$('[data-studio="photos"],[data-studio="emoji"]').forEach(b=>b.classList.toggle('primary',(b.dataset.studio==='photos')===(visual==='photos')));
-    enhanceStage();enhanceFlash();
-  }
-  function fitSlide(){
-    const host=$('#stage-card'),inner=host?.querySelector('.studio-canvas');if(!host||!inner)return;
-    const scale=Math.min(host.clientWidth/1280,host.clientHeight/720);
-    if(scale>0)inner.style.transform=`translate(-50%,-50%) scale(${scale})`;
-  }
-  function enhanceStage(){
-    const host=$('#stage-card');if(!host||!lesson)return;
-    let inner=host.querySelector('.studio-canvas');
-    if(!inner){inner=document.createElement('div');inner.className='studio-canvas';while(host.firstChild)inner.appendChild(host.firstChild);host.appendChild(inner);}
-    const slide=(Number(($('#slide-count')?.textContent||'').match(/\d+/)?.[0])||1)-1;
-    const art=inner.querySelector('.slide-art');
-    if(art){
-      const old=art.querySelector('.studio-over-image');
-      if(visual==='photos'&&!old){
-        const src=own(lesson)?root+'assets/slides/daily-routines/'+(slide===0?'cover':'photo-story')+'.webp':photo(lesson,slide,1500);
-        art.insertAdjacentHTML('beforeend',image(src,lesson.title+' themed photo','studio-over-image'));
-        art.querySelector('.studio-over-image')?.addEventListener('error',e=>e.target.remove(),{once:true});
-      }else if(visual!=='photos'&&old)old.remove();
+  function renderListeningQuestion(){
+    const source=lesson.story.toLowerCase();
+    const plausible=lesson.words.slice(0,Math.min(lesson.words.length,8));
+    const inStory=plausible.find(w=>source.includes(w.en.toLowerCase()));
+    const answer=inStory||lesson.words.find(w=>source.includes(w.en.toLowerCase()))||null;
+    const fallback=answer?null:lesson.words[0];
+    const correct=answer?.en||fallback?.en;
+    const distractors=lesson.words.filter(w=>w.en!==correct).slice(0,3);
+    const all=[correct,...distractors.map(x=>x.en)].filter(Boolean);
+    if(!answer){
+      $('#ta-listen-choices').innerHTML='<p>Listen for the key idea, then retell the story using three words from the lesson.</p>';
+      return;
     }
-    inner.querySelectorAll('.mini-art').forEach((item,i)=>{
-      let existing=item.querySelector('.studio-mini-image');
-      if(visual==='photos'&&!existing){
-        item.insertAdjacentHTML('afterbegin',image(photo(lesson,slide===8?i+2:i,480),'Vocabulary illustration','studio-mini-image'));
-        item.querySelector('.studio-mini-image')?.addEventListener('error',e=>e.target.remove(),{once:true});
-      }else if(visual!=='photos'&&existing)existing.remove();
+    const ordered=all.map((v,i)=>({v,rank:(i+2)%all.length})).sort((a,b)=>a.rank-b.rank);
+    $('#ta-listen-choices').innerHTML=ordered.map(x=>`<button class="btn small" data-ta="listen-answer" data-answer="${escape(x.v)}" data-correct="${escape(correct)}">${escape(x.v)}</button>`).join('');
+  }
+  function refreshScene(){
+    if(!lesson)return;scene=((scene%sceneCount())+sceneCount())%sceneCount();
+    $('#ta-photo-stage').innerHTML=img(photo(lesson,scene),lesson.title+' photograph '+(scene+1),'',true);
+    $('#ta-photo-count').textContent=String(scene+1).padStart(2,'0');
+    $('#ta-photo-title').textContent=showWord&&isDaily(lesson)?sceneWord(scene):'Look, think and speak.';
+    $('#ta-photo-question').textContent=showWord&&isDaily(lesson)?lesson.words[scene].example:lesson.questions[scene%lesson.questions.length];
+    $$('.ta-scene').forEach((b,i)=>b.classList.toggle('active',i===scene));
+  }
+  function refreshStory(){
+    const box=$('#ta-story-strip');if(!box)return;
+    box.innerHTML=story.length?story.map((n,i)=>`<div class="ta-story-card">${img(photo(lesson,n),'Story scene '+(i+1))}<div class="ta-story-actions"><strong>${i+1}. ${escape(sceneWord(n))}</strong><button data-ta="story-left" data-i="${i}" aria-label="Move left">←</button><button data-ta="story-right" data-i="${i}" aria-label="Move right">→</button><button data-ta="story-remove" data-i="${i}" aria-label="Remove">×</button></div></div>`).join(''):'<p class="ta-story-empty">Choose a photo above, then click “Add current photo”.</p>';
+  }
+  function download(name,content,type='text/html;charset=utf-8'){
+    const url=URL.createObjectURL(new Blob([content],{type}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),500);
+  }
+  function exportStory(){
+    if(!story.length){alert('Add a photo to your story first.');return;}
+    const photos=story.map((id,i)=>`<section class="scene"><img src="../../assets/photos/${isDaily(lesson)?'daily-routines/'+dailyNames[id]:'lesson-covers/'+(themeSets[lesson.id]||[lesson.id])[id]}.webp"><div><h2>Scene ${i+1}</h2><p>${escape(lesson.questions[id%lesson.questions.length])}</p><p>Describe the image. What happened before and what happens next?</p></div></section>`).join('');
+    const html=`<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(lesson.title)} picture story</title><style>body{font:18px/1.5 Arial;color:#233a2e;max-width:1080px;margin:auto;padding:25px}h1{font-size:44px}.scene{break-inside:avoid;display:grid;grid-template-columns:1fr 1fr;gap:30px;margin:24px 0;padding:16px;border:1px solid #dce8df;border-radius:20px}.scene img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px}@media(max-width:650px){.scene{grid-template-columns:1fr}}@media print{.scene{page-break-inside:avoid}}</style><h1>${escape(lesson.title)} · Photo Story</h1><p>${escape(lesson.level)} · Describe the scenes and create your own story.</p>${photos}</html>`;
+    download(lesson.id+'-photo-story.html',html);
+  }
+  function enhanceSlides(){
+    const host=$('#stage-card');if(!host||!lesson)return;
+    let canvas=host.querySelector('.ta-canvas');
+    if(!canvas){canvas=document.createElement('div');canvas.className='ta-canvas';while(host.firstChild)canvas.appendChild(host.firstChild);host.appendChild(canvas);}
+    const slide=parseInt(($('#slide-count')?.textContent||'1').match(/\d+/)?.[0]||'1',10)-1;
+    const art=canvas.querySelector('.slide-art');
+    if(art){
+      let existing=art.querySelector('.ta-deck-photo');
+      if(mode==='photo'&&!existing){art.insertAdjacentHTML('beforeend',img(slide===0?heroPhoto(lesson):photo(lesson,slide),'Photo for '+lesson.title,'ta-deck-photo',true));}
+      if(mode==='emoji'&&existing)existing.remove();
+    }
+    const minis=canvas.querySelectorAll('.mini-art');
+    minis.forEach((box,i)=>{
+      const current=box.querySelector('.ta-vocab-photo');
+      if(mode==='photo'&&isDaily(lesson)){
+        const photoIndex=slide===8?i+2:i;
+        if(!current)box.insertAdjacentHTML('afterbegin',img(photo(lesson,photoIndex),lesson.words[photoIndex%lesson.words.length].en,'ta-vocab-photo'));
+      }else if(current)current.remove();
     });
-    inner.classList.toggle('studio-photos-on',visual==='photos');
-    fitSlide();
+    canvas.classList.toggle('ta-photo-mode',mode==='photo');
+    fitStage();
   }
   function enhanceFlash(){
     const card=$('#flash-card .flash-card');if(!card||!lesson)return;
-    const n=(Number(($('#flash-position')?.textContent||'').match(/\d+/)?.[0])||1)-1;
-    let photoEl=card.querySelector('.studio-flash-image');
-    if(visual==='photos'&&!photoEl){
-      card.insertAdjacentHTML('afterbegin',image(photo(lesson,n,850),lesson.words[n%lesson.words.length].en,'studio-flash-image'));
-      photoEl=card.querySelector('.studio-flash-image');photoEl?.addEventListener('error',e=>{e.target.remove();card.classList.remove('studio-photo-card-active');},{once:true});
-    }else if(visual!=='photos'&&photoEl)photoEl.remove();
-    card.classList.toggle('studio-photo-card-active',visual==='photos'&&!!card.querySelector('.studio-flash-image'));
+    const i=parseInt(($('#flash-position')?.textContent||'1').match(/\d+/)?.[0]||'1',10)-1;
+    const existing=card.querySelector('.ta-flash-photo');
+    if(mode==='photo'&&isDaily(lesson)){
+      if(!existing)card.insertAdjacentHTML('afterbegin',img(photo(lesson,i),lesson.words[i].en,'ta-flash-photo',true));
+    }else if(existing)existing.remove();
+    card.classList.toggle('ta-has-photo',mode==='photo'&&isDaily(lesson));
   }
-  function updateSpeaking(){
-    const element=$('#speaking .studio-speaking-photo img');const active=$('#speaking-list .speaking-item.active');
-    if(element)element.src=photo(lesson,Number(active?.dataset.prompt||0),960);
+  function refreshMode(){
+    const b=$('#ta-photo-switch');if(b)b.textContent=mode==='photo'?'◫ Photo mode':'☺ Emoji mode';
+    $$('[data-ta="mode-photo"],[data-ta="mode-emoji"]').forEach(b=>b.classList.toggle('primary',(b.dataset.ta==='mode-photo')===(mode==='photo')));
+    enhanceSlides();enhanceFlash();
   }
-  function focus(e){
-    const button=e.target.closest('[data-action="focus"]');if(!button)return;
-    e.preventDefault();e.stopImmediatePropagation();
-    if(document.body.classList.contains('presenter')){
-      document.body.classList.remove('presenter');if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});
+  function fitStage(){
+    const host=$('#stage-card'),canvas=host?.querySelector('.ta-canvas');if(!host||!canvas)return;
+    const w=host.clientWidth,h=host.clientHeight;
+    if(w<=0||h<=0)return;
+    const scale=Math.min(w/1280,h/720);
+    canvas.style.transform=`translate(-50%,-50%) scale(${Math.max(.05,scale)})`;
+  }
+  function fullscreen(){
+    const stage=$('.lesson-stage');if(!stage)return;
+    if(document.body.classList.contains('presenter')||document.fullscreenElement){
+      document.body.classList.remove('presenter');
+      if(document.fullscreenElement&&document.exitFullscreen)document.exitFullscreen().catch(()=>{});
     }else{
-      document.body.classList.add('presenter');const container=$('.lesson-stage');
-      if(container?.requestFullscreen)container.requestFullscreen().catch(()=>{});
+      const t=$('.tabs [data-tab="slides"]');t?.click();
+      document.body.classList.add('presenter');
+      if(stage.requestFullscreen)stage.requestFullscreen().catch(()=>{});
     }
-    requestAnimationFrame(fitSlide);
+    requestAnimationFrame(()=>requestAnimationFrame(fitStage));
   }
-  function studioClick(e){
-    const b=e.target.closest('[data-studio]');if(!b)return;
-    e.preventDefault();e.stopImmediatePropagation();
-    const a=b.dataset.studio;
-    if(a==='choose'){selected=Number(b.dataset.index)||0;revealed=false;updateViewer();}
-    if(a==='prev'){selected--;revealed=false;updateViewer();}
-    if(a==='next'){selected++;revealed=false;updateViewer();}
-    if(a==='reveal'){revealed=!revealed;updateViewer();}
-    if(['photos','emoji','toggle'].includes(a)){
-      visual=a==='photos'?'photos':a==='emoji'?'emoji':visual==='photos'?'emoji':'photos';
-      try{localStorage.setItem('ta:visual-mode',visual)}catch(_){}
-      updateMode();
+  function printSlideContent(index){
+    const s=slideItems()[index], title=s.title;
+    if(s.kind==='cover')return `<div class="ta-print-cover">${img(heroPhoto(lesson),title)}</div><p class="ta-print-intro">${escape(lesson.outcome)}</p>`;
+    if(s.kind==='art')return `<div class="ta-print-cover">${img(photo(lesson,0),title)}</div>`;
+    if(s.kind==='words'){
+      return `<div class="ta-print-vocab">${s.items.map((w,i)=>`<div class="ta-print-word">${isDaily(lesson)?img(photo(lesson,index===9?i+2:i),w.en):`<div class="ta-print-icon">${escape(w.icon)}</div>`}<strong>${escape(w.en)}</strong></div>`).join('')}</div>`;
     }
-    if(a==='play'){
-      if(!window.speechSynthesis){$('#studio-play').textContent='Voice unavailable';return;}
-      speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(lesson.story);u.lang=$('#studio-accent').value;u.rate=Number($('#studio-rate').value)||.9;
-      u.onend=()=>{$('#studio-play').textContent='▶ Play';};speechSynthesis.speak(u);$('#studio-play').textContent='◉ Playing';
-    }
-    if(a==='pause'&&window.speechSynthesis){if(speechSynthesis.paused)speechSynthesis.resume();else speechSynthesis.pause();}
-    if(a==='stop'&&window.speechSynthesis){speechSynthesis.cancel();$('#studio-play').textContent='▶ Play';}
-    if(a==='transcript'){
-      reading=!reading;$('#studio-transcript').hidden=!reading;$('#studio-transcript-btn').textContent=reading?'▤ Hide transcript':'▤ Show transcript';
-    }
+    if(s.kind==='list')return `<div class="ta-print-list">${s.items.map((item,i)=>`<div class="ta-print-list-item"><em>${String(i+1).padStart(2,'0')}</em><span>${escape(item)}</span></div>`).join('')}</div>${s.text?`<p class="ta-print-hint">${escape(s.text)}</p>`:''}`;
+    return `<div class="ta-print-quote">${escape(s.text||'')}</div>`;
   }
-  const link=document.createElement('link');link.rel='stylesheet';link.href=root+'studio.css';document.head.appendChild(link);
-  document.addEventListener('click',focus,true);
-  document.addEventListener('click',studioClick,true);
-  if(lesson)setupLesson();else coverCatalog();
+  function slideItems(){
+    return [
+      {kind:'cover',title:lesson.title,k:'WELCOME'},
+      {kind:'list',title:'A quick warm-up',k:'01 · WARM-UP',items:lesson.warmup},
+      {kind:'art',title:'Look & notice',k:'02 · PHOTO DISCOVERY'},
+      {kind:'list',title:"Today’s goal",k:'03 · AIM',items:[lesson.outcome,'Use five new expressions.','Ask a partner a question.']},
+      {kind:'words',title:'Our word bank',k:'04 · VOCABULARY',items:lesson.words.slice(0,10)},
+      {kind:'list',title:lesson.grammar.title,k:'05 · LANGUAGE',items:lesson.grammar.models},
+      {kind:'quote',title:'Read & notice',k:'06 · READING',text:lesson.story},
+      {kind:'list',title:'Spot the pattern',k:'07 · GRAMMAR',items:lesson.grammar.models,text:lesson.grammar.rule},
+      {kind:'list',title:'Conversation starters',k:'08 · SPEAKING',items:lesson.questions.slice(0,4)},
+      {kind:'words',title:'Picture prompts',k:'09 · PICTURES',items:lesson.words.slice(2,12)},
+      {kind:'list',title:'Role-play',k:'10 · REAL SITUATION',items:lesson.situations},
+      {kind:'list',title:'Go deeper',k:'11 · DISCUSSION',items:lesson.questions.slice(3)},
+      {kind:'list',title:'Exit ticket',k:'12 · REVIEW',items:['Use one new word.','Share one thing you learned.','Ask one final question.']},
+      {kind:'quote',title:'Homework challenge',k:'13 · PRACTICE',text:lesson.homework}
+    ];
+  }
+  function buildPrint(){
+    const host=$('#print-root');if(!host||!lesson)return;
+    host.classList.add('ta-print-root');
+    host.innerHTML=slideItems().map((s,i)=>`<section class="ta-print-page"><header><div class="ta-print-brand">teaching<span>assets</span></div><small>${escape(lesson.level)} · ${escape(s.k)}</small></header><main><h2>${escape(s.title)}</h2>${printSlideContent(i)}</main><footer><span>${escape(lesson.title)}</span><span>${i+1} / 14</span></footer></section>`).join('');
+  }
+  function setupPrinting(){
+    buildPrint();
+    window.addEventListener('beforeprint',buildPrint);
+  }
+  function readClip(text,kind){
+    if(!window.speechSynthesis){$('#ta-clip-info').textContent='Speech synthesis is unavailable in this browser.';return;}
+    speechSynthesis.cancel();
+    const utterance=new SpeechSynthesisUtterance(text);const lang=$('#ta-locale').value;
+    utterance.lang=lang;utterance.rate=Number($('#ta-speed').value)||.9;
+    const match=voices.find(v=>v.lang.toLowerCase()===lang.toLowerCase())||voices.find(v=>v.lang.toLowerCase().startsWith(lang.slice(0,2).toLowerCase()));
+    if(match)utterance.voice=match;
+    utterance.onstart=()=>{$('#ta-clip-info').textContent=kind==='word'?'Playing vocabulary word '+(clipIndex+1)+' / '+lesson.words.length:'Playing the story…';};
+    utterance.onend=()=>{$('#ta-clip-info').textContent='Playback complete. Replay or check the transcript.';};
+    utterance.onerror=()=>{$('#ta-clip-info').textContent='Could not play audio. Try a different browser voice.';};
+    speechSynthesis.speak(utterance);
+  }
+  function setupAudio(){
+    if(!window.speechSynthesis)return;
+    voices=speechSynthesis.getVoices();
+    speechSynthesis.addEventListener?.('voiceschanged',()=>{voices=speechSynthesis.getVoices();});
+    document.addEventListener('visibilitychange',()=>{if(document.hidden)speechSynthesis.pause();});
+  }
+  function handle(e){
+    const printButton=e.target.closest('[data-action="print"]');
+    if(printButton){e.preventDefault();e.stopImmediatePropagation();buildPrint();window.print();return;}
+    const focusButton=e.target.closest('[data-action="focus"]');
+    if(focusButton){e.preventDefault();e.stopImmediatePropagation();fullscreen();return;}
+    const b=e.target.closest('[data-ta]');if(!b)return;
+    e.preventDefault();e.stopImmediatePropagation();const action=b.dataset.ta;
+    if(action==='scene'){scene=+b.dataset.i;showWord=false;refreshScene();}
+    else if(action==='prev'||action==='next'){scene+=action==='next'?1:-1;showWord=false;refreshScene();}
+    else if(action==='word'){showWord=!showWord;refreshScene();}
+    else if(action==='mode-photo'||action==='mode-emoji'||action==='mode-toggle'){mode=action==='mode-photo'?'photo':action==='mode-emoji'?'emoji':mode==='photo'?'emoji':'photo';try{localStorage.setItem('ta:visual-mode',mode);}catch(_){}refreshMode();}
+    else if(action==='photo-fullscreen'){
+      const v=$('#ta-photo-viewer');if(document.fullscreenElement)document.exitFullscreen?.().catch(()=>{});else v?.requestFullscreen?.().catch(()=>{});
+    }
+    else if(action==='add-story'){if(story.length>=6){alert('The story can contain up to six scenes.');return;}story.push(scene);refreshStory();}
+    else if(action==='clear-story'){story=[];refreshStory();}
+    else if(action==='story-left'||action==='story-right'){const i=+b.dataset.i,j=i+(action==='story-left'?-1:1);if(j<0||j>=story.length)return;[story[i],story[j]]=[story[j],story[i]];refreshStory();}
+    else if(action==='story-remove'){story.splice(+b.dataset.i,1);refreshStory();}
+    else if(action==='story-download')exportStory();
+    else if(action==='listen-story'){listeningMode='story';readClip(lesson.story,'story');}
+    else if(action==='listen-word'){listeningMode='word';readClip(lesson.words[clipIndex%lesson.words.length].en,'word');clipIndex++;}
+    else if(action==='listen-pause'){if(window.speechSynthesis){if(speechSynthesis.paused)speechSynthesis.resume();else speechSynthesis.pause();}}
+    else if(action==='listen-stop'){if(window.speechSynthesis){speechSynthesis.cancel();$('#ta-clip-info').textContent='Stopped.';}}
+    else if(action==='transcript'){$('#ta-transcript').hidden=!$('#ta-transcript').hidden;}
+    else if(action==='listen-answer'){
+      const right=b.dataset.answer===b.dataset.correct;
+      $('#ta-listen-feedback').textContent=right?'✓ Correct! Nice listening.':'Try again. Listen to the story one more time.';
+      b.classList.add(right?'ta-correct':'ta-incorrect');
+    }
+    else if(action==='print-lesson'){buildPrint();window.print();}
+  }
+  const css=document.createElement('link');css.rel='stylesheet';css.href=root+'studio.css';document.head.append(css);
+  document.addEventListener('click',handle,true);
+  document.addEventListener('keydown',e=>{
+    if(!lesson||e.target.closest('input,textarea,select,[contenteditable]'))return;
+    if(e.key==='Escape'&&document.body.classList.contains('presenter')){e.preventDefault();e.stopImmediatePropagation();fullscreen();}
+    else if(e.key.toLowerCase()==='f'&&($('.tabs [data-tab="slides"].active')||document.body.classList.contains('presenter'))){e.preventDefault();e.stopImmediatePropagation();fullscreen();}
+  },true);
+  document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement)document.body.classList.remove('presenter');requestAnimationFrame(fitStage);});
+  if(lesson){
+    installTabs();
+    const stage=$('#stage-card');if(stage){new MutationObserver(enhanceSlides).observe(stage,{childList:true,subtree:false});if(window.ResizeObserver)new ResizeObserver(fitStage).observe(stage);}
+    const flash=$('#flash-card');if(flash)new MutationObserver(enhanceFlash).observe(flash,{childList:true});
+    window.addEventListener('resize',fitStage);
+    enhanceSlides();enhanceFlash();setupPrinting();setupAudio();
+  }else catalog();
 })();
