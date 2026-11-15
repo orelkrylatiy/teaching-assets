@@ -5,7 +5,7 @@
 The library supports **15 individual English lessons (A0 to B2)** with the same visual experience:
 
 1. HTML lesson presentation (14 slides), keyboard navigation and true fit-to-screen 16:9 fullscreen.
-2. **Live Photo Deck** with a photo title slide, five contextual photo scenes for most topics (12 for Daily Routines), speaking prompts and a recap slide. Use arrow keys, full screen, or download an offline-ready self-contained HTML presentation.
+2. **Live Photo Deck** with a photo title slide, five contextual photo scenes for topics without a complete photo pack (12 for Daily Routines, Hello, English! and My World in Pictures), speaking prompts and a recap slide. Use arrow keys, full screen, or download an offline-ready self-contained HTML presentation.
 3. Original image cards in **Photo Studio** and downloadable WebP. A teacher can hide labels, elicit vocabulary, and create a custom six-image story.
 4. A **Listening Lab** that uses the teacher's browser speech engine, with adjustable speed and locale, transcript, word practice and an interactive word-recognition check.
 5. Printable A4 landscape **14-slide PDF** via browser printing. Daily Routines also includes a stand-alone A4 worksheet PDF, and the code exports XLSX/CSV/PPTX and SVG/ZIP as before.
@@ -39,8 +39,14 @@ In lesson **Presentation**, use **Print / PDF**. The `#print-root` element is de
 
 ## Known limits
 
-There are no teacher accounts, assignment persistence, collaborative editor or cloud AI generation built into this static prototype. Authentic recordings and film/video uploads are not included because rights and distribution permissions must be established. Browser-generated TTS is not equivalent to a human recording. Outside Daily Routines, contextual images can support conversation but still need dedicated one-to-one photo generation for vocabulary. Teacher review of CEFR level and examples is required before classroom use.
+There are no teacher accounts, assignment persistence, collaborative editor or cloud AI generation built into this static prototype. Authentic recordings and film/video uploads are not included because rights and distribution permissions must be established. Browser-generated TTS is not equivalent to a human recording. Outside the three complete photo packs, contextual images can support conversation but still need dedicated one-to-one photo generation for vocabulary. Teacher review of CEFR level and examples is required before classroom use.
 
 ## Newly integrated A0 trial lesson photo pack
 
-The `hello-english` lesson now includes 12 original AI-generated photo scenes mapped one-to-one to the vocabulary order (hello, goodbye, please, thank you, yes, no, name, friend, teacher, student, English, nice to meet you). All are repository-hosted WebP files with `assets/photos/hello-english/manifest.json`. Both this and the Daily Routines pack use the generic `photoPack` metadata field in `data.js`, so Photo Studio, flashcards, presentation and the dedicated Visual Library automatically use the exact pictures. There are now **24 exact-word photo cards** in two complete packs.
+The `hello-english` lesson now includes 12 original AI-generated photo scenes mapped one-to-one to the vocabulary order (hello, goodbye, please, thank you, yes, no, name, friend, teacher, student, English, nice to meet you). All are repository-hosted WebP files with `assets/photos/hello-english/manifest.json`. Both this and the Daily Routines pack use the generic `photoPack` metadata field in `data.js`, so Photo Studio, flashcards, presentation and the dedicated Visual Library automatically use the exact pictures. There are now **36 exact-word photo cards** in three complete packs.
+
+## My World in Pictures photo pack and ready presentations
+
+The A0 My World in Pictures lesson now contains a 12-photo original word-mapped pack (cat, dog, book, phone, coffee, music, sun, house, car, apple, water, family). The original high-resolution source is under `assets/photo-sources/`, with optimized crops in `assets/photos/picture-me/`. It appears automatically in the photo studio, flashcards, Live Photo Deck, Photo Library and printable teaching slides.
+
+For each of the three complete photo packs, teachers can download an **18-slide editable PPTX presentation** and **2-page A4 worksheet PDF**, directly from Photo Studio or Resources. The photographic picture quiz includes four choices, clear correctness feedback, cumulative scores and optional spoken words using speech synthesis. CI tests the photo quiz, exact file paths, PDF printing and downloadable resource links.
