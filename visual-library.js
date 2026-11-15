@@ -30,7 +30,6 @@ const view=`<header class="vl-header"><div class="vl-container vl-header-inner">
 <footer class="vl-footer"><div class="vl-container">Original Teaching Assets photographs · Uploaded images remain in this browser · <a href="${root}index.html">Back to lesson catalogue ↗</a></div></footer>`;
 document.getElementById('app').innerHTML=view;
 filter();
-drawSelection();
 }
 function filter(){
 const shown=items.filter(r=>(tab==='All'||r.kind===tab)&&[r.title,r.topic,r.level,r.prompt,r.translation].join(' ').toLowerCase().includes(search));
@@ -178,6 +177,6 @@ document.addEventListener('DOMContentLoaded',async()=>{
 draw();$('#vl-search').addEventListener('input',e=>{search=e.target.value.trim().toLowerCase();filter();});
 $('#vl-file-input').addEventListener('change',async e=>{await addFiles(e.target.files);e.target.value='';});
 window.addEventListener('beforeprint',()=>{if(selected.length&&$('#vl-print-root').children.length===0)buildPrintOnly();});
-await loadUploads();filter();drawSelection();
+await loadUploads();selected=selected.filter(id=>!!get(id));persist();filter();drawSelection();
 });
 })();
