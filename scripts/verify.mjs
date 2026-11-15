@@ -65,3 +65,20 @@ for(const l of verifiedPacks){
 }
 assert(exactPhotos>=24,'Expected at least 24 word-mapped AI photos across Daily Routines and Hello English');
 console.log('✓ '+verifiedPacks.length+' exact-word photo packs · '+exactPhotos+' photos physically present and validated as WebP');
+
+const imageComplete = lessons.filter(l=>Array.isArray(l.photoPack)&&l.photoPack.length===l.words.length);
+assert(imageComplete.length>=3,'Expected at least 3 fully photo-mapped lessons');
+for(const l of imageComplete){
+ const names=new Set(l.photoPack);
+ assert.equal(names.size,l.words.length,'Duplicate photo mapping: '+l.id);
+ for(const name of l.photoPack){
+  assert(/^[a-z0-9-]+$/.test(name),'Unsafe photo basename '+name);
+  const filepath='assets/photos/'+l.id+'/'+name+'.webp';
+  assert(fs.existsSync(filepath),'Missing exact vocabulary photograph '+filepath);
+  assert(fs.statSync(filepath).size>8000,'Image unexpectedly small: '+filepath);
+ }
+ const pack='assets/packs/'+l.id+'/'+l.id;
+ assert(fs.existsSync(pack+'-photo-lesson.pptx'),'Missing editable photographic slide deck '+l.id);
+ assert(fs.existsSync(pack+'-worksheet.pdf'),'Missing printable photo worksheet '+l.id);
+}
+console.log('✓ '+imageComplete.length+' exact-photo lessons / '+imageComplete.reduce((n,l)=>n+l.photoPack.length,0)+' mapped photo cards / ready PPTX + PDF');
