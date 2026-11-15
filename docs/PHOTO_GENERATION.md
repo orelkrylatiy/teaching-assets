@@ -5,7 +5,7 @@
 There are **15 original lesson packs** (A0/pre-A1 through B2) with 180 vocabulary expressions. The **photo-shot brief manifest** at `prompts/english-photo-shotlist.json` contains 180 prompts to help produce additional images. These prompts are **not images** and should not be counted as generated artwork.
 
 Existing committed media:
-- 12 word-mapped original generated WebP photos in `assets/photos/daily-routines/` and 12 more in `assets/photos/hello-english/` (24 exact-word photos across two lessons).
+- 12 original word-mapped photos each in `assets/photos/daily-routines/`, `assets/photos/hello-english/` and `assets/photos/picture-me/` (36 exact-word images across three lessons).
 - 14 original lesson-specific topic covers plus two additional themed covers in `assets/photos/lesson-covers/`.
 - Six original Daily Routines designed photo slides in `assets/slides/daily-routines/`.
 - One original Daily Routines printable PDF.
@@ -44,4 +44,10 @@ Do not redistribute unrelated photographers' images without reviewing rights. Us
 
 ## Current limitation
 
-The first new A0 photo pack, Hello, English!, is committed and integrated. Its 12 contact-sheet crops are visually coherent but lower native resolution than individually generated high-resolution photos; review sharpness in full-screen use. The other 13 lessons still need their own verified exact-word photo packs. Photo prompts are not substitutes for created images.
+Two A0 photo packs, Hello, English! and My World in Pictures, are committed and integrated alongside the A1 Daily Routines pack. Their contact-sheet crops are visually coherent but lower native resolution than individually generated full-frame photographs. The other 12 lessons still need their own exact-word photo packs. Photo prompts are not substitutes for created images.
+
+## Ready lesson material generation
+
+Use `python scripts/build-photo-packs.py` to generate embedded-photo PowerPoint (.pptx) and 2-page landscape A4 worksheets (.pdf) for **every** lesson with a complete `photoPack`. Source assets remain in the repository; generated files are committed under `assets/packs/<lesson-id>/`. CI validates the ZIP/PPTX image contents and the 2-page PDF output.
+
+The finished My World in Pictures source collage is under `assets/photo-sources/picture-me-12-original.png`, with crops exported by `scripts/import-photo-sheet.py`. The photo pack manifest is marked **curated draft — teacher review required**; the CLI flag `--teacher-approved` should only be used after a teacher has separately reviewed every photo/word pairing.
