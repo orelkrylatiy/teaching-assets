@@ -5,7 +5,7 @@
 There are **15 original lesson packs** (A0/pre-A1 through B2) with 180 vocabulary expressions. The **photo-shot brief manifest** at `prompts/english-photo-shotlist.json` contains 180 prompts to help produce additional images. These prompts are **not images** and should not be counted as generated artwork.
 
 Existing committed media:
-- 12 word-mapped original generated WebP photos in `assets/photos/daily-routines/`.
+- 12 word-mapped original generated WebP photos in `assets/photos/daily-routines/` and 12 more in `assets/photos/hello-english/` (24 exact-word photos across two lessons).
 - 14 original lesson-specific topic covers plus two additional themed covers in `assets/photos/lesson-covers/`.
 - Six original Daily Routines designed photo slides in `assets/slides/daily-routines/`.
 - One original Daily Routines printable PDF.
