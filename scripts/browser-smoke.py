@@ -40,8 +40,14 @@ function check(){
    const photoVisible=getComputedStyle(pic).zIndex!=='auto'&&Number(getComputedStyle(pic).zIndex)>=2;
    const rootOutsideApp=d.querySelector('#print-root')?.parentElement===d.body;
    const sceneCount=d.querySelectorAll('.ta-scene').length;
-   const ok=fit&&fullscreen&&pictureLoaded&&photoVisible&&rootOutsideApp&&sceneCount>=5&&printCount===14&&normalRatio>1.7&&normalRatio<1.9;
-   output.textContent=(ok?'TA_QA_PASS':'TA_QA_FAIL')+' '+JSON.stringify({fit,fullscreen,pictureLoaded,photoVisible,rootOutsideApp,sceneCount,printCount,normalRatio});
+   d.body.classList.remove('presenter');
+   d.querySelector('[data-ta="open-deck"]')?.click();
+   const deck=d.querySelector('#ta-photo-deck');
+   const deckVisible=!!deck&&!deck.hidden&&!!d.querySelector('.ta-live-cover');
+   const deckFrame=d.querySelector('.ta-deck-slide')?.getBoundingClientRect();
+   const deckRatio=deckFrame&&deckFrame.height>0?deckFrame.width/deckFrame.height:0;
+   const ok=fit&&fullscreen&&pictureLoaded&&photoVisible&&rootOutsideApp&&sceneCount>=5&&deckVisible&&deckRatio>1.72&&deckRatio<1.83&&printCount===14&&normalRatio>1.7&&normalRatio<1.9;
+   output.textContent=(ok?'TA_QA_PASS':'TA_QA_FAIL')+' '+JSON.stringify({fit,fullscreen,pictureLoaded,photoVisible,rootOutsideApp,sceneCount,deckVisible,deckRatio,printCount,normalRatio});
  },500);
 }
 setTimeout(check,650);
