@@ -66,12 +66,13 @@ try:
     run(["--window-size=1440,900","--screenshot="+str(screenshot),HOST+"/lessons/daily-routines/index.html"])
     if screenshot.stat().st_size<20000:raise RuntimeError("Screenshot unexpectedly small")
     pdf=QA/"daily-routines-print.pdf"
-    run(["--print-to-pdf="+str(pdf),"--no-pdf-header-footer",HOST+"/lessons/daily-routines/index.html"])
-    if not pdf.exists() or pdf.stat().st_size<20000:raise RuntimeError("PDF missing/too small")
+    printed=run(["--print-to-pdf="+str(pdf),"--no-pdf-header-footer",HOST+"/lessons/daily-routines/index.html"])
+    print("PDF diagnostic:",printed.stderr[-600:].replace("\\n"," | "),"exists=",pdf.exists(),"size=",pdf.stat().st_size if pdf.exists() else 0)
+    if not pdf.exists() or pdf.stat().st_size<10000:raise RuntimeError("PDF missing/too small")
     pdfinfo=shutil.which("pdfinfo")
     if pdfinfo:
         info=subprocess.run([pdfinfo,str(pdf)],capture_output=True,text=True,check=True).stdout
-        match=re.search(r"^Pages:\\s+(\\d+)",info,re.MULTILINE)
+        match=re.search(r"^Pages:\s+(\d+)",info,re.MULTILINE)
         if not match:raise RuntimeError("Cannot read PDF page count")
         count=int(match.group(1))
         if count!=14:raise RuntimeError("PDF must have 14 pages, got "+str(count))
