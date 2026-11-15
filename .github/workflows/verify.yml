@@ -16,6 +16,7 @@ jobs:
           node-version: '22'
       - run: node scripts/build.mjs
       - run: node scripts/smoke-exports.mjs
+      - run: python3 scripts/browser-smoke.py
       - uses: actions/upload-artifact@v4
         with:
           name: sample-teaching-exports
