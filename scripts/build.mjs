@@ -5,5 +5,6 @@ execFileSync('node',['scripts/verify.mjs'],{stdio:'inherit'});
 fs.rmSync('dist',{recursive:true,force:true});fs.mkdirSync('dist',{recursive:true});
 for(const file of ['index.html','data.js','exports.js','app.js','style.css','studio.js','studio.css','visual-library.js','visual-library.css'])fs.copyFileSync(file,path.join('dist',file));
 fs.cpSync('lessons','dist/lessons',{recursive:true});fs.cpSync('visual-library','dist/visual-library',{recursive:true});fs.cpSync('assets','dist/assets',{recursive:true});
+execFileSync('node',['scripts/create-photo-prompts.mjs','dist/prompts/english-photo-shotlist.json'],{stdio:'inherit'});
 fs.writeFileSync('dist/.nojekyll','');
 console.log('✓ Production-ready static site written to dist/');
