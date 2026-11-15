@@ -41,6 +41,7 @@ function check(){
    const rootOutsideApp=d.querySelector('#print-root')?.parentElement===d.body;
    const sceneCount=d.querySelectorAll('.ta-scene').length;
    d.body.classList.remove('presenter');
+   d.querySelector('.tabs [data-tab="studio"]')?.click();
    d.querySelector('[data-ta="open-deck"]')?.click();
    const deck=d.querySelector('#ta-photo-deck');
    const deckVisible=!!deck&&!deck.hidden&&!!d.querySelector('.ta-live-cover');
