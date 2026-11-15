@@ -201,6 +201,10 @@
     host.innerHTML=slideItems().map((s,i)=>`<section class="ta-print-page"><header><div class="ta-print-brand">teaching<span>assets</span></div><small>${escape(lesson.level)} · ${escape(s.k)}</small></header><main><h2>${escape(s.title)}</h2>${printSlideContent(i)}</main><footer><span>${escape(lesson.title)}</span><span>${i+1} / 14</span></footer></section>`).join('');
   }
   function setupPrinting(){
+    const host=$('#print-root');
+    // The base application creates this inside #app. Move it out before printing:
+    // #app is intentionally hidden by @media print, otherwise the PDF is blank.
+    if(host&&host.parentElement!==document.body)document.body.appendChild(host);
     buildPrint();
     window.addEventListener('beforeprint',buildPrint);
   }
