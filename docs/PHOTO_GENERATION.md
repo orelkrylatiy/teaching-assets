@@ -44,4 +44,4 @@ Do not redistribute unrelated photographers' images without reviewing rights. Us
 
 ## Current limitation
 
-The first complete new A0–A1 photo pack beyond Daily Routines must still be generated and committed in high quality. The photo-shot plan exists, and the import pipeline is ready, but prompts are not substitutes for actual images.
+The first new A0 photo pack, Hello, English!, is committed and integrated. Its 12 contact-sheet crops are visually coherent but lower native resolution than individually generated high-resolution photos; review sharpness in full-screen use. The other 13 lessons still need their own verified exact-word photo packs. Photo prompts are not substitutes for created images.
