@@ -1,0 +1,60 @@
+{
+  "lesson_id": "picture-me",
+  "source": "picture-me-12-original.png",
+  "source_sha256": "668fe11324acc7fc38f81f06d332b3b05d6ece9414e49d133f370c55b0cab3ea",
+  "grid": [
+    4,
+    3
+  ],
+  "status": "teacher-approved",
+  "items": [
+    {
+      "word": "cat",
+      "file": "cat.webp"
+    },
+    {
+      "word": "dog",
+      "file": "dog.webp"
+    },
+    {
+      "word": "book",
+      "file": "book.webp"
+    },
+    {
+      "word": "phone",
+      "file": "phone.webp"
+    },
+    {
+      "word": "coffee",
+      "file": "coffee.webp"
+    },
+    {
+      "word": "music",
+      "file": "music.webp"
+    },
+    {
+      "word": "sun",
+      "file": "sun.webp"
+    },
+    {
+      "word": "house",
+      "file": "house.webp"
+    },
+    {
+      "word": "car",
+      "file": "car.webp"
+    },
+    {
+      "word": "apple",
+      "file": "apple.webp"
+    },
+    {
+      "word": "water",
+      "file": "water.webp"
+    },
+    {
+      "word": "family",
+      "file": "family.webp"
+    }
+  ]
+}

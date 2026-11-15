@@ -2,7 +2,20 @@
 window.LESSONS = [
   {
     "id": "hello-english",
-    "photoPack": ["hello","goodbye","please","thank-you","yes","no","name","friend","teacher","student","english","nice-to-meet-you"],
+    "photoPack": [
+      "hello",
+      "goodbye",
+      "please",
+      "thank-you",
+      "yes",
+      "no",
+      "name",
+      "friend",
+      "teacher",
+      "student",
+      "english",
+      "nice-to-meet-you"
+    ],
     "title": "Hello, English!",
     "subtitle": "Your first conversation starts here",
     "level": "A0",
@@ -229,11 +242,38 @@ window.LESSONS = [
     ],
     "story": "This is my world. I have a dog and a book. I like music and apples. I don't like coffee. I love my family.",
     "homework": "Choose five pictures and write or record one “I like” sentence for each.",
-    "teacherTip": "Use gestures, repetition and visuals; do not overload a pre-A1 learner with grammar explanations."
+    "teacherTip": "Use gestures, repetition and visuals; do not overload a pre-A1 learner with grammar explanations.",
+    "photoPack": [
+      "cat",
+      "dog",
+      "book",
+      "phone",
+      "coffee",
+      "music",
+      "sun",
+      "house",
+      "car",
+      "apple",
+      "water",
+      "family"
+    ]
   },
   {
     "id": "daily-routines",
-    "photoPack": ["wake-up","get-dressed","have-breakfast","brush-my-teeth","go-to-work","study","have-lunch","exercise","cook-dinner","relax","read-a-book","go-to-bed"],
+    "photoPack": [
+      "wake-up",
+      "get-dressed",
+      "have-breakfast",
+      "brush-my-teeth",
+      "go-to-work",
+      "study",
+      "have-lunch",
+      "exercise",
+      "cook-dinner",
+      "relax",
+      "read-a-book",
+      "go-to-bed"
+    ],
     "title": "A Day in My Life",
     "subtitle": "Daily routines and Present Simple",
     "level": "A1",
