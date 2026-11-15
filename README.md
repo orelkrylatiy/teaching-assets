@@ -54,7 +54,7 @@ The deploy workflow checks whether GitHub Pages is enabled. If not, it reports a
 
 This experiment deliberately uses dependency-free HTML/CSS/JS, rather than requiring Astro on day one. It works by double-clicking `index.html` and can move to Astro content collections once the library scales.
 
-Artwork includes **24 word-mapped original AI-generated photos across Daily Routines and Hello, English!**, **16 locally stored thematic cover images**, **six designed photographic slide layouts**, and optional original SVG/emoji vocabulary cards. Daily Routines and Hello, English! have exact-word photo packs (12 photographs each); the other 13 lessons use contextual photos rather than pretending an unrelated image depicts a word.
+Artwork includes **36 word-mapped original AI-generated photos across Daily Routines, Hello, English! and My World in Pictures**, **16 locally stored thematic cover images**, **six designed photographic slide layouts**, and optional original SVG/emoji vocabulary cards. Three lessons have exact-word photo packs (12 photographs each); the other 12 lessons use contextual photos rather than pretending an unrelated image depicts a word.
 
 The PPTX download contains editable slide shapes and text, but not HTML interactions; visual fidelity depends on installed fonts. PDF uses browser printing. Lessons are original exploratory educational drafts, not formal CEFR examinations.
 
@@ -62,7 +62,7 @@ Research and source links: [docs/RESEARCH.md](docs/RESEARCH.md). Supported expor
 
 ## Photo Studio and listening
 
-Every lesson now has a Photo Studio and Listening Lab. The Daily Routines lesson uses **12 original generated photographs** and **six original photographic slide designs** stored permanently in this repository. A dedicated **A4 PDF worksheet** is downloadable without browser printing. All other lessons now use their own **locally hosted photo cover** plus a curated selection of related in-project photographs for contextual speaking. There are **no external Unsplash requests** and no hidden third-party stock-image dependency.
+Every lesson has a Photo Studio and Listening Lab. Three lessons have **12 original generated, exact-word photographs each**. Daily Routines additionally includes six original designed photographic slide images. Each exact-word pack has its own downloadable **editable PowerPoint and 2-page photo worksheet PDF**. The other 12 lessons use locally hosted topical photos for contextual speaking. There are **no external Unsplash requests** and no hidden third-party stock-image dependency.
 
 A **real 16:9 fit-to-screen canvas** is used for presentations and can switch between photos and emoji illustrations. Fullscreen uses the browser Fullscreen API where supported, with an in-app fixed-viewport fallback. Arrow keys navigate. Print CSS corrects the original hidden print-root issue and aims for one A4 landscape page per slide.
 
@@ -80,7 +80,7 @@ Every lesson offers:
 - An **English Listening Lab** with original reading material, word pronunciation, transcript reveal, playback controls, speed/accent options and comprehension checks. Audio uses Web Speech API voices supplied by the user's browser; it is not a catalogue of licensed studio recordings.
 - A **14-page printable presentation** with 16:9 visual layout scaled to landscape A4 paper. Browser Print → Save as PDF is validated by headless Chrome and checked for 14 real pages. The dedicated Daily Routines A4 worksheet remains downloadable separately.
 
-The original emoji/vector cards and vocabulary exports remain available. For vocabulary cards, exact photo-to-word mapping is currently available for Daily Routines and Hello, English!.
+The original emoji/vector cards and vocabulary exports remain available. For vocabulary cards, exact photo-to-word mapping is currently available for Daily Routines, Hello, English! and My World in Pictures.
 
 The verified site build and QA screenshots/PDF are downloadable from the **site-preview** artifact on the latest passing GitHub Actions **Verify English lesson library** workflow run.
 
@@ -90,7 +90,7 @@ See [Photo Studio guide](docs/PHOTO_STUDIO.md) for architecture, conventions, ed
 
 Open **[Photo Library](visual-library/index.html)** to browse all **46 locally hosted visual assets** across existing lessons, filter by type, preview individual photographs, save a selected deck, present it in 16:9, or export a portable HTML presentation and A4 PDF. You can upload your own photos: they stay in this browser's IndexedDB and are not sent to GitHub or external services. Selected images persist locally and can be reordered before teaching.
 
-The integrated photo-pack infrastructure supports **any English lesson** once it has verified image files and a `photoPack` array of filenames. Daily Routines and Hello, English! each have a complete 12-word photo pack (24 AI-generated photographs total). Other lessons use themed photo covers for speaking, and the emoji vocabulary card mode remains available.
+The integrated photo-pack infrastructure supports **any English lesson** once it has verified image files and a `photoPack` array of filenames. Daily Routines, Hello, English! and My World in Pictures each have a 12-word photo pack (36 original photographs total). Other lessons use themed photo covers for speaking, and the emoji vocabulary card mode remains available.
 
 **180 original photo shot briefs** are available in [prompts/english-photo-shotlist.json](prompts/english-photo-shotlist.json). These are generation specifications, not 180 already-created photographs. To prepare a new photo pack using an AI image generator:
 
@@ -111,3 +111,21 @@ The importer requires the contact sheet to have one scene per curriculum word in
 See [Photo generation guide](docs/PHOTO_GENERATION.md) for visual standards and safe asset workflow.
 
 The Hello, English! photographs were generated as one original 4×3 contact sheet on November 15, 2026, cropped by word order, locally upsampled for smoother scaling and committed as standalone WebP images. Their underlying native crop resolution is ~306×410 px, so they are best used as cards and smaller lesson-photo prompts; generating individual high-resolution replacements remains a future quality improvement.
+
+## Ready-made photo PowerPoints and worksheets
+
+Three complete English photo packs are fully integrated in the platform:
+
+| Level | Lesson | Exact photo cards | Editable presentation | Printable worksheet |
+| --- | --- | ---: | --- | --- |
+| A0 | Hello, English! | 12 | [Photo PowerPoint](assets/packs/hello-english/hello-english-photo-lesson.pptx) | [2-page PDF](assets/packs/hello-english/hello-english-worksheet.pdf) |
+| A0 | My World in Pictures | 12 | [Photo PowerPoint](assets/packs/picture-me/picture-me-photo-lesson.pptx) | [2-page PDF](assets/packs/picture-me/picture-me-worksheet.pdf) |
+| A1 | A Day in My Life | 12 | [Photo PowerPoint](assets/packs/daily-routines/daily-routines-photo-lesson.pptx) | [2-page PDF](assets/packs/daily-routines/daily-routines-worksheet.pdf) |
+
+The ready-to-teach photo decks contain **18 PowerPoint slides**, including picture+word layouts, photo-only presentation scenes, a story challenge and an exit ticket. Teachers can edit all text and presentation shapes. The photos are embedded inside the PPTX, so they remain visible offline. PDFs have two A4 landscape pages with a picture writing grid, speaking prompts and space for homework.
+
+In **Photo Studio**, the **picture identification game** asks learners to select the correct photo among four images, tracks the score and offers browser speech pronunciation. The home catalogue now highlights these photo packs and includes a **Real photos only** filter.
+
+Source artwork for the latest My World in Pictures pack is preserved in [assets/photo-sources/picture-me-12-original.png](assets/photo-sources/picture-me-12-original.png), with twelve optimized WebP vocabulary crops in [assets/photos/picture-me](assets/photos/picture-me). The contact sheet was visually checked for picture–word alignment, but a teacher should still review its classroom suitability.
+
+Generation and verification commands: `python scripts/build-photo-packs.py` and `python scripts/test-photo-packs.py` (requires Pillow, python-pptx, reportlab and pypdf). CI also exercises the card quiz, screenshot rendering and print/PDF.
