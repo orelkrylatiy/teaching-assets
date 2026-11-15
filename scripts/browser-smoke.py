@@ -202,6 +202,37 @@ setTimeout(test,1150);
         raise RuntimeError("A0 picture lesson test failed: "+(picture_result.group(0) if picture_result else picture_dom[-800:]))
     print("✓ Photo cards, interactive picture identification, PPTX/PDF links: "+picture_result.group(0))
     (DIST/"picture-probe.html").unlink(missing_ok=True)
+    # Catalogue navigation should surface only the three picture-complete lessons
+    # when the teacher applies the new real-photo filter.
+    catalog_probe = """<!doctype html><meta charset="utf-8"><title>Catalogue QA</title>
+    <iframe id="f" style="border:0;width:1280px;height:740px" src="/index.html"></iframe><pre id="result">LOADING</pre>
+    <script>
+    const frame=document.getElementById('f');let tries=0;
+    function test(){
+      const d=frame.contentDocument;
+      if(!d?.querySelector('#photos-only')||d.querySelectorAll('.photo-pack').length<3){
+        if(++tries<35){setTimeout(test,250);return;}
+        document.querySelector('#result').textContent='CATALOG_QA_FAIL not_ready';return;
+      }
+      const featured=d.querySelectorAll('.photo-pack').length;
+      d.getElementById('photos-only').click();
+      const count=d.querySelectorAll('.lesson-card').length;
+      const selected=d.getElementById('photos-only').getAttribute('aria-pressed');
+      const visibleTitles=[...d.querySelectorAll('.lesson-card h3')].map(el=>el.textContent);
+      const correct=['Hello, English!','My World in Pictures','A Day in My Life'];
+      const ok=featured===3&&count===3&&selected==='true'&&correct.every(t=>visibleTitles.includes(t));
+      document.querySelector('#result').textContent=(ok?'CATALOG_QA_PASS':'CATALOG_QA_FAIL')+
+       ' '+JSON.stringify({featured,count,selected,visibleTitles});
+    }
+    setTimeout(test,1000);
+    </script>"""
+    (DIST/"catalog-probe.html").write_text(catalog_probe,encoding="utf-8")
+    catalog_dom=run(["--dump-dom",HOST+"/catalog-probe.html"]).stdout
+    catalog_found=re.search(r"CATALOG_QA_(PASS|FAIL)[^<]*",catalog_dom)
+    if not catalog_found or catalog_found.group(1)!="PASS":
+        raise RuntimeError("Photo catalogue filter failed: "+(catalog_found.group(0) if catalog_found else catalog_dom[-700:]))
+    print("✓ Homepage photo pack showcase and filter: "+catalog_found.group(0))
+    (DIST/"catalog-probe.html").unlink(missing_ok=True)
 
     # Print the new photo-word pack as a 14-page PDF. This catches missing image URLs.
     picture_pdf=QA/"picture-me-print.pdf"
