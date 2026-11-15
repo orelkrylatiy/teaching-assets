@@ -112,7 +112,7 @@ function test(){
  const deck=presenter?.querySelector('.vl-presenter-slide');
  const rect=deck?.getBoundingClientRect();
  const ratio=rect&&rect.height>0?rect.width/rect.height:0;
- const good=before>=34&&loaded>=20&&count==='2'&&presenter&&!presenter.hidden&&ratio>1.72&&ratio<1.83;
+ const good=before>=46&&loaded>=40&&count==='2'&&presenter&&!presenter.hidden&&ratio>1.72&&ratio<1.83;
  document.getElementById('result').textContent=(good?'VL_QA_PASS':'VL_QA_FAIL')+' '+JSON.stringify({before,loaded,count,ratio,open:!presenter?.hidden});
 }
 setTimeout(test,1150);
@@ -127,6 +127,35 @@ setTimeout(test,1150);
     run(["--window-size=1440,1000","--screenshot="+str(lib_screenshot),HOST+"/visual-library/index.html"])
     if lib_screenshot.stat().st_size<15000:raise RuntimeError("Photo library screenshot unexpectedly small")
     (DIST/"gallery-probe.html").unlink(missing_ok=True)
+    # Ensure the newly imported A0 photographs really appear inside flashcards.
+    hello_probe = """<!doctype html><meta charset="utf-8"><title>Hello A0 Photo QA</title>
+    <iframe id="f" src="/lessons/hello-english/index.html" style="width:1270px;height:760px"></iframe><pre id="result">LOADING</pre>
+    <script>
+    const frame=document.getElementById('f');let attempts=0;
+    function check(){
+      const d=frame.contentDocument;
+      if(!d?.querySelector('.tabs [data-tab="cards"]')||!d?.querySelector('.ta-flash-photo')){
+        if(++attempts<40){setTimeout(check,250);return;}
+        document.querySelector('#result').textContent='HELLO_QA_FAIL not_ready';return;
+      }
+      d.querySelector('.tabs [data-tab="cards"]').click();
+      setTimeout(()=>{
+        const photo=d.querySelector('#flash-card .ta-flash-photo');
+        const sceneCount=d.querySelectorAll('.ta-scene').length;
+        const ok=photo?.naturalWidth>=300&&photo?.src.includes('/hello-english/hello.webp')&&sceneCount===12;
+        document.querySelector('#result').textContent=(ok?'HELLO_QA_PASS':'HELLO_QA_FAIL')+
+          ' '+JSON.stringify({photoWidth:photo?.naturalWidth,url:photo?.src,sceneCount});
+      },550);
+    }
+    setTimeout(check,1000);
+    </script>"""
+    (DIST/"hello-probe.html").write_text(hello_probe,encoding="utf-8")
+    hello_dom=run(["--dump-dom",HOST+"/hello-probe.html"]).stdout
+    hello_result=re.search(r"HELLO_QA_(PASS|FAIL)[^<]*",hello_dom)
+    if not hello_result or hello_result.group(1)!="PASS":
+        raise RuntimeError("A0 photo flashcards not integrated: "+(hello_result.group(0) if hello_result else hello_dom[-750:]))
+    print("✓ A0 Hello English exact-photo flashcards: "+hello_result.group(0))
+    (DIST/"hello-probe.html").unlink(missing_ok=True)
     # Print the selected photo deck as a real two-page A4 PDF, not a blank shell.
     print_html = """<!doctype html><html><head><meta charset="utf-8">
     <link rel="stylesheet" href="/visual-library.css">
