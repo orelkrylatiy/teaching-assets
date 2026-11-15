@@ -127,6 +127,28 @@ setTimeout(test,1150);
     run(["--window-size=1440,1000","--screenshot="+str(lib_screenshot),HOST+"/visual-library/index.html"])
     if lib_screenshot.stat().st_size<15000:raise RuntimeError("Photo library screenshot unexpectedly small")
     (DIST/"gallery-probe.html").unlink(missing_ok=True)
+    # Print the selected photo deck as a real two-page A4 PDF, not a blank shell.
+    print_html = """<!doctype html><html><head><meta charset="utf-8">
+    <link rel="stylesheet" href="/visual-library.css">
+    <script src="/data.js"></script><script src="/visual-library.js"></script>
+    <script>document.addEventListener('DOMContentLoaded',()=>{
+      document.querySelectorAll('[data-select]')[0]?.click();
+      document.querySelectorAll('[data-select]')[1]?.click();
+      document.getElementById('vl-selection')?.classList.add('vl-collapsed');
+    });</script>
+    </head><body><div id="app"></div></body></html>"""
+    (DIST/"gallery-print-probe.html").write_text(print_html,encoding="utf-8")
+    gallery_pdf=QA/"photo-library-selection.pdf"
+    run(["--print-to-pdf="+str(gallery_pdf),"--no-pdf-header-footer",HOST+"/gallery-print-probe.html"])
+    if not gallery_pdf.exists() or gallery_pdf.stat().st_size<10000:
+        raise RuntimeError("Photo Library PDF missing/too small")
+    if pdfinfo:
+        report=subprocess.run([pdfinfo,str(gallery_pdf)],capture_output=True,text=True,check=True).stdout
+        page_match=re.search(r"^Pages:\s+(\d+)",report,re.MULTILINE)
+        if not page_match or int(page_match.group(1))!=2:
+            raise RuntimeError("Photo Library PDF must have exactly 2 pages: "+str(page_match.group(0) if page_match else 'missing'))
+    print("✓ Photo Library print: two real landscape A4 pages")
+    (DIST/"gallery-print-probe.html").unlink(missing_ok=True)
 
 finally:
     server.terminate()
