@@ -24,3 +24,17 @@ for(const name of photos)assert(fs.existsSync('assets/photos/daily-routines/'+na
 for(const name of art)assert(fs.existsSync('assets/slides/daily-routines/'+name+'.webp'),'Missing generated slide '+name);
 assert(fs.existsSync('assets/worksheets/daily-routines-worksheet.pdf'),'Missing printable worksheet');
 console.log('✓ 12 generated photos · 6 generated slide designs · PDF worksheet');
+
+const ui=fs.readFileSync('studio.js','utf8');
+const css=fs.readFileSync('studio.css','utf8');
+assert(!ui.includes('images.unsplash.com'),'External stock-photo dependency must not exist');
+for(const l of lessons){
+ if(l.id!=='daily-routines')assert(fs.existsSync('assets/photos/lesson-covers/'+l.id+'.webp'),'Missing local photo cover: '+l.id);
+}
+assert(ui.includes('ta-print-page'),'Print pages not rendered by studio');
+assert(ui.includes('ta-canvas'),'Scalable fullscreen presentation missing');
+assert(ui.includes('speechSynthesis'),'Listening lab missing');
+assert(ui.includes('inlineImages'),'Standalone photo story must embed media');
+assert(css.includes('@page{size:A4 landscape;margin:0}'),'A4 print page missing');
+assert(css.includes('overflow:hidden!important'),'Presentation overflow protection missing');
+console.log('✓ 15 local photo covers · no external stock dependency · print/fullscreen/listening/photo-story wiring');
