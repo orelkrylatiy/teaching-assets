@@ -45,3 +45,23 @@ for(const feature of ['indexedDB','ta:photo-library-selection','vl-print-root','
 const visualHTML=fs.readFileSync('visual-library/index.html','utf8');
 assert(visualHTML.includes('../visual-library.js'));
 console.log('✓ Visual Library: original photo assets, selected presentation builder and editable local uploads');
+
+const verifiedPacks=lessons.filter(l=>Array.isArray(l.photoPack));
+let exactPhotos=0;
+for(const l of verifiedPacks){
+ assert.equal(l.photoPack.length,l.words.length,'Mismatched word-photo mapping: '+l.id);
+ const seen=new Set();
+ l.photoPack.forEach((name,i)=>{
+  assert(!seen.has(name),'Duplicate photo basename '+l.id+'/'+name);seen.add(name);
+  const p='assets/photos/'+l.id+'/'+name+'.webp';
+  assert(fs.existsSync(p),'Missing exact-word photo '+p);
+  const buffer=fs.readFileSync(p);
+  assert(buffer.length>8000,'Photo too small '+p);
+  assert(buffer.toString('ascii',0,4)==='RIFF'&&buffer.toString('ascii',8,12)==='WEBP','Not a real WebP file '+p);
+ });
+ const manifest='assets/photos/'+l.id+'/manifest.json';
+ if(fs.existsSync(manifest))assert.equal(JSON.parse(fs.readFileSync(manifest,'utf8')).lesson_id,l.id);
+ exactPhotos+=l.photoPack.length;
+}
+assert(exactPhotos>=24,'Expected at least 24 word-mapped AI photos across Daily Routines and Hello English');
+console.log('✓ '+verifiedPacks.length+' exact-word photo packs · '+exactPhotos+' photos physically present and validated as WebP');
