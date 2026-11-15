@@ -7,8 +7,9 @@ const slug=s=>String(s).toLowerCase().replace(/[^a-z0-9-]/g,'-');
 const names=['wake-up','get-dressed','have-breakfast','brush-my-teeth','go-to-work','study','have-lunch','exercise','cook-dinner','relax','read-a-book','go-to-bed'];
 const slideNames=['cover','vocabulary','speaking','worksheet','photo-story','vocabulary-alternative'];
 const daily=lessonData.find(l=>l.id==='daily-routines');
+const photoLessons=lessonData.filter(l=>Array.isArray(l.photoPack)&&l.photoPack.length===l.words.length);
 const records=[
-...daily.words.map((w,i)=>({id:'vocabulary-'+i,title:w.en,alt:w.en+' (original generated photo)',kind:'Vocabulary photos',level:'A1',topic:'Daily Routines',lessonId:'daily-routines',prompt:w.example,translation:w.ru,src:root+'assets/photos/daily-routines/'+names[i]+'.webp',exact:true})),
+...photoLessons.flatMap(l=>l.words.map((w,i)=>({id:'vocabulary-'+l.id+'-'+i,title:w.en,alt:w.en+' (curated word photograph)',kind:'Vocabulary photos',level:l.level,topic:l.title,lessonId:l.id,prompt:w.example,translation:w.ru,src:root+'assets/photos/'+l.id+'/'+l.photoPack[i]+'.webp',exact:true}))),
 ...lessonData.filter(l=>l.id!=='daily-routines').map(l=>({id:'cover-'+l.id,title:l.title,alt:l.title+' topic cover',kind:'Topic photos',level:l.level,topic:l.title,lessonId:l.id,prompt:l.questions[0],src:root+'assets/photos/lesson-covers/'+l.id+'.webp',exact:false})),
 ...slideNames.map((name,i)=>({id:'slide-'+name,title:'Daily Routines · '+name.replace(/-/g,' '),alt:name+' prepared teaching slide',kind:'Ready slides',level:'A1',topic:'Daily Routines',lessonId:'daily-routines',prompt:daily.questions[i%daily.questions.length],src:root+'assets/slides/daily-routines/'+name+'.webp',exact:false})),
 ...['listening-lab','tutoring-online'].map(name=>({id:'photo-'+name,title:name.replace(/-/g,' '),kind:'Topic photos',level:'All',topic:'Teaching',lessonId:'hello-english',prompt:'Describe the situation and the people in the image.',src:root+'assets/photos/lesson-covers/'+name+'.webp',exact:false}))
@@ -56,7 +57,7 @@ const r=get(id);if(!r)return;
 activeId=id;$('#vl-preview-img').src=r.src;$('#vl-preview-img').alt=r.alt||r.title;
 $('#vl-preview-type').textContent=r.level+' · '+r.kind;
 $('#vl-preview-title').textContent=r.title;
-$('#vl-preview-desc').textContent=r.exact?'An original generated vocabulary photograph for '+r.topic+'.':`A contextual visual asset from ${r.topic}. Use it for speaking practice or as a scene illustration.`;
+$('#vl-preview-desc').textContent=r.exact?'A photograph explicitly mapped to the vocabulary item in '+r.topic+'.':`A contextual visual asset from ${r.topic}. Use it for speaking practice or as a scene illustration.`;
 $('#vl-preview-question').textContent=r.prompt||'Describe the image. What can you see? What would happen next?';
 $('#vl-preview-add').textContent=selected.includes(id)?'✓ Remove from deck':'+ Add to deck';
 $('#vl-preview').hidden=false;document.body.classList.add('vl-no-scroll');
