@@ -119,3 +119,32 @@ body.presenter #app,body.presenter .lesson-main,body.presenter .lesson-layout{he
   .ta-print-quote{font:21pt/1.55 Arial,sans-serif;max-width:95%;white-space:pre-wrap;background:#fff!important;padding:12mm;border-radius:5mm}
   .print-slide{display:none!important}
 }
+
+/* Live Photo Deck — full-viewport teaching presentations with no scrollbars */
+body.ta-deck-open{overflow:hidden!important}
+.ta-photo-deck[hidden]{display:none!important}
+.ta-photo-deck{position:fixed!important;inset:0!important;z-index:2147483600!important;display:flex!important;flex-direction:column!important;gap:0;width:100vw!important;height:100dvh!important;background:#17231d!important;overflow:hidden!important;color:#fff}
+.ta-photo-deck:fullscreen{width:100vw!important;height:100dvh!important;inset:0!important}
+.ta-deck-bar{height:58px;flex:0 0 58px;background:#1b2820;display:flex;align-items:center;justify-content:space-between;padding:9px 23px;color:#e6f0e8;font-size:12px;font-weight:800;gap:16px}
+.ta-deck-bar .ta-top-controls{margin:0;gap:6px}
+.ta-deck-frame{flex:1 1 0;min-height:0;min-width:0;padding:13px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ta-deck-slide{width:min(100%,calc((100dvh - 142px) * 16 / 9));height:min(100%,calc((100vw - 26px) * 9 / 16));max-width:100%;max-height:100%;aspect-ratio:16/9;overflow:hidden;flex:0 0 auto;background:#f6f9f5;color:#273e30;border-radius:13px}
+.ta-deck-slide>section{width:100%;height:100%;overflow:hidden}
+.ta-live-cover,.ta-live-scene,.ta-live-recap{display:grid;grid-template-columns:44% 56%;background:#f7faf5;height:100%}
+.ta-live-copy,.ta-live-scene-text,.ta-live-recap>div:first-child{min-width:0;padding:7% 7.5%;display:flex;flex-direction:column;justify-content:center}
+.ta-live-copy h1{font:800 clamp(30px,3.5vw,63px)/1.08 Manrope,Arial,sans-serif;letter-spacing:-.06em;margin:13px 0 21px}
+.ta-live-copy p,.ta-live-scene-text p,.ta-live-recap p{font-size:clamp(12px,1.22vw,19px);line-height:1.5;color:#5f7869}
+.ta-live-badge{align-self:flex-start;background:#dceee0;border-radius:40px;padding:10px 14px;color:#3c6c4f;font-size:11px;font-weight:800;margin-top:20px}
+.ta-live-collage{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;padding:20px;overflow:hidden}
+.ta-live-collage img{display:block;width:100%;height:100%;min-height:0;object-fit:cover;border-radius:13px}
+.ta-live-collage img:first-child{grid-row:span 2}
+.ta-live-scene-image{height:100%;min-width:0;overflow:hidden}
+.ta-live-scene-image img{width:100%;height:100%;object-fit:cover;display:block}
+.ta-live-scene-text h2,.ta-live-recap h2{font:800 clamp(22px,3vw,49px)/1.13 Manrope,Arial,sans-serif;letter-spacing:-.05em;margin:12px 0 20px}
+.ta-live-word{align-self:flex-start;font:800 clamp(12px,1.5vw,23px) Manrope,Arial;background:#e2f0e5;color:#3b6b4f;border-radius:16px;padding:12px 17px;margin-top:23px}
+.ta-live-recap ol{font-size:clamp(12px,1.15vw,18px);line-height:1.7;color:#506d59;padding-left:21px}
+.ta-live-recap-photos{padding:20px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;overflow:hidden}
+.ta-live-recap-photos img{height:100%;width:100%;object-fit:cover;border-radius:12px;min-height:0}
+.ta-live-recap-photos img:first-child{grid-column:span 2}
+@media(max-width:720px){.ta-deck-bar{padding:8px 12px;height:46px;flex-basis:46px}.ta-deck-bar .btn{font-size:10px;padding:8px}.ta-deck-frame{padding:6px}.ta-deck-slide{width:min(100%,calc((100dvh - 110px)*16/9));height:min(100%,calc((100vw - 12px)*9/16))}.ta-live-copy h1{font-size:clamp(18px,3.5vw,36px)}.ta-live-scene-text h2{font-size:clamp(15px,3vw,29px)}.ta-live-copy p,.ta-live-scene-text p,.ta-live-recap p{font-size:10px}.ta-live-badge{font-size:9px;padding:7px;margin-top:5px}.ta-live-copy,.ta-live-scene-text,.ta-live-recap>div:first-child{padding:5% 7%}.ta-live-collage,.ta-live-recap-photos{padding:7px;gap:5px}.ta-live-recap ol{font-size:9px}.ta-live-word{padding:7px;margin-top:4px}}
+@media print{.ta-photo-deck{display:none!important}}
