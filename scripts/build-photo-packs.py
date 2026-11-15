@@ -94,7 +94,7 @@ def word_slide(prs,l,p,i,n):
     rect(s,7.48,5.17,5.13,1.35,C_PALE,True)
     txt(s,"SPEAKING PROMPT",7.78,5.39,4.6,.29,11,True,C_GREEN)
     txt(s,"Describe the scene. Make a new sentence.",7.76,5.79,4.45,.65,17,False,C_INK)
-    use(s,l,i+2,n+3)
+    use(s,l,len(prs.slides),n+6)
 def full_bleed(prs,l,p,i,total):
     s=prs.slides.add_slide(prs.slide_layouts[6])
     cover_image(s,p,0,0,13.333,7.5)
@@ -109,7 +109,7 @@ def talk_slide(prs,l,photos):
         cover_image(s,p,x,2.05,4.04,3.05)
         txt(s,f"SCENE {i+1:02d}",x,5.23,4.0,.3,12,True,C_GREEN)
     txt(s,"Choose three pictures. Tell a story using First / Then / Finally.",.66,6.13,11.9,.65,21,False,C_INK)
-    use(s,l,len(l["words"])+3,len(l["words"])+3)
+    use(s,l,len(prs.slides),len(l["words"])+6)
 def finish_slide(prs,l):
     s=prs.slides.add_slide(prs.slide_layouts[6]);background(s)
     txt(s,"YOUR EXIT TICKET",.76,.75,9,.4,14,True,C_GREEN)
@@ -118,6 +118,7 @@ def finish_slide(prs,l):
         y=3.85+i*.72
         rect(s,.78,y,11.7,.59,C_PALE,True)
         txt(s,f"{i+1:02d}   {t}",1.05,y+.16,11.1,.28,17,False,C_INK)
+    use(s,l,len(prs.slides),len(l["words"])+6)
 def make_pptx(l,photos,out):
     prs=Presentation()
     prs.slide_width=Inches(13.333)
@@ -176,7 +177,7 @@ def worksheet(l,photos,out):
         fill("#E8F3E9");c.roundRect(39,y-35,760,52,7,stroke=0,fill=1)
         fill("#31694B");c.setFont("Helvetica-Bold",11);c.drawString(53,y,prompt)
         line(53,y-18,784,y-18)
-        y-=81
+        y-=67
     fill("#456F53");c.setFont("Helvetica-Bold",13);c.drawString(42,y-1,"HOMEWORK  ·  Pick four photos and write one English sentence per photo.")
     for j in range(2):line(40,y-34-j*24,800,y-34-j*24)
     footer(2);c.save()
