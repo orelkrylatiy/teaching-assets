@@ -38,3 +38,10 @@ assert(ui.includes('inlineImages'),'Standalone photo story must embed media');
 assert(css.includes('@page{size:A4 landscape;margin:0}'),'A4 print page missing');
 assert(css.includes('overflow:hidden!important'),'Presentation overflow protection missing');
 console.log('✓ 15 local photo covers · no external stock dependency · print/fullscreen/listening/photo-story wiring');
+
+for(const p of ['visual-library/index.html','visual-library.js','visual-library.css'])assert(fs.existsSync(p),'Missing visual library asset '+p);
+const visualJS=fs.readFileSync('visual-library.js','utf8');
+for(const feature of ['indexedDB','ta:photo-library-selection','vl-print-root','standalone(images)','requestFullscreen','image/webp'])assert(visualJS.includes(feature),'Missing photo library feature '+feature);
+const visualHTML=fs.readFileSync('visual-library/index.html','utf8');
+assert(visualHTML.includes('../visual-library.js'));
+console.log('✓ Visual Library: original photo assets, selected presentation builder and editable local uploads');
