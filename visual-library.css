@@ -27,3 +27,9 @@
 .vl-print-copy p{font:17pt/1.5 Arial;color:#465f4d}
 .vl-print-copy small{margin-top:8mm;color:#799287}
 }
+
+/* Keep the selection workspace discreet until the teacher chooses an image. */
+.vl-selection.vl-collapsed{width:235px;max-height:70px}
+.vl-selection.vl-collapsed .vl-selection-head{padding:13px 16px}
+.vl-selection.vl-collapsed .vl-selection-head h3{font-size:13px}
+@media(max-width:540px){.vl-selection.vl-collapsed{width:205px;max-height:67px}}
