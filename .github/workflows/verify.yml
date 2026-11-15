@@ -15,6 +15,8 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/build.mjs
+      - run: python3 -m pip install --user Pillow
+      - run: python3 scripts/test-media-import.py
       - run: node scripts/smoke-exports.mjs
       - run: python3 scripts/browser-smoke.py
       - uses: actions/upload-artifact@v4
