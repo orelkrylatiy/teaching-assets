@@ -19,7 +19,8 @@ def main():
     p.add_argument('--lesson',required=True,help='Lesson slug, e.g. hello-english')
     p.add_argument('--image',required=True,type=pathlib.Path)
     p.add_argument('--grid',default='4x3',help='Columns x rows, e.g. 4x3 for 12 words')
-    p.add_argument('--approved',action='store_true',help='Required: a teacher has verified photo/word correspondence')
+    p.add_argument('--approved',action='store_true',help='Required: operator has visually inspected the contact sheet. Teacher classroom review remains necessary.')
+    p.add_argument('--teacher-approved',action='store_true',help='Optional: a teacher has separately approved every photo-word pairing')
     p.add_argument('--output',type=pathlib.Path,default=None,help='Optional output directory')
     args=p.parse_args()
     if not args.approved:p.error('Teacher review required: inspect contact sheet, then add --approved.')
@@ -54,7 +55,7 @@ def main():
     lesson['photoPack']=names
     (ROOT/'data.js').write_text("/* Original Teaching Assets curriculum. Edit lesson records here. */\nwindow.LESSONS = "+json.dumps(lessons,ensure_ascii=False,indent=2)+";\n",encoding='utf-8')
     checksum=hashlib.sha256(args.image.read_bytes()).hexdigest()
-    manifest={"lesson_id":args.lesson,"source":args.image.name,"source_sha256":checksum,"grid":[cols,rows],"status":"teacher-approved","items":[{"word":w['en'],"file":n+'.webp'} for w,n in zip(lesson['words'],names)]}
+    manifest={"lesson_id":args.lesson,"source":args.image.name,"source_sha256":checksum,"grid":[cols,rows],"status":("teacher-approved" if args.teacher_approved else "curated-draft-needs-teacher-review"),"items":[{"word":w['en'],"file":n+'.webp'} for w,n in zip(lesson['words'],names)]}
     (out/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(f"✓ {len(names)} exact vocabulary photos; updated {ROOT/'data.js'}")
     print("Review output photos again before committing or publishing.")
