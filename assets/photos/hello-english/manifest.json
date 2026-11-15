@@ -1,0 +1,98 @@
+{
+  "lesson_id": "hello-english",
+  "status": "teacher-reviewed-original-AI-generated",
+  "source_sha256": "9075f56b80d568023b5414be239f9e4a6645b928a21a5d266e2842ebc0997b88",
+  "grid": [
+    4,
+    3
+  ],
+  "words": [
+    "hello",
+    "goodbye",
+    "please",
+    "thank-you",
+    "yes",
+    "no",
+    "name",
+    "friend",
+    "teacher",
+    "student",
+    "english",
+    "nice-to-meet-you"
+  ],
+  "files": [
+    {
+      "name": "hello",
+      "size": 45666,
+      "width": 612,
+      "height": 820
+    },
+    {
+      "name": "goodbye",
+      "size": 36950,
+      "width": 610,
+      "height": 820
+    },
+    {
+      "name": "please",
+      "size": 58722,
+      "width": 610,
+      "height": 820
+    },
+    {
+      "name": "thank-you",
+      "size": 48718,
+      "width": 612,
+      "height": 820
+    },
+    {
+      "name": "yes",
+      "size": 52606,
+      "width": 612,
+      "height": 820
+    },
+    {
+      "name": "no",
+      "size": 54292,
+      "width": 610,
+      "height": 820
+    },
+    {
+      "name": "name",
+      "size": 38746,
+      "width": 610,
+      "height": 820
+    },
+    {
+      "name": "friend",
+      "size": 71062,
+      "width": 612,
+      "height": 820
+    },
+    {
+      "name": "teacher",
+      "size": 33464,
+      "width": 612,
+      "height": 820
+    },
+    {
+      "name": "student",
+      "size": 39208,
+      "width": 610,
+      "height": 820
+    },
+    {
+      "name": "english",
+      "size": 35796,
+      "width": 610,
+      "height": 820
+    },
+    {
+      "name": "nice-to-meet-you",
+      "size": 38188,
+      "width": 612,
+      "height": 820
+    }
+  ],
+  "note": "Original ImageGen contact sheet: 4x3 scenes corresponding to 12 A0 trial lesson vocabulary terms. Upsampled 2x for anti-aliasing; native tiles ~306x410px."
+}

@@ -2,6 +2,7 @@
 window.LESSONS = [
   {
     "id": "hello-english",
+    "photoPack": ["hello","goodbye","please","thank-you","yes","no","name","friend","teacher","student","english","nice-to-meet-you"],
     "title": "Hello, English!",
     "subtitle": "Your first conversation starts here",
     "level": "A0",
