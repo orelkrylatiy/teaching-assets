@@ -1,0 +1,1555 @@
+{
+  "version": 1,
+  "visual_direction": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins.",
+  "generated_at": "2026-11-15",
+  "status": "prompts_only_not_generated_photos",
+  "photo_count": 0,
+  "planned_photo_count": 180,
+  "lessons": [
+    {
+      "lesson": "hello-english",
+      "title": "Hello, English!",
+      "level": "A0",
+      "words": [
+        {
+          "index": 1,
+          "word": "hello",
+          "translation": "привет",
+          "example": "Hello, I'm Alex.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Hello, English!. Show a clear, specific photograph visually communicating 'hello'. Context/example: Hello, I'm Alex. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 2,
+          "word": "goodbye",
+          "translation": "до свидания",
+          "example": "Goodbye, see you!",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Hello, English!. Show a clear, specific photograph visually communicating 'goodbye'. Context/example: Goodbye, see you! Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 3,
+          "word": "please",
+          "translation": "пожалуйста",
+          "example": "Tea, please.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Hello, English!. Show a clear, specific photograph visually communicating 'please'. Context/example: Tea, please. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 4,
+          "word": "thank you",
+          "translation": "спасибо",
+          "example": "Thank you very much.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Hello, English!. Show a clear, specific photograph visually communicating 'thank you'. Context/example: Thank you very much. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 5,
+          "word": "yes",
+          "translation": "да",
+          "example": "Yes, I am.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Hello, English!. Show a clear, specific photograph visually communicating 'yes'. Context/example: Yes, I am. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 6,
+          "word": "no",
+          "translation": "нет",
+          "example": "No, thank you.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Hello, English!. Show a clear, specific photograph visually communicating 'no'. Context/example: No, thank you. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 7,
+          "word": "name",
+          "translation": "имя",
+          "example": "My name is Anna.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Hello, English!. Show a clear, specific photograph visually communicating 'name'. Context/example: My name is Anna. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 8,
+          "word": "friend",
+          "translation": "друг",
+          "example": "This is my friend.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Hello, English!. Show a clear, specific photograph visually communicating 'friend'. Context/example: This is my friend. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 9,
+          "word": "teacher",
+          "translation": "учитель",
+          "example": "She is my teacher.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Hello, English!. Show a clear, specific photograph visually communicating 'teacher'. Context/example: She is my teacher. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 10,
+          "word": "student",
+          "translation": "ученик",
+          "example": "I'm a student.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Hello, English!. Show a clear, specific photograph visually communicating 'student'. Context/example: I'm a student. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 11,
+          "word": "English",
+          "translation": "английский",
+          "example": "I speak a little English.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Hello, English!. Show a clear, specific photograph visually communicating 'English'. Context/example: I speak a little English. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 12,
+          "word": "nice to meet you",
+          "translation": "приятно познакомиться",
+          "example": "Nice to meet you, Mia!",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Hello, English!. Show a clear, specific photograph visually communicating 'nice to meet you'. Context/example: Nice to meet you, Mia! Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        }
+      ]
+    },
+    {
+      "lesson": "picture-me",
+      "title": "My World in Pictures",
+      "level": "A0",
+      "words": [
+        {
+          "index": 1,
+          "word": "cat",
+          "translation": "кот",
+          "example": "I like cats.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: My World in Pictures. Show a clear, specific photograph visually communicating 'cat'. Context/example: I like cats. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 2,
+          "word": "dog",
+          "translation": "собака",
+          "example": "I like dogs.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: My World in Pictures. Show a clear, specific photograph visually communicating 'dog'. Context/example: I like dogs. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 3,
+          "word": "book",
+          "translation": "книга",
+          "example": "This is a book.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: My World in Pictures. Show a clear, specific photograph visually communicating 'book'. Context/example: This is a book. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 4,
+          "word": "phone",
+          "translation": "телефон",
+          "example": "This is my phone.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: My World in Pictures. Show a clear, specific photograph visually communicating 'phone'. Context/example: This is my phone. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 5,
+          "word": "coffee",
+          "translation": "кофе",
+          "example": "I like coffee.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: My World in Pictures. Show a clear, specific photograph visually communicating 'coffee'. Context/example: I like coffee. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 6,
+          "word": "music",
+          "translation": "музыка",
+          "example": "I love music.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: My World in Pictures. Show a clear, specific photograph visually communicating 'music'. Context/example: I love music. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 7,
+          "word": "sun",
+          "translation": "солнце",
+          "example": "The sun is warm.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: My World in Pictures. Show a clear, specific photograph visually communicating 'sun'. Context/example: The sun is warm. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 8,
+          "word": "house",
+          "translation": "дом",
+          "example": "This is my house.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: My World in Pictures. Show a clear, specific photograph visually communicating 'house'. Context/example: This is my house. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 9,
+          "word": "car",
+          "translation": "машина",
+          "example": "I see a car.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: My World in Pictures. Show a clear, specific photograph visually communicating 'car'. Context/example: I see a car. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 10,
+          "word": "apple",
+          "translation": "яблоко",
+          "example": "I like apples.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: My World in Pictures. Show a clear, specific photograph visually communicating 'apple'. Context/example: I like apples. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 11,
+          "word": "water",
+          "translation": "вода",
+          "example": "I drink water.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: My World in Pictures. Show a clear, specific photograph visually communicating 'water'. Context/example: I drink water. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 12,
+          "word": "family",
+          "translation": "семья",
+          "example": "I love my family.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: My World in Pictures. Show a clear, specific photograph visually communicating 'family'. Context/example: I love my family. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        }
+      ]
+    },
+    {
+      "lesson": "daily-routines",
+      "title": "A Day in My Life",
+      "level": "A1",
+      "words": [
+        {
+          "index": 1,
+          "word": "wake up",
+          "translation": "просыпаться",
+          "example": "I wake up at seven.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day in My Life. Show a clear, specific photograph visually communicating 'wake up'. Context/example: I wake up at seven. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 2,
+          "word": "get dressed",
+          "translation": "одеваться",
+          "example": "I get dressed quickly.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day in My Life. Show a clear, specific photograph visually communicating 'get dressed'. Context/example: I get dressed quickly. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 3,
+          "word": "have breakfast",
+          "translation": "завтракать",
+          "example": "I have breakfast at eight.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day in My Life. Show a clear, specific photograph visually communicating 'have breakfast'. Context/example: I have breakfast at eight. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 4,
+          "word": "brush my teeth",
+          "translation": "чистить зубы",
+          "example": "I brush my teeth twice a day.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day in My Life. Show a clear, specific photograph visually communicating 'brush my teeth'. Context/example: I brush my teeth twice a day. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 5,
+          "word": "go to work",
+          "translation": "идти на работу",
+          "example": "I go to work by bus.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day in My Life. Show a clear, specific photograph visually communicating 'go to work'. Context/example: I go to work by bus. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 6,
+          "word": "study",
+          "translation": "учиться",
+          "example": "I study English online.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day in My Life. Show a clear, specific photograph visually communicating 'study'. Context/example: I study English online. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 7,
+          "word": "have lunch",
+          "translation": "обедать",
+          "example": "I have lunch at one.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day in My Life. Show a clear, specific photograph visually communicating 'have lunch'. Context/example: I have lunch at one. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 8,
+          "word": "exercise",
+          "translation": "заниматься спортом",
+          "example": "I exercise after work.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day in My Life. Show a clear, specific photograph visually communicating 'exercise'. Context/example: I exercise after work. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 9,
+          "word": "cook dinner",
+          "translation": "готовить ужин",
+          "example": "I cook dinner at home.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day in My Life. Show a clear, specific photograph visually communicating 'cook dinner'. Context/example: I cook dinner at home. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 10,
+          "word": "relax",
+          "translation": "отдыхать",
+          "example": "I relax in the evening.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day in My Life. Show a clear, specific photograph visually communicating 'relax'. Context/example: I relax in the evening. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 11,
+          "word": "read a book",
+          "translation": "читать книгу",
+          "example": "I read a book before bed.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day in My Life. Show a clear, specific photograph visually communicating 'read a book'. Context/example: I read a book before bed. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 12,
+          "word": "go to bed",
+          "translation": "ложиться спать",
+          "example": "I go to bed at eleven.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day in My Life. Show a clear, specific photograph visually communicating 'go to bed'. Context/example: I go to bed at eleven. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        }
+      ]
+    },
+    {
+      "lesson": "at-the-cafe",
+      "title": "At the Café",
+      "level": "A1",
+      "words": [
+        {
+          "index": 1,
+          "word": "coffee",
+          "translation": "кофе",
+          "example": "Can I have a coffee?",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: At the Café. Show a clear, specific photograph visually communicating 'coffee'. Context/example: Can I have a coffee? Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 2,
+          "word": "tea",
+          "translation": "чай",
+          "example": "I'd like a tea.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: At the Café. Show a clear, specific photograph visually communicating 'tea'. Context/example: I'd like a tea. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 3,
+          "word": "water",
+          "translation": "вода",
+          "example": "A glass of water, please.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: At the Café. Show a clear, specific photograph visually communicating 'water'. Context/example: A glass of water, please. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 4,
+          "word": "sandwich",
+          "translation": "сэндвич",
+          "example": "This sandwich is fresh.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: At the Café. Show a clear, specific photograph visually communicating 'sandwich'. Context/example: This sandwich is fresh. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 5,
+          "word": "salad",
+          "translation": "салат",
+          "example": "I'd like a salad.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: At the Café. Show a clear, specific photograph visually communicating 'salad'. Context/example: I'd like a salad. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 6,
+          "word": "cake",
+          "translation": "торт",
+          "example": "The cake looks good.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: At the Café. Show a clear, specific photograph visually communicating 'cake'. Context/example: The cake looks good. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 7,
+          "word": "menu",
+          "translation": "меню",
+          "example": "Can I see the menu?",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: At the Café. Show a clear, specific photograph visually communicating 'menu'. Context/example: Can I see the menu? Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 8,
+          "word": "bill",
+          "translation": "счёт",
+          "example": "Could I have the bill?",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: At the Café. Show a clear, specific photograph visually communicating 'bill'. Context/example: Could I have the bill? Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 9,
+          "word": "table",
+          "translation": "столик",
+          "example": "A table for two, please.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: At the Café. Show a clear, specific photograph visually communicating 'table'. Context/example: A table for two, please. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 10,
+          "word": "takeaway",
+          "translation": "навынос",
+          "example": "Is this for takeaway?",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: At the Café. Show a clear, specific photograph visually communicating 'takeaway'. Context/example: Is this for takeaway? Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 11,
+          "word": "delicious",
+          "translation": "вкусный",
+          "example": "The soup is delicious.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: At the Café. Show a clear, specific photograph visually communicating 'delicious'. Context/example: The soup is delicious. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 12,
+          "word": "change",
+          "translation": "сдача",
+          "example": "Keep the change.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: At the Café. Show a clear, specific photograph visually communicating 'change'. Context/example: Keep the change. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        }
+      ]
+    },
+    {
+      "lesson": "my-home",
+      "title": "Home Sweet Home",
+      "level": "A1",
+      "words": [
+        {
+          "index": 1,
+          "word": "living room",
+          "translation": "гостиная",
+          "example": "The sofa is in the living room.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Home Sweet Home. Show a clear, specific photograph visually communicating 'living room'. Context/example: The sofa is in the living room. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 2,
+          "word": "bedroom",
+          "translation": "спальня",
+          "example": "My bedroom is small.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Home Sweet Home. Show a clear, specific photograph visually communicating 'bedroom'. Context/example: My bedroom is small. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 3,
+          "word": "kitchen",
+          "translation": "кухня",
+          "example": "There is a table in the kitchen.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Home Sweet Home. Show a clear, specific photograph visually communicating 'kitchen'. Context/example: There is a table in the kitchen. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 4,
+          "word": "bathroom",
+          "translation": "ванная",
+          "example": "The bathroom has a mirror.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Home Sweet Home. Show a clear, specific photograph visually communicating 'bathroom'. Context/example: The bathroom has a mirror. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 5,
+          "word": "window",
+          "translation": "окно",
+          "example": "There are two windows.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Home Sweet Home. Show a clear, specific photograph visually communicating 'window'. Context/example: There are two windows. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 6,
+          "word": "door",
+          "translation": "дверь",
+          "example": "The door is open.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Home Sweet Home. Show a clear, specific photograph visually communicating 'door'. Context/example: The door is open. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 7,
+          "word": "sofa",
+          "translation": "диван",
+          "example": "There is a blue sofa.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Home Sweet Home. Show a clear, specific photograph visually communicating 'sofa'. Context/example: There is a blue sofa. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 8,
+          "word": "lamp",
+          "translation": "лампа",
+          "example": "The lamp is next to the bed.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Home Sweet Home. Show a clear, specific photograph visually communicating 'lamp'. Context/example: The lamp is next to the bed. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 9,
+          "word": "shelf",
+          "translation": "полка",
+          "example": "The books are on the shelf.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Home Sweet Home. Show a clear, specific photograph visually communicating 'shelf'. Context/example: The books are on the shelf. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 10,
+          "word": "chair",
+          "translation": "стул",
+          "example": "There are four chairs.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Home Sweet Home. Show a clear, specific photograph visually communicating 'chair'. Context/example: There are four chairs. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 11,
+          "word": "mirror",
+          "translation": "зеркало",
+          "example": "The mirror is above the sink.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Home Sweet Home. Show a clear, specific photograph visually communicating 'mirror'. Context/example: The mirror is above the sink. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 12,
+          "word": "plant",
+          "translation": "растение",
+          "example": "A plant is near the window.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Home Sweet Home. Show a clear, specific photograph visually communicating 'plant'. Context/example: A plant is near the window. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        }
+      ]
+    },
+    {
+      "lesson": "around-the-city",
+      "title": "Around the City",
+      "level": "A2",
+      "words": [
+        {
+          "index": 1,
+          "word": "library",
+          "translation": "библиотека",
+          "example": "The library is next to the park.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Around the City. Show a clear, specific photograph visually communicating 'library'. Context/example: The library is next to the park. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 2,
+          "word": "hospital",
+          "translation": "больница",
+          "example": "The hospital is on Green Street.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Around the City. Show a clear, specific photograph visually communicating 'hospital'. Context/example: The hospital is on Green Street. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 3,
+          "word": "museum",
+          "translation": "музей",
+          "example": "The museum is behind the café.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Around the City. Show a clear, specific photograph visually communicating 'museum'. Context/example: The museum is behind the café. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 4,
+          "word": "station",
+          "translation": "станция",
+          "example": "The station is near the square.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Around the City. Show a clear, specific photograph visually communicating 'station'. Context/example: The station is near the square. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 5,
+          "word": "bank",
+          "translation": "банк",
+          "example": "The bank is opposite the hotel.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Around the City. Show a clear, specific photograph visually communicating 'bank'. Context/example: The bank is opposite the hotel. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 6,
+          "word": "crossroads",
+          "translation": "перекрёсток",
+          "example": "Turn left at the crossroads.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Around the City. Show a clear, specific photograph visually communicating 'crossroads'. Context/example: Turn left at the crossroads. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 7,
+          "word": "bridge",
+          "translation": "мост",
+          "example": "Walk across the bridge.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Around the City. Show a clear, specific photograph visually communicating 'bridge'. Context/example: Walk across the bridge. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 8,
+          "word": "park",
+          "translation": "парк",
+          "example": "The park is behind the museum.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Around the City. Show a clear, specific photograph visually communicating 'park'. Context/example: The park is behind the museum. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 9,
+          "word": "straight ahead",
+          "translation": "прямо",
+          "example": "Go straight ahead.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Around the City. Show a clear, specific photograph visually communicating 'straight ahead'. Context/example: Go straight ahead. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 10,
+          "word": "turn left",
+          "translation": "повернуть налево",
+          "example": "Turn left after the bank.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Around the City. Show a clear, specific photograph visually communicating 'turn left'. Context/example: Turn left after the bank. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 11,
+          "word": "turn right",
+          "translation": "повернуть направо",
+          "example": "Turn right at the lights.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Around the City. Show a clear, specific photograph visually communicating 'turn right'. Context/example: Turn right at the lights. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 12,
+          "word": "opposite",
+          "translation": "напротив",
+          "example": "The café is opposite the station.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Around the City. Show a clear, specific photograph visually communicating 'opposite'. Context/example: The café is opposite the station. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        }
+      ]
+    },
+    {
+      "lesson": "travel-transport",
+      "title": "The Journey Starts Here",
+      "level": "A2",
+      "words": [
+        {
+          "index": 1,
+          "word": "ticket",
+          "translation": "билет",
+          "example": "I bought a train ticket.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Journey Starts Here. Show a clear, specific photograph visually communicating 'ticket'. Context/example: I bought a train ticket. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 2,
+          "word": "passport",
+          "translation": "паспорт",
+          "example": "Don't forget your passport.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Journey Starts Here. Show a clear, specific photograph visually communicating 'passport'. Context/example: Don't forget your passport. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 3,
+          "word": "suitcase",
+          "translation": "чемодан",
+          "example": "My suitcase is heavy.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Journey Starts Here. Show a clear, specific photograph visually communicating 'suitcase'. Context/example: My suitcase is heavy. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 4,
+          "word": "platform",
+          "translation": "платформа",
+          "example": "The train leaves from platform four.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Journey Starts Here. Show a clear, specific photograph visually communicating 'platform'. Context/example: The train leaves from platform four. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 5,
+          "word": "boarding pass",
+          "translation": "посадочный талон",
+          "example": "Show your boarding pass.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Journey Starts Here. Show a clear, specific photograph visually communicating 'boarding pass'. Context/example: Show your boarding pass. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 6,
+          "word": "delay",
+          "translation": "задержка",
+          "example": "Our flight has a delay.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Journey Starts Here. Show a clear, specific photograph visually communicating 'delay'. Context/example: Our flight has a delay. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 7,
+          "word": "departure",
+          "translation": "отправление",
+          "example": "Check the departure time.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Journey Starts Here. Show a clear, specific photograph visually communicating 'departure'. Context/example: Check the departure time. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 8,
+          "word": "arrival",
+          "translation": "прибытие",
+          "example": "Our arrival is at six.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Journey Starts Here. Show a clear, specific photograph visually communicating 'arrival'. Context/example: Our arrival is at six. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 9,
+          "word": "reservation",
+          "translation": "бронирование",
+          "example": "I have a hotel reservation.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Journey Starts Here. Show a clear, specific photograph visually communicating 'reservation'. Context/example: I have a hotel reservation. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 10,
+          "word": "journey",
+          "translation": "поездка",
+          "example": "The journey takes two hours.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Journey Starts Here. Show a clear, specific photograph visually communicating 'journey'. Context/example: The journey takes two hours. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 11,
+          "word": "luggage",
+          "translation": "багаж",
+          "example": "Where is my luggage?",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Journey Starts Here. Show a clear, specific photograph visually communicating 'luggage'. Context/example: Where is my luggage? Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 12,
+          "word": "destination",
+          "translation": "пункт назначения",
+          "example": "Paris is our destination.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Journey Starts Here. Show a clear, specific photograph visually communicating 'destination'. Context/example: Paris is our destination. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        }
+      ]
+    },
+    {
+      "lesson": "weekend-plans",
+      "title": "The Perfect Weekend",
+      "level": "A2",
+      "words": [
+        {
+          "index": 1,
+          "word": "go hiking",
+          "translation": "ходить в поход",
+          "example": "Let's go hiking on Saturday.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Perfect Weekend. Show a clear, specific photograph visually communicating 'go hiking'. Context/example: Let's go hiking on Saturday. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 2,
+          "word": "visit friends",
+          "translation": "навестить друзей",
+          "example": "I'm visiting friends.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Perfect Weekend. Show a clear, specific photograph visually communicating 'visit friends'. Context/example: I'm visiting friends. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 3,
+          "word": "watch a film",
+          "translation": "смотреть фильм",
+          "example": "Would you like to watch a film?",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Perfect Weekend. Show a clear, specific photograph visually communicating 'watch a film'. Context/example: Would you like to watch a film? Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 4,
+          "word": "have a picnic",
+          "translation": "устроить пикник",
+          "example": "We can have a picnic.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Perfect Weekend. Show a clear, specific photograph visually communicating 'have a picnic'. Context/example: We can have a picnic. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 5,
+          "word": "go cycling",
+          "translation": "кататься на велосипеде",
+          "example": "I enjoy going cycling.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Perfect Weekend. Show a clear, specific photograph visually communicating 'go cycling'. Context/example: I enjoy going cycling. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 6,
+          "word": "stay in",
+          "translation": "оставаться дома",
+          "example": "I'd rather stay in.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Perfect Weekend. Show a clear, specific photograph visually communicating 'stay in'. Context/example: I'd rather stay in. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 7,
+          "word": "make plans",
+          "translation": "строить планы",
+          "example": "Let's make plans for Sunday.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Perfect Weekend. Show a clear, specific photograph visually communicating 'make plans'. Context/example: Let's make plans for Sunday. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 8,
+          "word": "invite",
+          "translation": "приглашать",
+          "example": "Can I invite a friend?",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Perfect Weekend. Show a clear, specific photograph visually communicating 'invite'. Context/example: Can I invite a friend? Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 9,
+          "word": "cancel",
+          "translation": "отменять",
+          "example": "We need to cancel the trip.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Perfect Weekend. Show a clear, specific photograph visually communicating 'cancel'. Context/example: We need to cancel the trip. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 10,
+          "word": "available",
+          "translation": "свободный",
+          "example": "Are you available tomorrow?",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Perfect Weekend. Show a clear, specific photograph visually communicating 'available'. Context/example: Are you available tomorrow? Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 11,
+          "word": "relaxing",
+          "translation": "расслабляющий",
+          "example": "I want a relaxing weekend.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Perfect Weekend. Show a clear, specific photograph visually communicating 'relaxing'. Context/example: I want a relaxing weekend. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 12,
+          "word": "adventure",
+          "translation": "приключение",
+          "example": "Let's try a new adventure.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Perfect Weekend. Show a clear, specific photograph visually communicating 'adventure'. Context/example: Let's try a new adventure. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        }
+      ]
+    },
+    {
+      "lesson": "work-life-balance",
+      "title": "Work–Life Balance",
+      "level": "B1",
+      "words": [
+        {
+          "index": 1,
+          "word": "deadline",
+          "translation": "крайний срок",
+          "example": "The deadline is on Friday.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Work–Life Balance. Show a clear, specific photograph visually communicating 'deadline'. Context/example: The deadline is on Friday. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 2,
+          "word": "burnout",
+          "translation": "выгорание",
+          "example": "Burnout can affect motivation.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Work–Life Balance. Show a clear, specific photograph visually communicating 'burnout'. Context/example: Burnout can affect motivation. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 3,
+          "word": "priority",
+          "translation": "приоритет",
+          "example": "Family is my priority.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Work–Life Balance. Show a clear, specific photograph visually communicating 'priority'. Context/example: Family is my priority. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 4,
+          "word": "flexible",
+          "translation": "гибкий",
+          "example": "I have a flexible schedule.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Work–Life Balance. Show a clear, specific photograph visually communicating 'flexible'. Context/example: I have a flexible schedule. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 5,
+          "word": "commute",
+          "translation": "дорога на работу",
+          "example": "My commute takes an hour.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Work–Life Balance. Show a clear, specific photograph visually communicating 'commute'. Context/example: My commute takes an hour. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 6,
+          "word": "break",
+          "translation": "перерыв",
+          "example": "I take a short break.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Work–Life Balance. Show a clear, specific photograph visually communicating 'break'. Context/example: I take a short break. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 7,
+          "word": "boundaries",
+          "translation": "границы",
+          "example": "Healthy boundaries matter.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Work–Life Balance. Show a clear, specific photograph visually communicating 'boundaries'. Context/example: Healthy boundaries matter. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 8,
+          "word": "productivity",
+          "translation": "продуктивность",
+          "example": "Sleep improves productivity.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Work–Life Balance. Show a clear, specific photograph visually communicating 'productivity'. Context/example: Sleep improves productivity. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 9,
+          "word": "overwhelmed",
+          "translation": "перегруженный",
+          "example": "I feel overwhelmed today.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Work–Life Balance. Show a clear, specific photograph visually communicating 'overwhelmed'. Context/example: I feel overwhelmed today. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 10,
+          "word": "unplug",
+          "translation": "отключаться",
+          "example": "I unplug after dinner.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Work–Life Balance. Show a clear, specific photograph visually communicating 'unplug'. Context/example: I unplug after dinner. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 11,
+          "word": "workload",
+          "translation": "рабочая нагрузка",
+          "example": "My workload is increasing.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Work–Life Balance. Show a clear, specific photograph visually communicating 'workload'. Context/example: My workload is increasing. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 12,
+          "word": "well-being",
+          "translation": "благополучие",
+          "example": "Well-being is important.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Work–Life Balance. Show a clear, specific photograph visually communicating 'well-being'. Context/example: Well-being is important. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        }
+      ]
+    },
+    {
+      "lesson": "stories-that-changed-me",
+      "title": "Stories That Changed Me",
+      "level": "B1",
+      "words": [
+        {
+          "index": 1,
+          "word": "memory",
+          "translation": "воспоминание",
+          "example": "It's a happy memory.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Stories That Changed Me. Show a clear, specific photograph visually communicating 'memory'. Context/example: It's a happy memory. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 2,
+          "word": "turning point",
+          "translation": "поворотный момент",
+          "example": "That day was a turning point.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Stories That Changed Me. Show a clear, specific photograph visually communicating 'turning point'. Context/example: That day was a turning point. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 3,
+          "word": "unexpected",
+          "translation": "неожиданный",
+          "example": "Something unexpected happened.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Stories That Changed Me. Show a clear, specific photograph visually communicating 'unexpected'. Context/example: Something unexpected happened. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 4,
+          "word": "challenge",
+          "translation": "испытание",
+          "example": "It was a big challenge.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Stories That Changed Me. Show a clear, specific photograph visually communicating 'challenge'. Context/example: It was a big challenge. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 5,
+          "word": "decision",
+          "translation": "решение",
+          "example": "I made a quick decision.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Stories That Changed Me. Show a clear, specific photograph visually communicating 'decision'. Context/example: I made a quick decision. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 6,
+          "word": "realize",
+          "translation": "осознавать",
+          "example": "I realized I was wrong.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Stories That Changed Me. Show a clear, specific photograph visually communicating 'realize'. Context/example: I realized I was wrong. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 7,
+          "word": "eventually",
+          "translation": "в конце концов",
+          "example": "Eventually, we found the place.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Stories That Changed Me. Show a clear, specific photograph visually communicating 'eventually'. Context/example: Eventually, we found the place. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 8,
+          "word": "meanwhile",
+          "translation": "тем временем",
+          "example": "Meanwhile, my friend called.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Stories That Changed Me. Show a clear, specific photograph visually communicating 'meanwhile'. Context/example: Meanwhile, my friend called. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 9,
+          "word": "coincidence",
+          "translation": "совпадение",
+          "example": "It was a strange coincidence.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Stories That Changed Me. Show a clear, specific photograph visually communicating 'coincidence'. Context/example: It was a strange coincidence. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 10,
+          "word": "brave",
+          "translation": "храбрый",
+          "example": "She made a brave choice.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Stories That Changed Me. Show a clear, specific photograph visually communicating 'brave'. Context/example: She made a brave choice. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 11,
+          "word": "lesson learned",
+          "translation": "усвоенный урок",
+          "example": "That was a lesson learned.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Stories That Changed Me. Show a clear, specific photograph visually communicating 'lesson learned'. Context/example: That was a lesson learned. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 12,
+          "word": "unforgettable",
+          "translation": "незабываемый",
+          "example": "It was an unforgettable weekend.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Stories That Changed Me. Show a clear, specific photograph visually communicating 'unforgettable'. Context/example: It was an unforgettable weekend. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        }
+      ]
+    },
+    {
+      "lesson": "problem-solving",
+      "title": "Let's Solve It",
+      "level": "B1",
+      "words": [
+        {
+          "index": 1,
+          "word": "solution",
+          "translation": "решение проблемы",
+          "example": "We need a solution.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Let's Solve It. Show a clear, specific photograph visually communicating 'solution'. Context/example: We need a solution. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 2,
+          "word": "compromise",
+          "translation": "компромисс",
+          "example": "Let's find a compromise.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Let's Solve It. Show a clear, specific photograph visually communicating 'compromise'. Context/example: Let's find a compromise. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 3,
+          "word": "option",
+          "translation": "вариант",
+          "example": "We have two options.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Let's Solve It. Show a clear, specific photograph visually communicating 'option'. Context/example: We have two options. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 4,
+          "word": "suggest",
+          "translation": "предлагать",
+          "example": "Can I suggest an idea?",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Let's Solve It. Show a clear, specific photograph visually communicating 'suggest'. Context/example: Can I suggest an idea? Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 5,
+          "word": "agree",
+          "translation": "соглашаться",
+          "example": "I agree with your plan.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Let's Solve It. Show a clear, specific photograph visually communicating 'agree'. Context/example: I agree with your plan. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 6,
+          "word": "disagree",
+          "translation": "не соглашаться",
+          "example": "I politely disagree.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Let's Solve It. Show a clear, specific photograph visually communicating 'disagree'. Context/example: I politely disagree. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 7,
+          "word": "refund",
+          "translation": "возврат денег",
+          "example": "I'd like a refund.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Let's Solve It. Show a clear, specific photograph visually communicating 'refund'. Context/example: I'd like a refund. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 8,
+          "word": "complaint",
+          "translation": "жалоба",
+          "example": "I need to make a complaint.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Let's Solve It. Show a clear, specific photograph visually communicating 'complaint'. Context/example: I need to make a complaint. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 9,
+          "word": "replace",
+          "translation": "заменять",
+          "example": "Can you replace this item?",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Let's Solve It. Show a clear, specific photograph visually communicating 'replace'. Context/example: Can you replace this item? Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 10,
+          "word": "reschedule",
+          "translation": "переносить",
+          "example": "Can we reschedule the meeting?",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Let's Solve It. Show a clear, specific photograph visually communicating 'reschedule'. Context/example: Can we reschedule the meeting? Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 11,
+          "word": "negotiate",
+          "translation": "вести переговоры",
+          "example": "We need to negotiate.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Let's Solve It. Show a clear, specific photograph visually communicating 'negotiate'. Context/example: We need to negotiate. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 12,
+          "word": "priority",
+          "translation": "приоритет",
+          "example": "Safety is our priority.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Let's Solve It. Show a clear, specific photograph visually communicating 'priority'. Context/example: Safety is our priority. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        }
+      ]
+    },
+    {
+      "lesson": "digital-habits",
+      "title": "A Day Online",
+      "level": "B1",
+      "words": [
+        {
+          "index": 1,
+          "word": "notification",
+          "translation": "уведомление",
+          "example": "I turned off notifications.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day Online. Show a clear, specific photograph visually communicating 'notification'. Context/example: I turned off notifications. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 2,
+          "word": "scroll",
+          "translation": "листать ленту",
+          "example": "I scroll before bed.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day Online. Show a clear, specific photograph visually communicating 'scroll'. Context/example: I scroll before bed. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 3,
+          "word": "screen time",
+          "translation": "экранное время",
+          "example": "My screen time is high.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day Online. Show a clear, specific photograph visually communicating 'screen time'. Context/example: My screen time is high. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 4,
+          "word": "privacy",
+          "translation": "приватность",
+          "example": "Online privacy matters.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day Online. Show a clear, specific photograph visually communicating 'privacy'. Context/example: Online privacy matters. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 5,
+          "word": "algorithm",
+          "translation": "алгоритм",
+          "example": "The algorithm recommends videos.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day Online. Show a clear, specific photograph visually communicating 'algorithm'. Context/example: The algorithm recommends videos. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 6,
+          "word": "feed",
+          "translation": "лента",
+          "example": "My feed shows travel photos.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day Online. Show a clear, specific photograph visually communicating 'feed'. Context/example: My feed shows travel photos. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 7,
+          "word": "mute",
+          "translation": "отключать звук",
+          "example": "I mute group chats.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day Online. Show a clear, specific photograph visually communicating 'mute'. Context/example: I mute group chats. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 8,
+          "word": "upload",
+          "translation": "загружать",
+          "example": "I upload photos occasionally.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day Online. Show a clear, specific photograph visually communicating 'upload'. Context/example: I upload photos occasionally. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 9,
+          "word": "download",
+          "translation": "скачивать",
+          "example": "I download podcasts.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day Online. Show a clear, specific photograph visually communicating 'download'. Context/example: I download podcasts. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 10,
+          "word": "distracted",
+          "translation": "отвлечённый",
+          "example": "I get distracted easily.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day Online. Show a clear, specific photograph visually communicating 'distracted'. Context/example: I get distracted easily. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 11,
+          "word": "offline",
+          "translation": "офлайн",
+          "example": "I spend Sundays offline.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day Online. Show a clear, specific photograph visually communicating 'offline'. Context/example: I spend Sundays offline. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 12,
+          "word": "habit",
+          "translation": "привычка",
+          "example": "It's a hard habit to change.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: A Day Online. Show a clear, specific photograph visually communicating 'habit'. Context/example: It's a hard habit to change. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        }
+      ]
+    },
+    {
+      "lesson": "future-of-work",
+      "title": "The Future of Work",
+      "level": "B2",
+      "words": [
+        {
+          "index": 1,
+          "word": "automation",
+          "translation": "автоматизация",
+          "example": "Automation may change routine work.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Future of Work. Show a clear, specific photograph visually communicating 'automation'. Context/example: Automation may change routine work. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 2,
+          "word": "reskilling",
+          "translation": "переобучение",
+          "example": "Reskilling can help employees adapt.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Future of Work. Show a clear, specific photograph visually communicating 'reskilling'. Context/example: Reskilling can help employees adapt. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 3,
+          "word": "hybrid work",
+          "translation": "гибридная работа",
+          "example": "Hybrid work combines home and office.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Future of Work. Show a clear, specific photograph visually communicating 'hybrid work'. Context/example: Hybrid work combines home and office. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 4,
+          "word": "productivity",
+          "translation": "продуктивность",
+          "example": "Productivity is difficult to measure.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Future of Work. Show a clear, specific photograph visually communicating 'productivity'. Context/example: Productivity is difficult to measure. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 5,
+          "word": "collaboration",
+          "translation": "сотрудничество",
+          "example": "Collaboration requires trust.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Future of Work. Show a clear, specific photograph visually communicating 'collaboration'. Context/example: Collaboration requires trust. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 6,
+          "word": "flexibility",
+          "translation": "гибкость",
+          "example": "Flexibility matters to many workers.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Future of Work. Show a clear, specific photograph visually communicating 'flexibility'. Context/example: Flexibility matters to many workers. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 7,
+          "word": "displacement",
+          "translation": "вытеснение",
+          "example": "Some fear job displacement.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Future of Work. Show a clear, specific photograph visually communicating 'displacement'. Context/example: Some fear job displacement. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 8,
+          "word": "leadership",
+          "translation": "лидерство",
+          "example": "Leadership needs empathy.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Future of Work. Show a clear, specific photograph visually communicating 'leadership'. Context/example: Leadership needs empathy. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 9,
+          "word": "upskill",
+          "translation": "повышать квалификацию",
+          "example": "Workers must upskill.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Future of Work. Show a clear, specific photograph visually communicating 'upskill'. Context/example: Workers must upskill. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 10,
+          "word": "remote-first",
+          "translation": "ориентация на удалёнку",
+          "example": "A remote-first company works online.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Future of Work. Show a clear, specific photograph visually communicating 'remote-first'. Context/example: A remote-first company works online. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 11,
+          "word": "trade-off",
+          "translation": "компромисс между выгодами",
+          "example": "Every model has trade-offs.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Future of Work. Show a clear, specific photograph visually communicating 'trade-off'. Context/example: Every model has trade-offs. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 12,
+          "word": "accountability",
+          "translation": "ответственность",
+          "example": "Accountability is essential.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: The Future of Work. Show a clear, specific photograph visually communicating 'accountability'. Context/example: Accountability is essential. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        }
+      ]
+    },
+    {
+      "lesson": "sustainable-choices",
+      "title": "Small Choices, Big Impact",
+      "level": "B2",
+      "words": [
+        {
+          "index": 1,
+          "word": "carbon footprint",
+          "translation": "углеродный след",
+          "example": "Travel can increase a carbon footprint.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Small Choices, Big Impact. Show a clear, specific photograph visually communicating 'carbon footprint'. Context/example: Travel can increase a carbon footprint. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 2,
+          "word": "reusable",
+          "translation": "многоразовый",
+          "example": "I carry a reusable bottle.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Small Choices, Big Impact. Show a clear, specific photograph visually communicating 'reusable'. Context/example: I carry a reusable bottle. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 3,
+          "word": "durable",
+          "translation": "долговечный",
+          "example": "Durable clothes may last longer.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Small Choices, Big Impact. Show a clear, specific photograph visually communicating 'durable'. Context/example: Durable clothes may last longer. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 4,
+          "word": "waste",
+          "translation": "отходы",
+          "example": "We should reduce waste.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Small Choices, Big Impact. Show a clear, specific photograph visually communicating 'waste'. Context/example: We should reduce waste. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 5,
+          "word": "consumption",
+          "translation": "потребление",
+          "example": "Consumption is a complex issue.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Small Choices, Big Impact. Show a clear, specific photograph visually communicating 'consumption'. Context/example: Consumption is a complex issue. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 6,
+          "word": "trade-off",
+          "translation": "компромисс",
+          "example": "There is a trade-off between cost and speed.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Small Choices, Big Impact. Show a clear, specific photograph visually communicating 'trade-off'. Context/example: There is a trade-off between cost and speed. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 7,
+          "word": "public transport",
+          "translation": "общественный транспорт",
+          "example": "I use public transport daily.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Small Choices, Big Impact. Show a clear, specific photograph visually communicating 'public transport'. Context/example: I use public transport daily. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 8,
+          "word": "repair",
+          "translation": "ремонтировать",
+          "example": "Repairing items can save money.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Small Choices, Big Impact. Show a clear, specific photograph visually communicating 'repair'. Context/example: Repairing items can save money. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 9,
+          "word": "resource",
+          "translation": "ресурс",
+          "example": "Water is a valuable resource.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Small Choices, Big Impact. Show a clear, specific photograph visually communicating 'resource'. Context/example: Water is a valuable resource. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 10,
+          "word": "ethical",
+          "translation": "этичный",
+          "example": "Ethical choices can be difficult.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Small Choices, Big Impact. Show a clear, specific photograph visually communicating 'ethical'. Context/example: Ethical choices can be difficult. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 11,
+          "word": "impact",
+          "translation": "влияние",
+          "example": "Small habits have an impact.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Small Choices, Big Impact. Show a clear, specific photograph visually communicating 'impact'. Context/example: Small habits have an impact. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 12,
+          "word": "practical",
+          "translation": "практичный",
+          "example": "We need a practical solution.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: Small Choices, Big Impact. Show a clear, specific photograph visually communicating 'practical'. Context/example: We need a practical solution. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        }
+      ]
+    },
+    {
+      "lesson": "ai-everyday",
+      "title": "AI in Everyday Life",
+      "level": "B2",
+      "words": [
+        {
+          "index": 1,
+          "word": "bias",
+          "translation": "предвзятость",
+          "example": "A model can reflect bias.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: AI in Everyday Life. Show a clear, specific photograph visually communicating 'bias'. Context/example: A model can reflect bias. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 2,
+          "word": "transparency",
+          "translation": "прозрачность",
+          "example": "Transparency helps users evaluate claims.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: AI in Everyday Life. Show a clear, specific photograph visually communicating 'transparency'. Context/example: Transparency helps users evaluate claims. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 3,
+          "word": "privacy",
+          "translation": "конфиденциальность",
+          "example": "Privacy deserves protection.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: AI in Everyday Life. Show a clear, specific photograph visually communicating 'privacy'. Context/example: Privacy deserves protection. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 4,
+          "word": "reliability",
+          "translation": "надёжность",
+          "example": "Reliability varies by task.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: AI in Everyday Life. Show a clear, specific photograph visually communicating 'reliability'. Context/example: Reliability varies by task. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 5,
+          "word": "consent",
+          "translation": "согласие",
+          "example": "Users should understand consent.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: AI in Everyday Life. Show a clear, specific photograph visually communicating 'consent'. Context/example: Users should understand consent. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 6,
+          "word": "oversight",
+          "translation": "контроль",
+          "example": "Human oversight is important.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: AI in Everyday Life. Show a clear, specific photograph visually communicating 'oversight'. Context/example: Human oversight is important. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 7,
+          "word": "hallucination",
+          "translation": "выдуманный ответ ИИ",
+          "example": "An AI hallucination can sound confident.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: AI in Everyday Life. Show a clear, specific photograph visually communicating 'hallucination'. Context/example: An AI hallucination can sound confident. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 8,
+          "word": "efficiency",
+          "translation": "эффективность",
+          "example": "Automation may improve efficiency.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: AI in Everyday Life. Show a clear, specific photograph visually communicating 'efficiency'. Context/example: Automation may improve efficiency. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 9,
+          "word": "accountability",
+          "translation": "ответственность",
+          "example": "Accountability must remain clear.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: AI in Everyday Life. Show a clear, specific photograph visually communicating 'accountability'. Context/example: Accountability must remain clear. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 10,
+          "word": "trade-off",
+          "translation": "компромисс",
+          "example": "There is a trade-off between speed and care.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: AI in Everyday Life. Show a clear, specific photograph visually communicating 'trade-off'. Context/example: There is a trade-off between speed and care. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 11,
+          "word": "evidence",
+          "translation": "доказательства",
+          "example": "We need evidence before deciding.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: AI in Everyday Life. Show a clear, specific photograph visually communicating 'evidence'. Context/example: We need evidence before deciding. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        },
+        {
+          "index": 12,
+          "word": "judgement",
+          "translation": "суждение",
+          "example": "Human judgement still matters.",
+          "shot_prompt": "Photorealistic editorial lifestyle photography. Contemporary natural-light environment, realistic proportions, muted warm and sage colors, sincere people and everyday moments when relevant. No lettering, captions, logos, symbols, watermark, vectors or emojis. Teach one unambiguous visual concept per frame. High-resolution portrait or square composition with generous safe margins. Topic: AI in Everyday Life. Show a clear, specific photograph visually communicating 'judgement'. Context/example: Human judgement still matters. Compose for student speaking and vocabulary recognition, not advertising.",
+          "review_required": true
+        }
+      ]
+    }
+  ]
+}
