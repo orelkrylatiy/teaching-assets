@@ -1,0 +1,64 @@
+name: Import generated Hello English photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-hello-photos.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python and Pillow
+        run: python3 -m pip install --user Pillow
+      - name: Fetch original generated sheet and split into twelve photo cards
+        env:
+          CANVA_THUMB: 'https://media.canva.com/v2/image-resize/format:PNG/height:200/quality:100/uri:ifs%3A%2F%2FM%2F6d792382-b740-4f0a-aca9-c1a53113c232/watermark:F/width:200?csig=AAAAAAAAAAAAAAAAAAAAAGW5VBgP2CV4N1nuWFYnGIsWGhoUpuaWVWYoxIjdr6-V&exp=1794784986&osig=AAAAAAAAAAAAAAAAAAAAAM6neF0emroiLz-1LM4F8Bz4hYXpEgzyXYfoPre9ORMc&signer=media-rpc&token=AAIAAU0AJDZkNzkyMzgyLWI3NDAtNGYwYS1hY2E5LWMxYTUzMTEzYzIzMgAAAAABoeGFg5DMDPvO3_It2EtUbkptP5XIYCYGvPWk6uBmxhVtsJZhhQ&x-canva-quality=thumbnail'
+        run: |
+          python3 - <<'PY'
+          import os,urllib.request,pathlib,io
+          from PIL import Image
+          src=os.environ['CANVA_THUMB']
+          urls=[
+            src.replace('height:200','height:1254').replace('width:200','width:1254'),
+            src.replace('height:200','height:1024').replace('width:200','width:1024'),
+            src
+          ]
+          names=['hello','goodbye','please','thank-you','yes','no','name','friend','teacher','student','english','nice-to-meet-you']
+          sheet=None
+          for u in urls:
+            try:
+              with urllib.request.urlopen(urllib.request.Request(u,headers={'User-Agent':'TeachingAssetsImporter/1.0'}),timeout=20) as r:data=r.read()
+              sample=Image.open(io.BytesIO(data)).convert('RGB')
+              print('Candidate:',sample.size,'bytes:',len(data))
+              if min(sample.size)>=800:
+                sheet=sample
+                break
+            except Exception as err: print('Candidate unavailable:',str(err)[:240])
+          if sheet is None:
+            print('No full-resolution original accessible: intentionally skipping low-quality images.')
+            raise SystemExit(0)
+          w,h=sheet.size
+          base=pathlib.Path('assets/photos/hello-english')
+          base.mkdir(parents=True,exist_ok=True)
+          for i,name in enumerate(names):
+            x,y=i%4,i//4
+            img=sheet.crop((round(x*w/4)+3,round(y*h/3)+3,round((x+1)*w/4)-3,round((y+1)*h/3)-3))
+            img.save(base/(name+'.webp'),'WEBP',quality=87,method=6)
+          sheet.save(base/'photo-sheet.webp','WEBP',quality=85,method=6)
+          print('Created',len(names),'original generated image cards.')
+          PY
+      - name: Commit if assets were imported successfully
+        run: |
+          git add assets/photos/hello-english || true
+          if git diff --cached --quiet; then
+            echo "No importable full-resolution photos; nothing committed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "feat(photos): import original generated Hello English photo flashcards"
+          git push
