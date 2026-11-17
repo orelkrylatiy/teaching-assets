@@ -1,0 +1,75 @@
+name: Deploy static site (artifact)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-${{ vars.DEPLOY_PROJECT }}
+  cancel-in-progress: false
+
+env:
+  DEPLOY_PROJECT: ${{ vars.DEPLOY_PROJECT }}
+  BUILD_DIR: ${{ vars.BUILD_DIR || 'dist' }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ vars.NODE_VERSION || '22' }}
+
+      - name: Build
+        run: |
+          set -euo pipefail
+          node scripts/build.mjs
+          case "$BUILD_DIR" in ""|/*|*..*) echo "BUILD_DIR must be a safe relative path"; exit 1;; esac
+          test -f "$BUILD_DIR/index.html"
+
+      - name: Configure SSH
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$DEPLOY_HOST" =~ ^[A-Za-z0-9.:-]+$ ]] || { echo "Invalid DEPLOY_HOST"; exit 1; }
+          [[ "$DEPLOY_USER" =~ ^[A-Za-z0-9._-]+$ ]] || { echo "Invalid DEPLOY_USER"; exit 1; }
+          test -n "$DEPLOY_SSH_KEY"
+          test -n "$DEPLOY_KNOWN_HOSTS"
+          install -m 700 -d "$HOME/.ssh"
+          printf '%s\n' "$DEPLOY_SSH_KEY" > "$HOME/.ssh/id_ed25519"
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
+          chmod 600 "$HOME/.ssh/id_ed25519" "$HOME/.ssh/known_hosts"
+          cat > "$HOME/.ssh/config" <<EOF
+          Host deploy-target
+            HostName $DEPLOY_HOST
+            User $DEPLOY_USER
+            IdentityFile $HOME/.ssh/id_ed25519
+            UserKnownHostsFile $HOME/.ssh/known_hosts
+            StrictHostKeyChecking yes
+            BatchMode yes
+          EOF
+          chmod 600 "$HOME/.ssh/config"
+
+      - name: Upload and deploy
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$DEPLOY_PROJECT" =~ ^[a-z0-9]([a-z0-9-]{0,46}[a-z0-9])?$ ]] || { echo "Invalid DEPLOY_PROJECT"; exit 1; }
+          RELEASE_ID="${GITHUB_SHA:0:12}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          REMOTE_DIR="/var/lib/deploy-manager/incoming/$DEPLOY_PROJECT/$RELEASE_ID/payload"
+          ssh deploy-target "mkdir -p '$REMOTE_DIR'"
+          rsync -az --delete -e "ssh -F $HOME/.ssh/config" "$BUILD_DIR/" "deploy-target:$REMOTE_DIR/"
+          ssh deploy-target "deploy-manager deploy '$DEPLOY_PROJECT' --release-id '$RELEASE_ID'"
