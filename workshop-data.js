@@ -18,13 +18,13 @@
         {title:"Reflection",notes:distinct([l.teacherTip,"What went well?","What will I try next time?"])}
       ],task:"Work in pairs: plan a dialogue, move successful expressions into Reflection and add one improvement."}
     ];
-    for(const b of boards)sets.push({id:l.id+"-"+b.suffix,lessonId:l.id,level:l.level,kind:"board",title:b.title,summary:b.summary,task:b.task,minutes:15,columns:b.columns});
+    for(const b of boards)sets.push({id:l.id+"-"+b.suffix,lessonId:l.id,language:l.language||"en",level:l.level,kind:"board",title:b.title,summary:b.summary,task:b.task,minutes:15,columns:b.columns});
     const sheetRows=words.map(w=>[w.en,w.ru,w.example,"",""]);
     const checkRows=l.questions.slice(0,6).map((q,i)=>[q,String((i%3)+2),String((i%4)+1),String((i%2)+3),`=SUM(B${i+2}:D${i+2})`]);
     sets.push({
-      id:l.id+"-word-workbook",lessonId:l.id,level:l.level,kind:"sheet",title:"Vocabulary workbook · My examples",
-      summary:"An editable language notebook with a personal example and confidence rating.",task:"Add your own English example in column D and rate confidence in column E from 1 to 5.",
-      minutes:12,headers:["Expression","Перевод","Model sentence","My sentence","Confidence 1–5"],rows:sheetRows
+      id:l.id+"-word-workbook",lessonId:l.id,language:l.language||"en",level:l.level,kind:"sheet",title:(l.language==="sk"?"Slovak vocabulary · My examples":"Vocabulary workbook · My examples"),
+      summary:"An editable language notebook with a personal example and confidence rating.",task:`Add your own ${l.language==="sk"?"Slovak":"English"} example in column D and rate confidence in column E from 1 to 5.`,
+      minutes:12,headers:[l.language==="sk"?"Slovak expression":"English expression","Перевод","Model sentence","My sentence","Confidence 1–5"],rows:sheetRows
     });
     sets.push({
       id:l.id+"-class-survey",lessonId:l.id,level:l.level,kind:"sheet",title:"Class survey · Scores & formulas",
@@ -33,18 +33,18 @@
     });
     const vocabulary=words.slice(0,Math.min(10,words.length)).map((w,i)=>{
       const answers=distinct([w.ru,...words.filter(x=>x.ru!==w.ru).map(x=>x.ru).slice(i+1),...words.filter(x=>x.ru!==w.ru).map(x=>x.ru)]).slice(0,4);
-      return {type:"choice",question:`What does “${w.en}” mean?`,options:answers,answer:w.ru,explanation:w.example};
+      return {type:"choice",question:`Как переводится “${w.en}” на русский?`,options:answers,answer:w.ru,explanation:w.example};
     });
     const context=words.slice(0,10).map((w,i)=>{
       const other=words.find((x,j)=>j!==i&&x.ru!==w.ru)||w;
       if(i%3===2)return {type:"boolean",question:`“${w.en}” means “${i%2===0?w.ru:other.ru}”.`,answer:i%2===0?"True":"False",explanation:`${w.en} — ${w.ru}. ${w.example}`};
       const text=w.example.toLowerCase().includes(w.en.toLowerCase())?
         w.example.replace(new RegExp(w.en.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"i"),"_____"):
-        `Translate into English: ${w.ru}`;
+        `Translate into ${l.language==="sk"?"Slovak":"English"}: ${w.ru}`;
       return {type:"input",question:text,answer:w.en,explanation:`${w.en} — ${w.ru}. ${w.example}`};
     });
-    sets.push({id:l.id+"-vocabulary-quiz",lessonId:l.id,level:l.level,kind:"quiz",title:"Vocabulary challenge · 10 questions",summary:"Choose the correct translation and receive instant feedback.",task:"Complete the round, review mistakes and try to improve your score.",minutes:8,items:vocabulary});
-    sets.push({id:l.id+"-context-quiz",lessonId:l.id,level:l.level,kind:"quiz",title:"Context challenge · Fill in & True/False",summary:"Write missing expressions and check statements in context.",task:"Complete the expressions without looking at the word bank.",minutes:10,items:context});
+    sets.push({id:l.id+"-vocabulary-quiz",lessonId:l.id,language:l.language||"en",level:l.level,kind:"quiz",title:"Vocabulary challenge · 10 questions",summary:"Choose the correct translation and receive instant feedback.",task:"Complete the round, review mistakes and try to improve your score.",minutes:8,items:vocabulary});
+    sets.push({id:l.id+"-context-quiz",lessonId:l.id,language:l.language||"en",level:l.level,kind:"quiz",title:"Context challenge · Fill in & True/False",summary:"Write missing expressions and check statements in context.",task:"Complete the expressions without looking at the word bank.",minutes:10,items:context});
   }
   window.TA_WORKSHOP_SETS=sets;
   window.TA_WORKSHOP_KINDS={board:"Interactive board",sheet:"Editable spreadsheet",quiz:"Interactive quiz"};
