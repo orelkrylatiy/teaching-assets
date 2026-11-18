@@ -103,3 +103,17 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
  .ws-directory-head{padding:27px 20px;border-radius:20px}
 }
 @media(prefers-reduced-motion:reduce){.lesson-card,.btn,.ws-set{transition:none!important}}
+
+
+/* Dedicated Slovak learning route on the bilingual homepage */
+.slovak-spotlight{padding:10px 0 42px}
+.slovak-spotlight-grid{display:grid;grid-template-columns:1.14fr .86fr;gap:30px;align-items:center;overflow:hidden;border-radius:30px;padding:36px 44px;background:linear-gradient(115deg,#f7edff 0%,#eee1ff 56%,#dfd3fe 100%);border:1px solid #e9d5ff;box-shadow:0 16px 36px rgba(73,29,129,.06)}
+.slovak-spotlight .eyebrow{font-weight:900;color:#6630c4;margin-bottom:15px}
+.slovak-spotlight h2{font-size:clamp(29px,3.3vw,45px);letter-spacing:-.055em;line-height:1.12;color:#321356;margin:0 0 17px}
+.slovak-spotlight h2 span{color:#692ee1}
+.slovak-spotlight p{max-width:570px;color:#654e7c;font-size:15px;line-height:1.7;margin-bottom:24px}
+.slovak-spotlight-visual{overflow:hidden;min-height:320px;border-radius:24px;background:#e3d0ff;display:flex;justify-content:center;align-items:center}
+.slovak-spotlight-visual img{width:100%;height:350px;object-fit:contain;object-position:center bottom;display:block}
+.vl-logo .site-brand-logo{width:clamp(160px,15vw,208px);height:auto;max-height:56px;object-fit:contain}
+@media(max-width:850px){.slovak-spotlight-grid{grid-template-columns:1fr;padding:28px}.slovak-spotlight-visual{min-height:210px}.slovak-spotlight-visual img{height:260px}}
+@media(max-width:550px){.slovak-spotlight{padding-bottom:25px}.slovak-spotlight-grid{padding:24px 18px;gap:14px;border-radius:20px}.slovak-spotlight-visual img{height:240px}.slovak-spotlight h2{font-size:29px}}
