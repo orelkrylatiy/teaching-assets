@@ -129,3 +129,37 @@ In **Photo Studio**, the **picture identification game** asks learners to select
 Source artwork for the latest My World in Pictures pack is preserved in [assets/photo-sources/picture-me-12-original.png](assets/photo-sources/picture-me-12-original.png), with twelve optimized WebP vocabulary crops in [assets/photos/picture-me](assets/photos/picture-me). The contact sheet was visually checked for picture–word alignment, but a teacher should still review its classroom suitability.
 
 Generation and verification commands: `python scripts/build-photo-packs.py` and `python scripts/test-photo-packs.py` (requires Pillow, python-pptx, reportlab and pypdf). CI also exercises the card quiz, screenshot rendering and print/PDF.
+
+## Interactive Workshop — 90 ready-to-teach sets
+
+[Open the Workshop](workshop/index.html) to choose from **90 topic-specific, editable activities** tied to the existing 15 English lessons (A0–B2). Each lesson adds a **Workshop** tab and contains six prefilled templates:
+
+| Format | Sets per lesson | What students can do |
+| --- | ---: | --- |
+| Brainstorm / idea board | 1 | Move, rewrite, add and remove notes across three columns |
+| Role-play planning board | 1 | Organize scenarios, language patterns and reflection notes |
+| Vocabulary workbook | 1 | Write original sentences and confidence ratings in an editable grid |
+| Class survey spreadsheet | 1 | Collect ratings, use SUM formulas and compare results |
+| Vocabulary quiz | 1 | Answer ten multiple-choice questions and review feedback |
+| Context quiz | 1 | Complete missing words and judge true/false statements |
+
+### What works
+
+- **Boards:** drag-and-drop plus an accessible move-to-column dropdown, unlimited additions within the available browser storage, editable notes, an HTML handout export and a separate print-friendly preview.
+- **Spreadsheets:** editable cells, add rows (up to 100), live whitelisted formulas (`SUM`, `AVERAGE`, `COUNT`, cell addition/subtraction), UTF-8 CSV and **native Excel XLSX** export with numeric cells and preserved valid formulas.
+- **Quizzes:** multi-choice, typed-answer and true/false checks, explanations, progress, scores, restart and teacher-question JSON export.
+- **Autosave:** changes are kept in this browser's `localStorage`, independently per activity. The sets are generated from the actual lesson content, not copies of generic filler questions.
+- **No backend:** this is a local-first, single-browser activity board, **not** simultaneous real-time collaboration. To transfer an activity to another device, export a handout, workbook or quiz JSON.
+
+The core 15 lessons, Photo Studio, printable slides and original export formats remain available unchanged. The Workshop is a progressive enhancement loaded after Photo Studio; the standalone Workshop page also works independently.
+
+### Verify
+
+```bash
+node scripts/build.mjs
+node scripts/smoke-exports.mjs
+node scripts/smoke-workshop.mjs
+python3 scripts/workshop-browser-smoke.py
+```
+
+Browser smoke QA requires installed Chrome / Chromium. It checks that the Workshop tab opens inside a lesson, board items can move, workbook formulas recalculate when a cell changes, and quiz answers are graded.

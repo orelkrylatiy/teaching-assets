@@ -33,6 +33,31 @@ function spreadsheet(l,download){
  ];
  download(l.id+"-vocabulary.xlsx",zip(files),"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 }
+function spreadsheetTable(table,download){
+ const filename=String(table.id||"activity").replace(/[^a-z0-9-]/gi,"-")+".xlsx";
+ const col=n=>String.fromCharCode(65+n);
+ const columns=table.headers.length;
+ const data=[table.headers,...table.rows];
+ const allowed=/^=(?:SUM|AVERAGE|COUNT)\([A-Z][1-9]\d*:[A-Z][1-9]\d*\)$|^=[A-Z][1-9]\d*[+-][A-Z][1-9]\d*$/i;
+ const sheet=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><dimension ref="A1:${col(columns-1)}${data.length}"/><sheetViews><sheetView workbookViewId="0"/></sheetViews><sheetFormatPr defaultRowHeight="20"/><cols>${table.headers.map((_,i)=>`<col min="${i+1}" max="${i+1}" width="${i===0?42:26}" customWidth="1"/>`).join("")}</cols><sheetData>${data.map((row,i)=>`<row r="${i+1}">${row.map((raw,j)=>{
+  const ref=col(j)+(i+1),v=String(raw??"").trim();
+  if(i>0&&allowed.test(v)&&typeof table.calculate==="function"){
+    const n=table.calculate(i-1,j);
+    if(Number.isFinite(n))return `<c r="${ref}"><f>${xesc(v.slice(1).toUpperCase())}</f><v>${n}</v></c>`;
+  }
+  if(i>0&&j>0&&/^-?\d+(?:\.\d+)?$/.test(v))return `<c r="${ref}"><v>${Number(v)}</v></c>`;
+  return `<c r="${ref}" t="inlineStr"><is><t xml:space="preserve">${xesc(v)}</t></is></c>`;
+ }).join("")}</row>`).join("")}</sheetData></worksheet>`;
+ const files=[
+  ["[Content_Types].xml",`<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>`],
+  ["_rels/.rels",`<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`],
+  ["xl/workbook.xml",`<?xml version="1.0" encoding="UTF-8"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="Activity" sheetId="1" r:id="rId1"/></sheets></workbook>`],
+  ["xl/_rels/workbook.xml.rels",`<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`],
+  ["xl/styles.xml",`<?xml version="1.0" encoding="UTF-8"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="1"><font><sz val="11"/><name val="Calibri"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/></cellXfs></styleSheet>`],
+  ["xl/worksheets/sheet1.xml",sheet]
+ ];
+ download(filename,zip(files),"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+}
 function zipCards(l,makeSvg,download){
  const entries=[["README.txt",`Teaching Assets — ${l.title}\n${l.level} · ${l.duration} min\nOriginal vector-style picture cards. Each SVG is editable and scalable.\n`]];
  l.words.forEach((w,i)=>{entries.push([`cards/${String(i+1).padStart(2,"0")}-${w.en.toLowerCase().replace(/[^a-z0-9]+/g,"-")}.svg`,makeSvg(l,w,false)]);});
@@ -120,5 +145,5 @@ function powerpoint(l,download){
   ];
   download(l.id+"-presentation.pptx",zip(files),"application/vnd.openxmlformats-officedocument.presentationml.presentation");
 }
-window.TAExports={xlsx:spreadsheet,zipCards,pptx:powerpoint,zip};
+window.TAExports={xlsx:spreadsheet,xlsxTable:spreadsheetTable,zipCards,pptx:powerpoint,zip};
 })();

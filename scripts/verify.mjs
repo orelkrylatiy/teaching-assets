@@ -82,3 +82,26 @@ for(const l of imageComplete){
  assert(fs.existsSync(pack+'-worksheet.pdf'),'Missing printable photo worksheet '+l.id);
 }
 console.log('✓ '+imageComplete.length+' exact-photo lessons / '+imageComplete.reduce((n,l)=>n+l.photoPack.length,0)+' mapped photo cards / ready PPTX + PDF');
+
+
+const activityContext={window:{LESSONS:lessons}};
+vm.runInNewContext(fs.readFileSync('workshop-data.js','utf8'),activityContext,{timeout:3000});
+const workshopSets=activityContext.window.TA_WORKSHOP_SETS;
+assert.equal(workshopSets.length,lessons.length*6,'Each lesson must have six ready-to-teach workshop sets');
+const workshopIds=new Set(),byLesson=new Map();
+for(const activity of workshopSets){
+ assert(!workshopIds.has(activity.id),'Duplicate workshop set '+activity.id);workshopIds.add(activity.id);
+ assert(ids.has(activity.lessonId),'Unknown workshop lesson '+activity.id);
+ assert(['board','sheet','quiz'].includes(activity.kind),'Invalid workshop kind '+activity.id);
+ assert(activity.title&&activity.summary&&activity.task,'Missing teaching instructions '+activity.id);
+ const counts=byLesson.get(activity.lessonId)||{board:0,sheet:0,quiz:0};counts[activity.kind]++;byLesson.set(activity.lessonId,counts);
+ if(activity.kind==='board'){assert.equal(activity.columns.length,3);assert(activity.columns.every(c=>c.title&&c.notes.length>=2));}
+ if(activity.kind==='sheet'){assert(activity.headers.length>=4);assert(activity.rows.length>=6);assert(activity.rows.every(r=>r.length===activity.headers.length));}
+ if(activity.kind==='quiz'){assert(activity.items.length>=8);for(const q of activity.items)assert(q.question&&q.answer&&['choice','input','boolean'].includes(q.type));}
+}
+for(const l of lessons)assert.deepEqual({...byLesson.get(l.id)},{board:2,sheet:2,quiz:2},'Workshop coverage '+l.id);
+for(const p of ['workshop/index.html','workshop.js','workshop.css','workshop-data.js'])assert(fs.existsSync(p),'Missing workshop file '+p);
+assert(fs.readFileSync('workshop/index.html','utf8').includes('../workshop.js'),'Standalone workshop loader missing');
+assert(fs.readFileSync('app.js','utf8').includes('workshop-data.js'),'Workshop lesson integration missing');
+assert(fs.readFileSync('exports.js','utf8').includes('xlsxTable:spreadsheetTable'),'Workbook exporter missing');
+console.log('✓ '+workshopSets.length+' themed activity sets · 30 boards · 30 Excel tables · 30 quizzes');
