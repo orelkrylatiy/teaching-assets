@@ -213,6 +213,7 @@
   studio.src=root+"studio.js";
   const loadWorkshop=()=>{
     const css=document.createElement("link");css.rel="stylesheet";css.href=root+"workshop.css";document.head.appendChild(css);
+    const brandCSS=document.querySelector('link[href$="brand.css"]');if(brandCSS)document.head.appendChild(brandCSS);
     const data=document.createElement("script");data.src=root+"workshop-data.js";
     data.onload=()=>{const client=document.createElement("script");client.src=root+"workshop.js";document.head.appendChild(client);};
     document.head.appendChild(data);
