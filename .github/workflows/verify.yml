@@ -20,6 +20,7 @@ jobs:
       - run: node scripts/smoke-exports.mjs
       - run: node scripts/smoke-workshop.mjs
       - run: python3 scripts/workshop-browser-smoke.py
+      - run: python3 scripts/slovak-browser-smoke.py
       - run: python3 scripts/browser-smoke.py
       - uses: actions/upload-artifact@v4
         with:
