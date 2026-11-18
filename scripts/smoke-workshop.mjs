@@ -13,7 +13,7 @@ for(const file of ['app.js','workshop.js','workshop-data.js','exports.js']){
 const sets=window.TA_WORKSHOP_SETS;
 assert.equal(sets.length,210);
 assert.equal(sets.filter(s=>s.language==='sk').length,90);
-assert.equal(new Set(sets.map(s=>s.id)).size,90);
+assert.equal(new Set(sets.map(s=>s.id)).size,210);
 const source=sets.find(s=>s.id==='hello-english-class-survey');
 assert(source&&source.rows[0][4]==='=SUM(B2:D2)');
 const table={...source,calculate:(row,col)=>{
