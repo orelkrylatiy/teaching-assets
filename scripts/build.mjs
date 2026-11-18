@@ -3,7 +3,7 @@ import path from 'node:path';
 import {execFileSync} from 'node:child_process';
 execFileSync('node',['scripts/verify.mjs'],{stdio:'inherit'});
 fs.rmSync('dist',{recursive:true,force:true});fs.mkdirSync('dist',{recursive:true});
-for(const file of ['index.html','data.js','exports.js','app.js','style.css','studio.js','studio.css','visual-library.js','visual-library.css','workshop.js','workshop.css','workshop-data.js'])fs.copyFileSync(file,path.join('dist',file));
+for(const file of ['index.html','data.js','exports.js','app.js','style.css','studio.js','studio.css','visual-library.js','visual-library.css','workshop.js','workshop.css','workshop-data.js','brand.css','slovak-lessons.js','english-extension.js'])fs.copyFileSync(file,path.join('dist',file));
 fs.cpSync('lessons','dist/lessons',{recursive:true});fs.cpSync('visual-library','dist/visual-library',{recursive:true});fs.cpSync('workshop','dist/workshop',{recursive:true});fs.cpSync('assets','dist/assets',{recursive:true});
 execFileSync('node',['scripts/create-photo-prompts.mjs','dist/prompts/english-photo-shotlist.json'],{stdio:'inherit'});
 fs.writeFileSync('dist/.nojekyll','');

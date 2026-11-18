@@ -18,7 +18,7 @@ function check(){
  if(!tab){if(++tries<60){setTimeout(check,200);return;}document.querySelector('#result').textContent='TA_WORKSHOP_FAIL: tab missing';return;}
  try{
   const sets=d.defaultView.TA_WORKSHOP_SETS;
-  if(!sets||sets.length!==90)throw Error('Expected 90 sets');
+  if(!sets||sets.length!==210)throw Error('Expected 210 sets');
   tab.click();
   const panel=d.querySelector('#workshop');
   if(panel.hidden)throw Error('Workshop tab is hidden');
@@ -60,7 +60,7 @@ try:
     if "TA_WORKSHOP_PASS:" not in result.stdout:
         snippet=result.stdout.split('<pre id="result">')[-1].split('</pre>')[0][:600]
         raise AssertionError("Workshop UI smoke failure: "+snippet)
-    print("✓ Integrated Workshop browser QA passed: board, table calculations, quiz and 90 sets")
+    print("✓ Integrated Workshop browser QA passed: board, table calculations, quiz and 210 sets")
 finally:
     server.terminate()
     try:server.wait(timeout=5)
