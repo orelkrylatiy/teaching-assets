@@ -42,7 +42,7 @@ function check(){
   const q=panel.querySelector('.ws-quiz');
   if(!q||q.querySelectorAll('.ws-answer').length!==4)throw Error('Slovak quiz not rendered');
   q.querySelector('.ws-answer').click();
-  if(q.querySelector('[data-ws-action="next"]').disabled)throw Error('Slovak quiz not scored');
+  if(panel.querySelector('[data-ws-action="next"]').disabled)throw Error('Slovak quiz not scored');
   document.querySelector('#result').textContent='TA_SK_PASS: 15 Slovak lessons, 3 A2, logo, SVG art, sk-SK voice and Workshop';
  }catch(e){document.querySelector('#result').textContent='TA_SK_FAIL: '+e.message;}
 }
