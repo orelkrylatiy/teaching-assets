@@ -27,7 +27,7 @@
       minutes:12,headers:[l.language==="sk"?"Slovak expression":"English expression","Перевод","Model sentence","My sentence","Confidence 1–5"],rows:sheetRows
     });
     sets.push({
-      id:l.id+"-class-survey",lessonId:l.id,level:l.level,kind:"sheet",title:"Class survey · Scores & formulas",
+      id:l.id+"-class-survey",lessonId:l.id,language:l.language||"en",level:l.level,kind:"sheet",title:"Class survey · Scores & formulas",
       summary:"A miniature Excel-style classroom survey with live SUM formulas.",task:"Ask three learners to rate each prompt from 1 to 5; compare totals and update formulas.",
       minutes:15,headers:["Speaking prompt","Learner A","Learner B","Learner C","Total"],rows:checkRows
     });
