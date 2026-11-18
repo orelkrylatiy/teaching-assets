@@ -1,12 +1,19 @@
 import fs from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
-const window={};vm.runInNewContext(fs.readFileSync('data.js','utf8'),{window},{timeout:3000});
+const window={};const context={window};
+for(const file of ['data.js','slovak-lessons.js','english-extension.js'])vm.runInNewContext(fs.readFileSync(file,'utf8'),context,{timeout:3000});
 const lessons=window.LESSONS;
-assert.equal(lessons.length,15,'Expected 15 lessons');
+assert.equal(lessons.length,35,'Expected 35 bilingual lessons');
+const slovak=lessons.filter(l=>l.language==='sk');
+assert.equal(slovak.length,15,'Expected 15 Slovak lessons');
+for(const lv of ['A0','A1','A2','B1','B2'])assert.equal(slovak.filter(l=>l.level===lv).length,3,'Missing Slovak curriculum at '+lv);
+assert.equal(lessons.filter(l=>(l.language||'en')==='en').length,20,'Expected 20 English lessons');
 const levels=new Set(['A0','A1','A2','B1','B2']),ids=new Set();
 for(const l of lessons){
  assert(levels.has(l.level),'Invalid level in '+l.id);
+ assert(['en','sk'].includes(l.language||'en'),'Invalid language for '+l.id);
+ if(l.coverArt)assert(fs.existsSync(l.coverArt),'Missing locally stored cover: '+l.coverArt);
  assert(!ids.has(l.id),'Duplicate slug '+l.id);ids.add(l.id);
  assert(l.words.length>=10,'Insufficient flashcards in '+l.id);
  assert(l.questions.length>=6,'Insufficient speaking prompts in '+l.id);
@@ -15,7 +22,7 @@ for(const l of lessons){
  assert(l.grammar.models.length>=3,'Missing grammar examples in '+l.id);
  assert(fs.existsSync('lessons/'+l.id+'/index.html'),'Missing HTML page '+l.id);
 }
-for(const p of ['index.html','style.css','app.js','exports.js','studio.js','studio.css','assets/favicon.svg','.github/workflows/pages.yml'])assert(fs.existsSync(p),'Missing '+p);
+for(const p of ['index.html','style.css','brand.css','slovak-lessons.js','english-extension.js','app.js','exports.js','studio.js','studio.css','assets/favicon.svg','assets/brand/linguaflow-logo.png','assets/brand/flag-sk.svg','assets/brand/slovak-hero.svg','assets/brand/slovak-lesson.svg','assets/brand/slovak-university.svg','.github/workflows/pages.yml'])assert(fs.existsSync(p),'Missing '+p);
 console.log('✓ '+lessons.length+' lessons · '+lessons.reduce((n,l)=>n+l.words.length,0)+' flashcards · 14 slides each · '+ids.size+' HTML routes');
 
 const photos=['wake-up','get-dressed','have-breakfast','brush-my-teeth','go-to-work','study','have-lunch','exercise','cook-dinner','relax','read-a-book','go-to-bed'];
@@ -29,7 +36,8 @@ const ui=fs.readFileSync('studio.js','utf8');
 const css=fs.readFileSync('studio.css','utf8');
 assert(!ui.includes('images.unsplash.com'),'External stock-photo dependency must not exist');
 for(const l of lessons){
- if(l.id!=='daily-routines')assert(fs.existsSync('assets/photos/lesson-covers/'+l.id+'.webp'),'Missing local photo cover: '+l.id);
+ if(l.coverArt)assert(fs.existsSync(l.coverArt),'Missing local lesson artwork: '+l.id);
+ else if(l.id!=='daily-routines')assert(fs.existsSync('assets/photos/lesson-covers/'+l.id+'.webp'),'Missing local photo cover: '+l.id);
 }
 assert(ui.includes('ta-print-page'),'Print pages not rendered by studio');
 assert(ui.includes('ta-canvas'),'Scalable fullscreen presentation missing');
@@ -37,7 +45,7 @@ assert(ui.includes('speechSynthesis'),'Listening lab missing');
 assert(ui.includes('inlineImages'),'Standalone photo story must embed media');
 assert(css.includes('@page{size:A4 landscape;margin:0}'),'A4 print page missing');
 assert(css.includes('overflow:hidden!important'),'Presentation overflow protection missing');
-console.log('✓ 15 local photo covers · no external stock dependency · print/fullscreen/listening/photo-story wiring');
+console.log('✓ verified original photos + supplemental English covers + 3 Slovak vector scenes · no stock dependency');
 
 for(const p of ['visual-library/index.html','visual-library.js','visual-library.css'])assert(fs.existsSync(p),'Missing visual library asset '+p);
 const visualJS=fs.readFileSync('visual-library.js','utf8');
@@ -104,4 +112,5 @@ for(const p of ['workshop/index.html','workshop.js','workshop.css','workshop-dat
 assert(fs.readFileSync('workshop/index.html','utf8').includes('../workshop.js'),'Standalone workshop loader missing');
 assert(fs.readFileSync('app.js','utf8').includes('workshop-data.js'),'Workshop lesson integration missing');
 assert(fs.readFileSync('exports.js','utf8').includes('xlsxTable:spreadsheetTable'),'Workbook exporter missing');
-console.log('✓ '+workshopSets.length+' themed activity sets · 30 boards · 30 Excel tables · 30 quizzes');
+console.log('✓ '+workshopSets.length+' themed activity sets · '+workshopSets.filter(s=>s.kind==='board').length+' boards · '+workshopSets.filter(s=>s.kind==='sheet').length+' Excel tables · '+workshopSets.filter(s=>s.kind==='quiz').length+' quizzes');
+assert.equal(workshopSets.filter(s=>s.language==='sk').length,90,'Expected 90 Slovak workshop sets');

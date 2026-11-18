@@ -20,7 +20,7 @@ function zip(items){
  return new Blob([...locals,centralData,end],{type:"application/zip"});
 }
 function spreadsheet(l,download){
- const rows=[["English","Russian","Example","Level","Topic"],...l.words.map(w=>[w.en,w.ru,w.example,l.level,l.title])];
+ const rows=[[(l.language==="sk"?"Slovak":"English"),"Russian","Example","Level","Topic"],...l.words.map(w=>[w.en,w.ru,w.example,l.level,l.title])];
  const col=n=>String.fromCharCode(65+n);
  const sheet=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><dimension ref="A1:E${rows.length}"/><sheetViews><sheetView workbookViewId="0"/></sheetViews><sheetFormatPr defaultRowHeight="17"/><cols><col min="1" max="1" width="25" customWidth="1"/><col min="2" max="2" width="29" customWidth="1"/><col min="3" max="3" width="53" customWidth="1"/></cols><sheetData>${rows.map((row,i)=>`<row r="${i+1}">${row.map((value,j)=>`<c r="${col(j)}${i+1}" t="inlineStr"><is><t xml:space="preserve">${xesc(value)}</t></is></c>`).join("")}</row>`).join("")}</sheetData></worksheet>`;
  const files=[
@@ -59,7 +59,7 @@ function spreadsheetTable(table,download){
  download(filename,zip(files),"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 }
 function zipCards(l,makeSvg,download){
- const entries=[["README.txt",`Teaching Assets — ${l.title}\n${l.level} · ${l.duration} min\nOriginal vector-style picture cards. Each SVG is editable and scalable.\n`]];
+ const entries=[["README.txt",`Teaching Assets — ${l.title}\n${l.level} · ${l.duration} min\nOriginal vector-style vocabulary cards. Each SVG is editable and scalable. Language: ${l.language==="sk"?"Slovak":"English"}.\n`]];
  l.words.forEach((w,i)=>{entries.push([`cards/${String(i+1).padStart(2,"0")}-${w.en.toLowerCase().replace(/[^a-z0-9]+/g,"-")}.svg`,makeSvg(l,w,false)]);});
  entries.push(["vocabulary.json",JSON.stringify(l.words,null,2)]);
  download(l.id+"-illustrations.zip",zip(entries),"application/zip");

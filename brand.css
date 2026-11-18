@@ -1,0 +1,119 @@
+/* LangiaFlow visual language, adapted for the Teaching Assets curriculum.
+   Original owned brand logo lives in assets/brand/linguaflow-logo.png. */
+:root{
+  --ink:#1d1630;--muted:#706982;--line:#e8e1f2;--paper:#f8f7fc;--surface:#fff;
+  --green:#6530cc;--green-light:#f1ebff;--accent:#c8ff29;--accent-soft:#f0e4ff;
+  --shadow:0 18px 52px rgba(65,24,120,.11);--radius:22px;
+  --lf-purple:#652ed8;--lf-purple-deep:#4d219f;--lf-lime:#c8ff29;--lf-pink:#fb80d4;
+}
+body{background:var(--paper);color:var(--ink)}
+a,button,input,select,textarea{accent-color:var(--lf-purple)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #c48cff;outline-offset:3px}
+.site-header{background:rgba(255,255,255,.89);border-color:#eadff5;box-shadow:0 6px 28px rgba(50,17,92,.04);height:85px}
+.site-header .header-inner{height:100%}
+.site-header .brand{gap:0;min-width:0}
+.site-brand-logo{display:block;width:clamp(157px,16vw,208px);height:auto;aspect-ratio:1424/293;object-fit:contain}
+.site-footer .site-brand-logo{width:190px;max-width:100%}
+.navlinks a{color:#43365e;transition:color .18s}
+.navlinks a:hover,.navlinks a:focus-visible{color:var(--lf-purple)}
+.pill,.tag{border-color:#e4daee;color:#593c7b}
+.tag.strong,.chip.active{background:#eaddfb;border-color:#eaddfb;color:#5425a2}
+.btn{color:#4b267c;border-color:#ded1ef;border-radius:999px}
+.btn.primary,.chip.active,.tab.active{background:var(--lf-purple);border-color:var(--lf-purple);color:#fff}
+.btn.primary:hover{background:var(--lf-purple-deep)}
+.btn.soft{background:#e9dcff;border-color:#e9dcff;color:#5129a0}
+.hero{margin-top:32px;margin-bottom:28px;padding:0;border-radius:32px;background:radial-gradient(circle at 79% 10%,#9858ee 0,transparent 41%),linear-gradient(129deg,#6f32d7 0%,#5e26c5 57%,#4a1b9e 100%);color:#fff;overflow:hidden;box-shadow:0 18px 55px rgba(88,32,163,.15)}
+.hero-grid{gap:14px;padding:48px 45px 46px}
+.hero h1{color:#fff;font-size:clamp(36px,4.8vw,68px)}
+.hero h1 span{color:var(--lf-lime)!important}
+.hero .eyebrow{color:var(--lf-lime)}
+.hero .lead{color:#f2eafd;font-size:16px;max-width:570px}
+.hero .btn.primary{background:var(--lf-lime);border-color:var(--lf-lime);color:#201132}
+.hero .btn.primary:hover{background:#d8ff6b}
+.hero .btn:not(.primary){background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.35);color:#fff}
+.hero .btn:not(.primary):hover{background:rgba(255,255,255,.24)}
+.hero-art{border:1px solid rgba(255,255,255,.25);background:#e1c9fc;box-shadow:0 15px 33px rgba(30,11,64,.13);min-height:315px}
+.hero-art svg{min-height:315px}
+.hero-art img{display:block;max-width:100%;height:100%;object-fit:cover}
+.metric-row{margin-top:26px;gap:28px}
+.metric b{color:var(--lf-lime)}
+.metric span{color:#e6d7f9}
+.section h2 span,.photo-packs-section h2 span{color:var(--lf-purple)!important}
+.search-wrap{border-color:#e6dbef}
+.chip{border-color:#e9e1f2;color:#533a68}
+.chip:hover{background:#f1eafa}
+.lesson-card{border-color:#ece5f2;border-radius:24px;box-shadow:0 3px 8px rgba(46,20,88,.025)}
+.lesson-card:hover{box-shadow:0 21px 40px rgba(83,38,143,.12)}
+.lesson-cover{background:#e9dbfa}
+.lesson-cover img.ta-cover-img{object-fit:cover}
+.lesson-card:has(.ta-cover-img[src*="/brand/"]) .lesson-cover img.ta-cover-img{object-fit:contain;padding:8px}
+.lesson-card:has(.ta-cover-img[src*="/brand/"]) .lesson-cover svg{opacity:.04}
+.lesson-card:has(.ta-cover-img[src*="/brand/"]) .lesson-cover{background:linear-gradient(130deg,#f4e9ff,#dfc9ff)}
+.lesson-card .tag{background:#fffefded}
+.lesson-body h3{color:#281440}
+.lesson-body p,.card-meta{color:#756887}
+.language-selector{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.language-selector .chip{min-width:118px}
+.language-selector .chip.active{background:var(--lf-purple);color:#fff;border-color:var(--lf-purple)}
+.lesson-level-summary{display:flex;gap:7px;align-items:center;flex-wrap:wrap;margin:0 0 21px;font-size:12px;color:#6b5e7e}
+.lesson-level-summary .tag{font-size:11px;padding:6px 10px}
+.banner{background:#ebdfff;border:1px solid #e1caff}
+.banner h2{color:#402078}
+.banner p{color:#685682}
+.sidebar .side-link.active,.sidebar .side-link:hover{background:#efe5ff;color:#4f25a0;border-color:#e5d6fb}
+.sidebar-tip{background:#f0e8ff;border-color:#e2d4f4;color:#624e7a}
+.sidebar-tip strong{color:#4f267e}
+.tabs .tab.active{color:#fff}
+.lesson-stage,.content-panel,.ws-stage{border-color:#e7def0}
+#flash-card .flash-card{border-color:#e6d9f2}
+.progress-fill{background:var(--lf-purple)}
+.hero .progress-fill{background:var(--lf-lime)}
+#quiz-area .answer.correct{background:#e2f5de;border-color:#7fc17b}
+#quiz-area .answer.wrong{background:#fff0ed;border-color:#db9b91}
+.ws-directory-head{background:linear-gradient(130deg,#6c30d4,#4d1a9d);color:#fff;padding:40px 32px;border-radius:27px;margin:27px 0 24px;max-width:unset}
+.ws-directory-head .eyebrow{color:var(--lf-lime)}
+.ws-directory-head h1 span{color:var(--lf-lime)}
+.ws-directory-head p{color:#edddff}
+.ws-directory-head .btn.soft{background:var(--lf-lime);color:#281341;border-color:var(--lf-lime)}
+.ws-set.active{border-color:var(--lf-purple);box-shadow:inset 0 0 0 1px var(--lf-purple);background:#f8f3ff}
+.ws-badge{background:#f0e5ff;color:#5a2aa8}
+.ws-stage,.ws-directory-list{border-color:#e9e0f2}
+.ws-lesson-heading h2 span{color:var(--lf-purple)}
+.ws-task{background:#f3edff;color:#593387}
+.ws-lane{background:#f2ebff;border-color:#e4d8f8}
+.ws-lane:nth-child(2){background:#f0f5ff;border-color:#dfe7f6}
+.ws-lane:nth-child(3){background:#f6f8e8;border-color:#e7ebd9}
+.ws-note{border-color:#e1daf0}
+.ws-answer.correct,.ws-feedback.correct{background:#eff8dc}
+.ws-quiz-progress{color:var(--lf-purple)}
+.ws-sheet th{background:#f1ebff;color:#4f267f}
+.ws-sheet th:first-child{background:#faf7fe}
+.ws-sheet output{color:var(--lf-purple)}
+.ws-complete-icon{background:#e7dbff;color:var(--lf-purple)}
+@media(max-width:960px){.hero-grid{padding:35px 28px}.hero-art{min-height:280px}}
+@media(max-width:680px){
+ .site-header{height:72px}
+ .site-brand-logo{width:160px}
+ .hero{margin-top:16px;border-radius:22px}
+ .hero-grid{padding:30px 20px}
+ .hero-art,.hero-art svg{min-height:240px}
+ .metric-row{gap:13px}
+ .metric b{font-size:22px}
+ .language-selector .chip{min-width:0}
+ .ws-directory-head{padding:27px 20px;border-radius:20px}
+}
+@media(prefers-reduced-motion:reduce){.lesson-card,.btn,.ws-set{transition:none!important}}
+
+
+/* Dedicated Slovak learning route on the bilingual homepage */
+.slovak-spotlight{padding:10px 0 42px}
+.slovak-spotlight-grid{display:grid;grid-template-columns:1.14fr .86fr;gap:30px;align-items:center;overflow:hidden;border-radius:30px;padding:36px 44px;background:linear-gradient(115deg,#f7edff 0%,#eee1ff 56%,#dfd3fe 100%);border:1px solid #e9d5ff;box-shadow:0 16px 36px rgba(73,29,129,.06)}
+.slovak-spotlight .eyebrow{font-weight:900;color:#6630c4;margin-bottom:15px}
+.slovak-spotlight h2{font-size:clamp(29px,3.3vw,45px);letter-spacing:-.055em;line-height:1.12;color:#321356;margin:0 0 17px}
+.slovak-spotlight h2 span{color:#692ee1}
+.slovak-spotlight p{max-width:570px;color:#654e7c;font-size:15px;line-height:1.7;margin-bottom:24px}
+.slovak-spotlight-visual{overflow:hidden;min-height:320px;border-radius:24px;background:#e3d0ff;display:flex;justify-content:center;align-items:center}
+.slovak-spotlight-visual img{width:100%;height:350px;object-fit:contain;object-position:center bottom;display:block}
+.vl-logo .site-brand-logo{width:clamp(160px,15vw,208px);height:auto;max-height:56px;object-fit:contain}
+@media(max-width:850px){.slovak-spotlight-grid{grid-template-columns:1fr;padding:28px}.slovak-spotlight-visual{min-height:210px}.slovak-spotlight-visual img{height:260px}}
+@media(max-width:550px){.slovak-spotlight{padding-bottom:25px}.slovak-spotlight-grid{padding:24px 18px;gap:14px;border-radius:20px}.slovak-spotlight-visual img{height:240px}.slovak-spotlight h2{font-size:29px}}

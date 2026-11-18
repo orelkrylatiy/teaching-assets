@@ -1,12 +1,21 @@
-# Teaching Assets — interactive English lesson library
+# LangiaFlow Teaching Assets — interactive English & Slovak lesson library
 
-An original, offline-friendly, HTML-first library of interactive English lessons, slides, flashcards, speaking prompts and printable activities.
+An original, offline-friendly, HTML-first library of interactive English and Slovak lessons, slides, flashcards, speaking prompts and printable activities.
 
 **Preview:** open `index.html` directly in a browser. Each lesson is a self-contained HTML page under `lessons/<slug>/index.html` linked from the catalog. No build command or API key is required.
 
-The collection is organized by CEFR-aligned level (Pre-A1/A0 through B2), teaching scenario, duration, and resource type. Lesson content and artwork are original for this project.
+The bilingual collection is organized by CEFR-aligned level (Pre-A1/A0 through B2), teaching scenario, duration, and resource type. Lesson content and artwork are original for this project.
 
 This repository is an experiment in lesson presentation, printable exports, vocabulary lists, and eventually a custom lesson builder. See `docs/RESEARCH.md` for references and decisions.
+
+
+## New: Slovak A0–B2 + LangiaFlow brand (November 2026)
+
+The library now includes **35 teaching modules** covering **English (20)** and **Slovak (15)**. Slovak has **three complete lessons at each level A0, A1, A2, B1 and B2**, with 180 Slovak word cards, full grammar models, stories, role-plays and prepared exercises. Five supplementary English lessons add 60 more word cards. Total: **420 vocabulary cards**, **35 teaching decks** and **210 ready-made Workshop sets** (70 boards, 70 spreadsheets, 70 tests).
+
+Choose English or Slovak in the home catalogue, then pick a level. Visit [the Slovak curriculum map](docs/SLOVAK_CURRICULUM.md) for all 15 lessons and learning goals. The original **LangiaFlow logo** and three authentic Slovak-themed SVG illustrations were reused from the owner's `orelkrylatiy/langiaflow` repo. `brand.css` adapts its purple/lime identity while keeping Teaching Assets dependency-free.
+
+**Important distinction:** Slovak artwork consists of **three reusable topic illustrations**, not 180 original exact-word photographs. The 36 English exact-word photos stay unchanged. Curriculum drafts require qualified teacher/native-speaker review; Slovak audio depends on a `sk-SK` voice installed in the user's browser. Boards do not support real-time multi-user collaboration.
 
 ## Usage
 - Click any lesson from `index.html`
@@ -20,7 +29,7 @@ The repository is static and can be published through GitHub Pages, Cloudflare P
 ## Status
 Experimental MVP. Lesson prompts are original draft materials requiring teacher review before classroom use. CEFR labels are instructional estimates, not formal assessments.
 
-## 15 included lessons
+## Original 15 English lessons (plus 20 new lessons)
 
 | Level | Lessons |
 | --- | --- |
@@ -130,9 +139,9 @@ Source artwork for the latest My World in Pictures pack is preserved in [assets/
 
 Generation and verification commands: `python scripts/build-photo-packs.py` and `python scripts/test-photo-packs.py` (requires Pillow, python-pptx, reportlab and pypdf). CI also exercises the card quiz, screenshot rendering and print/PDF.
 
-## Interactive Workshop — 90 ready-to-teach sets
+## Interactive Workshop — 210 ready-to-teach sets
 
-[Open the Workshop](workshop/index.html) to choose from **90 topic-specific, editable activities** tied to the existing 15 English lessons (A0–B2). Each lesson adds a **Workshop** tab and contains six prefilled templates:
+[Open the Workshop](workshop/index.html) to choose from **210 topic-specific, editable activities** tied to 35 English and Slovak lessons (A0–B2). Each lesson adds a **Workshop** tab and contains six prefilled templates:
 
 | Format | Sets per lesson | What students can do |
 | --- | ---: | --- |
@@ -151,7 +160,7 @@ Generation and verification commands: `python scripts/build-photo-packs.py` and 
 - **Autosave:** changes are kept in this browser's `localStorage`, independently per activity. The sets are generated from the actual lesson content, not copies of generic filler questions.
 - **No backend:** this is a local-first, single-browser activity board, **not** simultaneous real-time collaboration. To transfer an activity to another device, export a handout, workbook or quiz JSON.
 
-The core 15 lessons, Photo Studio, printable slides and original export formats remain available unchanged. The Workshop is a progressive enhancement loaded after Photo Studio; the standalone Workshop page also works independently.
+The original 15 English lessons, Photo Studio, printable slides and original export formats remain available unchanged. The Workshop is a progressive enhancement loaded after Photo Studio; the standalone Workshop page also works independently.
 
 ### Verify
 
