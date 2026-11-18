@@ -104,6 +104,18 @@ function exportTableCSV(){
  const vals=rows.map((row,i)=>row.map((v,j)=>v.startsWith("=")?(Number.isFinite(cellValue(i,j))?String(cellValue(i,j)):"#ERR"):v));
  download(active.id+".csv","\ufeff"+[active.headers,...vals].map(r=>r.map(safe).join(",")).join("\r\n"),"text/csv;charset=utf-8");
 }
+function printPreview(){
+ const title=esc(active.title);
+ let content="";
+ if(active.kind==="board")content=`<div class="columns">${board.map(c=>`<section><h2>${esc(c.title)}</h2>${c.notes.map(n=>`<article>${esc(n.text)}</article>`).join("")}</section>`).join("")}</div>`;
+ else if(active.kind==="sheet")content=`<table><thead><tr>${active.headers.map(h=>`<th>${esc(h)}</th>`).join("")}</tr></thead><tbody>${rows.map((r,i)=>`<tr>${r.map((v,j)=>`<td>${esc(v.startsWith("=")?(Number.isFinite(cellValue(i,j))?String(Number(cellValue(i,j).toFixed(3))):"#ERR"):v)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+ else content=`<ol>${active.items.map(q=>`<li><strong>${esc(q.question)}</strong><div class="write"></div></li>`).join("")}</ol><h2>Ответы (для преподавателя)</h2><ol>${active.items.map(q=>`<li>${esc(q.answer)}</li>`).join("")}</ol>`;
+ const html=`<!doctype html><html lang="ru"><head><meta charset="utf-8"><title>${title} · Print</title><style>@page{size:A4 landscape;margin:12mm}body{font:14px/1.5 Arial;color:#294030;margin:24px}h1{font-size:27px}.columns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}section{background:#f2f7f2;padding:12px;border-radius:10px}article{background:#fff;border:1px solid #dce8dc;margin:8px 0;padding:10px;white-space:pre-wrap;overflow-wrap:anywhere;break-inside:avoid}h2{font-size:16px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #dde7de;padding:8px;text-align:left;overflow-wrap:anywhere}th{background:#eaf3ea}li{margin:12px 0;break-inside:avoid}.write{border-bottom:1px solid #b6c5b8;height:25px;margin-top:6px}button{border:0;border-radius:9px;background:#386c50;color:white;padding:10px 14px;cursor:pointer}@media print{button{display:none}body{margin:0}}</style></head><body><button onclick="window.print()">⎙ Печать / PDF</button><h1>${title}</h1><p>${esc(active.task)}</p>${content}<footer>Teaching Assets · Original classroom materials</footer></body></html>`;
+ const url=URL.createObjectURL(new Blob([html],{type:"text/html;charset=utf-8"}));
+ const popup=window.open(url,"_blank");
+ if(!popup){URL.revokeObjectURL(url);download(active.id+"-print.html",html,"text/html;charset=utf-8");showStatus("Браузер запретил новое окно — скачан файл для печати.");return;}
+ setTimeout(()=>URL.revokeObjectURL(url),60000);
+}
 function exportSet(){
  if(active.kind==="board"){exportHTML();return;}
  if(active.kind==="sheet"){
@@ -126,7 +138,7 @@ function onClick(e){
  b=e.target.closest("[data-ws-action]");if(!b||!active)return;
  switch(b.dataset.wsAction){
  case "reset":{try{localStorage.removeItem(storeKey(active.id));}catch(_){}choose(active.id);showStatus("Исходный шаблон восстановлен.");break;}
- case "print":window.print();break;
+ case "print":printPreview();break;
  case "export":exportSet();break;
  case "csv":if(active.kind==="sheet")exportTableCSV();break;
  case "add-row":if(active.kind==="sheet"&&rows.length<100){rows.push(active.headers.map(()=>""));save();renderStage();}break;
