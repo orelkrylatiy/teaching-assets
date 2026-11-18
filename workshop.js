@@ -157,7 +157,9 @@ function onChange(e){
  else if(e.target.id==="ws-lang-filter")languageFilter=e.target.value;
  else if(e.target.id==="ws-level-filter")levelFilter=e.target.value;
  else return;
- renderPicker();
+ const visible=sets.filter(s=>(lessonFilter==="all"||s.lessonId===lessonFilter)&&(languageFilter==="all"||s.language===languageFilter)&&(levelFilter==="all"||s.level===levelFilter)&&(filter==="all"||s.kind===filter));
+ if(visible.length&&!visible.some(s=>s.id===active?.id))choose(visible[0].id);
+ else renderPicker();
 }
 function directory(){
  const host=$("#ws-app");if(!host)return;
@@ -165,7 +167,7 @@ function directory(){
  lessonFilter=lessons.some(l=>l.id===params.get("lesson"))?params.get("lesson"):"all";
  languageFilter=["sk","en"].includes(params.get("lang"))?params.get("lang"):"all";
  host.innerHTML=`<div class="ws-directory-head"><div class="eyebrow">${sets.length} ГОТОВЫХ АКТИВНОСТЕЙ · A0–B2</div><h1>Teaching Workshop<span>.</span></h1><p>Готовые интерактивные доски, Excel-таблицы и самопроверяемые тесты по вашим урокам. Работают без регистрации и сервера.</p><a class="btn soft" href="${root}index.html#catalog">← Все уроки</a></div><div class="ws-directory-toolbar"><label>Язык <select id="ws-lang-filter"><option value="all" ${languageFilter==="all"?"selected":""}>Все языки</option><option value="en" ${languageFilter==="en"?"selected":""}>🇬🇧 English</option><option value="sk" ${languageFilter==="sk"?"selected":""}>🇸🇰 Slovenčina</option></select></label><label>Уровень <select id="ws-level-filter"><option value="all">Все уровни</option>${["A0","A1","A2","B1","B2"].map(v=>`<option value="${v}">${v}</option>`).join("")}</select></label><label>Урок <select id="ws-lesson-filter"><option value="all">Все ${lessons.length} уроков</option>${lessons.map(l=>`<option value="${esc(l.id)}" ${l.id===lessonFilter?"selected":""}>${esc(l.level)} · ${esc(l.title)}</option>`).join("")}</select></label><div class="ws-filter">${["all","board","sheet","quiz"].map(k=>`<button class="chip ${k==="all"?"active":""}" data-ws-filter="${k}">${k==="all"?"Все форматы":kindLabels[k]}</button>`).join("")}</div><span class="pill" id="ws-count"></span></div><div class="ws-layout"><div class="ws-directory-list"><h2>Библиотека наборов</h2><div class="ws-picker" id="ws-picker"></div></div><div class="ws-play-area" id="ws-stage"></div></div>`;
- const requested=sets.find(s=>s.id===params.get("set"));choose(requested?.id||(sets.find(s=>lessonFilter==="all"||s.lessonId===lessonFilter)?.id));
+ const requested=sets.find(s=>s.id===params.get("set"));choose(requested?.id||(sets.find(s=>(lessonFilter==="all"||s.lessonId===lessonFilter)&&(languageFilter==="all"||s.language===languageFilter))?.id));
 }
 function installLessonTab(){
  const tabs=$(".tabs"),sidebar=$(".sidebar"),main=$(".lesson-main");if(!tabs||!main)return;
