@@ -8,7 +8,7 @@ const $=s=>document.querySelector(s),$$=s=>Array.from(document.querySelectorAll(
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const kindLabels={board:"Доска",sheet:"Таблица",quiz:"Тест"};
 const safeId=s=>String(s).replace(/[^a-z0-9-]/gi,"-");
-let active=null,board=[],rows=[],step=0,score=0,answered=false,selected="",filter="all",lessonFilter="all";
+let active=null,board=[],rows=[],step=0,score=0,answered=false,selected="",filter="all",lessonFilter="all",languageFilter="all",levelFilter="all";
 const storeKey=id=>"ta:workshop:v1:"+id;
 function readState(s){try{const x=JSON.parse(localStorage.getItem(storeKey(s.id))||"null");return x&&x.version===1&&x.kind===s.kind?x:null;}catch(_){return null;}}
 function save(){if(!active)return;try{localStorage.setItem(storeKey(active.id),JSON.stringify({version:1,kind:active.kind,board,rows,step,score,answered,selected}));}catch(_){showStatus("Недостаточно места для сохранения — экспортируйте результат.");}}
@@ -18,10 +18,10 @@ function download(name,content,mime="text/plain;charset=utf-8"){
  const a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1200);
 }
 function urlFor(s){return root+"workshop/index.html?lesson="+encodeURIComponent(s.lessonId)+"&set="+encodeURIComponent(s.id);}
-function cardsFor(list){return list.map(s=>`<button type="button" class="ws-set ${active?.id===s.id?"active":""}" data-ws-open="${esc(s.id)}" aria-pressed="${active?.id===s.id}"><span class="ws-badge">${kindLabels[s.kind]} · ${esc(s.level)}</span><strong>${esc(s.title)}</strong><small>${esc(s.summary)}</small><span class="ws-minutes">◷ ${s.minutes} мин · ${esc(lessons.find(l=>l.id===s.lessonId)?.title||"")}</span></button>`).join("");}
+function cardsFor(list){return list.map(s=>`<button type="button" class="ws-set ${active?.id===s.id?"active":""}" data-ws-open="${esc(s.id)}" aria-pressed="${active?.id===s.id}"><span class="ws-badge">${s.language==="sk"?"🇸🇰":"🇬🇧"} ${kindLabels[s.kind]} · ${esc(s.level)}</span><strong>${esc(s.title)}</strong><small>${esc(s.summary)}</small><span class="ws-minutes">◷ ${s.minutes} мин · ${esc(lessons.find(l=>l.id===s.lessonId)?.title||"")}</span></button>`).join("");}
 function renderPicker(){
  const picker=$("#ws-picker");if(!picker)return;
- const list=sets.filter(s=>(lesson?s.lessonId===lesson.id:lessonFilter==="all"||s.lessonId===lessonFilter)&&(filter==="all"||s.kind===filter));
+ const list=sets.filter(s=>(lesson?s.lessonId===lesson.id:lessonFilter==="all"||s.lessonId===lessonFilter)&&(filter==="all"||s.kind===filter)&&(lesson||languageFilter==="all"||s.language===languageFilter)&&(lesson||levelFilter==="all"||s.level===levelFilter));
  picker.innerHTML=cardsFor(list)||'<p>Для выбранных фильтров нет наборов.</p>';
  const count=$("#ws-count");if(count)count.textContent=`${list.length} наборов`;
 }
@@ -39,7 +39,7 @@ function choose(id){
 }
 function stageHeader(){
  const l=lessons.find(x=>x.id===active.lessonId);
- return `<div class="ws-stage-head"><div><div class="eyebrow">${esc(l?.level||"")} · ${kindLabels[active.kind]} · ${active.minutes} мин</div><h2>${esc(active.title)}</h2><p>${esc(active.summary)}</p><div class="ws-task"><b>Задание преподавателя:</b> ${esc(active.task)}</div></div><div class="ws-actions"><button class="btn small" data-ws-action="reset">↺ Сбросить</button><button class="btn small" data-ws-action="print">⎙ Печать</button><button class="btn primary small" data-ws-action="export">↓ Скачать ${active.kind==="sheet"?"XLSX":active.kind==="board"?"HTML":"JSON"}</button></div></div>`;
+ return `<div class="ws-stage-head"><div><div class="eyebrow">${l?.language==="sk"?"🇸🇰 Словацкий":"🇬🇧 Английский"} · ${esc(l?.level||"")} · ${kindLabels[active.kind]} · ${active.minutes} мин</div><h2>${esc(active.title)}</h2><p>${esc(active.summary)}</p><div class="ws-task"><b>Задание преподавателя:</b> ${esc(active.task)}</div></div><div class="ws-actions"><button class="btn small" data-ws-action="reset">↺ Сбросить</button><button class="btn small" data-ws-action="print">⎙ Печать</button><button class="btn primary small" data-ws-action="export">↓ Скачать ${active.kind==="sheet"?"XLSX":active.kind==="board"?"HTML":"JSON"}</button></div></div>`;
 }
 function renderStage(){
  const host=$("#ws-stage");if(!host||!active)return;
@@ -152,20 +152,26 @@ function onInput(e){
 }
 function onChange(e){
  const move=e.target.closest("[data-ws-move]");if(move){moveNote(move.dataset.wsMove,Number(move.value));return;}
- if(standalone&&e.target.id==="ws-lesson-filter"){lessonFilter=e.target.value;renderPicker();}
+ if(!standalone)return;
+ if(e.target.id==="ws-lesson-filter")lessonFilter=e.target.value;
+ else if(e.target.id==="ws-lang-filter")languageFilter=e.target.value;
+ else if(e.target.id==="ws-level-filter")levelFilter=e.target.value;
+ else return;
+ renderPicker();
 }
 function directory(){
  const host=$("#ws-app");if(!host)return;
  const params=new URLSearchParams(location.search);
  lessonFilter=lessons.some(l=>l.id===params.get("lesson"))?params.get("lesson"):"all";
- host.innerHTML=`<div class="ws-directory-head"><div class="eyebrow">90 ГОТОВЫХ АКТИВНОСТЕЙ · A0–B2</div><h1>Teaching Workshop<span>.</span></h1><p>Готовые интерактивные доски, Excel-таблицы и самопроверяемые тесты по вашим урокам. Работают без регистрации и сервера.</p><a class="btn soft" href="${root}index.html#catalog">← Все уроки</a></div><div class="ws-directory-toolbar"><label>Урок <select id="ws-lesson-filter"><option value="all">Все 15 уроков</option>${lessons.map(l=>`<option value="${esc(l.id)}" ${l.id===lessonFilter?"selected":""}>${esc(l.level)} · ${esc(l.title)}</option>`).join("")}</select></label><div class="ws-filter">${["all","board","sheet","quiz"].map(k=>`<button class="chip ${k==="all"?"active":""}" data-ws-filter="${k}">${k==="all"?"Все форматы":kindLabels[k]}</button>`).join("")}</div><span class="pill" id="ws-count"></span></div><div class="ws-layout"><div class="ws-directory-list"><h2>Библиотека наборов</h2><div class="ws-picker" id="ws-picker"></div></div><div class="ws-play-area" id="ws-stage"></div></div>`;
+ languageFilter=["sk","en"].includes(params.get("lang"))?params.get("lang"):"all";
+ host.innerHTML=`<div class="ws-directory-head"><div class="eyebrow">${sets.length} ГОТОВЫХ АКТИВНОСТЕЙ · A0–B2</div><h1>Teaching Workshop<span>.</span></h1><p>Готовые интерактивные доски, Excel-таблицы и самопроверяемые тесты по вашим урокам. Работают без регистрации и сервера.</p><a class="btn soft" href="${root}index.html#catalog">← Все уроки</a></div><div class="ws-directory-toolbar"><label>Язык <select id="ws-lang-filter"><option value="all" ${languageFilter==="all"?"selected":""}>Все языки</option><option value="en" ${languageFilter==="en"?"selected":""}>🇬🇧 English</option><option value="sk" ${languageFilter==="sk"?"selected":""}>🇸🇰 Slovenčina</option></select></label><label>Уровень <select id="ws-level-filter"><option value="all">Все уровни</option>${["A0","A1","A2","B1","B2"].map(v=>`<option value="${v}">${v}</option>`).join("")}</select></label><label>Урок <select id="ws-lesson-filter"><option value="all">Все ${lessons.length} уроков</option>${lessons.map(l=>`<option value="${esc(l.id)}" ${l.id===lessonFilter?"selected":""}>${esc(l.level)} · ${esc(l.title)}</option>`).join("")}</select></label><div class="ws-filter">${["all","board","sheet","quiz"].map(k=>`<button class="chip ${k==="all"?"active":""}" data-ws-filter="${k}">${k==="all"?"Все форматы":kindLabels[k]}</button>`).join("")}</div><span class="pill" id="ws-count"></span></div><div class="ws-layout"><div class="ws-directory-list"><h2>Библиотека наборов</h2><div class="ws-picker" id="ws-picker"></div></div><div class="ws-play-area" id="ws-stage"></div></div>`;
  const requested=sets.find(s=>s.id===params.get("set"));choose(requested?.id||(sets.find(s=>lessonFilter==="all"||s.lessonId===lessonFilter)?.id));
 }
 function installLessonTab(){
  const tabs=$(".tabs"),sidebar=$(".sidebar"),main=$(".lesson-main");if(!tabs||!main)return;
  tabs.insertAdjacentHTML("beforeend",'<button class="tab" role="tab" aria-selected="false" data-tab="workshop">▦ Workshop</button>');
  if(sidebar){const a=document.createElement("a");a.className="side-link";a.href="#workshop";a.dataset.tab="workshop";a.textContent="▦ Workshop";sidebar.insertBefore(a,sidebar.querySelector(".sidebar-tip"));}
- main.insertAdjacentHTML("beforeend",`<section id="workshop" class="tab-panel" hidden><div class="ws-lesson-heading"><div class="eyebrow">6 SETS FOR THIS LESSON</div><h2>Interactive workshop<span>.</span></h2><p>Две доски, две Excel-совместимые таблицы и два теста по теме «${esc(lesson.title)}». Выбирайте, редактируйте и экспортируйте.</p><a class="btn small" href="${root}workshop/index.html?lesson=${encodeURIComponent(lesson.id)}">Открыть всю мастерскую ↗</a></div><div class="ws-picker ws-lesson-picker" id="ws-picker"></div><span class="ws-picker-count" id="ws-count"></span><div id="ws-stage"></div></section>`);
+ main.insertAdjacentHTML("beforeend",`<section id="workshop" class="tab-panel" hidden><div class="ws-lesson-heading"><div class="eyebrow">${lesson.language==="sk"?"🇸🇰 SLOVENČINA":"🇬🇧 ENGLISH"} · 6 SETS FOR THIS LESSON</div><h2>Interactive workshop<span>.</span></h2><p>Две доски, две Excel-совместимые таблицы и два теста по теме «${esc(lesson.title)}». Выбирайте, редактируйте и экспортируйте.</p><a class="btn small" href="${root}workshop/index.html?lesson=${encodeURIComponent(lesson.id)}">Открыть всю мастерскую ↗</a></div><div class="ws-picker ws-lesson-picker" id="ws-picker"></div><span class="ws-picker-count" id="ws-count"></span><div id="ws-stage"></div></section>`);
  choose(sets.find(s=>s.lessonId===lesson.id)?.id);
  if(location.hash==="#workshop")setTimeout(()=>$('.tabs [data-tab="workshop"]')?.click(),0);
 }
